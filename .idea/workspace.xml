@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,9 +45,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.39885056" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -53,13 +55,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -73,7 +77,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632280597722</updated>
-      <workItem from="1632280598790" duration="1018000" />
+      <workItem from="1632280598790" duration="9702000" />
+      <workItem from="1632318094862" duration="1266000" />
     </task>
     <servers />
   </component>
@@ -81,13 +86,25 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1640" y="4" key="#Project_Structure" timestamp="1632281523488">
+    <state x="1640" y="4" key="#Project_Structure" timestamp="1632318182238">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632281523488" />
-    <state x="1534" y="90" key="new project wizard" timestamp="1632280675069">
+    <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632318182238" />
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632295488838">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1534" y="90" key="new project wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632280675069" />
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632295488838" />
+    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632291502752">
+      <screen x="1440" y="0" width="1440" height="860" />
+    </state>
+    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632291502752" />
+    <state x="43" y="0" width="1413" height="848" key="dock-window-1" timestamp="1632318211385">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="43" y="0" width="1413" height="848" key="dock-window-1/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632318211385" />
+    <state x="1534" y="90" key="new project wizard" timestamp="1632282066039">
+      <screen x="1440" y="0" width="1440" height="860" />
+    </state>
+    <state x="1534" y="90" key="new project wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632282066039" />
   </component>
 </project>
