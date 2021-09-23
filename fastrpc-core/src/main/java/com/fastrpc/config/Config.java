@@ -40,6 +40,14 @@ public class Config {
         return port;
     }
 
+    public static String getServerHost(){
+        String value=properties.getProperty("server.host");
+        if (value==null) {
+            value= "localhost";
+        }
+        return value;
+    }
+
     /**
      * 获取CPU核心数 用于指定处理任务的线程数 没有指定则从系统获取
      * @return

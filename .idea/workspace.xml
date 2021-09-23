@@ -9,15 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc/utils/CpuUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CpuUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc/utils/SequenceIdGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/SequenceIdGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/RpcProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/RpcMessageProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,15 +91,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,6 +123,7 @@
       <workItem from="1632395674810" duration="46000" />
       <workItem from="1632395732194" duration="856000" />
       <workItem from="1632396608835" duration="398000" />
+      <workItem from="1632404234846" duration="828000" />
     </task>
     <servers />
   </component>
@@ -147,10 +143,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632395409484" />
-    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632394274544">
+    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632404251692">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632394274544" />
+    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632404251692" />
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1632366560997">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -179,10 +175,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1964" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632390683972" />
-    <state x="416" y="8" width="931" height="682" key="dock-window-1" timestamp="1632396987225">
+    <state x="416" y="8" width="931" height="682" key="dock-window-1" timestamp="1632404429303">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="416" y="8" width="931" height="682" key="dock-window-1/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632396987225" />
+    <state x="416" y="8" width="931" height="682" key="dock-window-1/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632404429303" />
     <state x="1534" y="90" key="new project wizard" timestamp="1632282066039">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -191,5 +187,16 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632392846764" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
