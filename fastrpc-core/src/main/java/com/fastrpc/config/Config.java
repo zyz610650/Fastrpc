@@ -1,5 +1,7 @@
 package com.fastrpc.config;
 
+import com.fastrpc.compress.impl.CompressImpl;
+import com.fastrpc.serializer.impl.SerializeImpl;
 import com.fastrpc.utils.CpuUtil;
 
 import java.io.IOException;
@@ -30,8 +32,11 @@ public class Config {
     public static int getServerPort(){
         String value=properties.getProperty("server.port");
         int port;
-        if (value==null) port= Integer.parseInt("8800");
-        else port=Integer.valueOf(value);
+        if (value==null) {
+            port= Integer.parseInt("8800");
+        } else {
+            port=Integer.valueOf(value);
+        }
         return port;
     }
 
@@ -42,9 +47,38 @@ public class Config {
     public static int getServerCpuNum(){
         String value=properties.getProperty("windows.cpuNum");
         int cpuNum;
-        if (value==null) cpuNum= CpuUtil.getCpus();
-        else cpuNum=Integer.parseInt(value);
-        return cpuNum;
+        if (value==null) {
+            cpuNum= CpuUtil.getCpus();
+        } else {
+            cpuNum=Integer.parseInt(value);
+        }
+        return cpuNum+1;
+    }
+
+    /**
+     * 获取使用的压缩算法
+     * @return
+     */
+    public static CompressImpl.Algorithm getZipAlgorithm()
+    {
+            String value=properties.getProperty("server.zip");
+            if (value==null) {
+                value="Gzip";
+            }
+            return CompressImpl.Algorithm.valueOf(value);
+    }
+
+    /**
+     * 获取序列化算法
+     * @return
+     */
+    public static SerializeImpl.Algorithm getSerializeAlgorithm()
+    {
+        String value=properties.getProperty("server.serializer");
+       if (value==null) {
+           value="Kryo";
+       }
+        return SerializeImpl.Algorithm.valueOf(value);
     }
 
 

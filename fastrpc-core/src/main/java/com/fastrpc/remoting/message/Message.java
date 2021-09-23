@@ -15,12 +15,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Data
 public abstract class Message implements Serializable {
-    //标识通讯信息
-//    private int seqId;
+
+    private int seqId;
     private byte messageType;
-//    private byte version;
-//    private byte serializeType;
-//    private byte compressType;
 
     private static final Map<Byte,Class<? extends Message>> messageTypeMap=new ConcurrentHashMap<>();
 
@@ -52,8 +49,8 @@ public abstract class Message implements Serializable {
     static {
         messageTypeMap.put(RPC_MESSAGE_TYPE_REQUEST,RpcRequestMessage.class);
         messageTypeMap.put(RPC_MESSAGE_TYPE_RESPONSE,RpcResponseMessage.class);
-//        messageTypeMap.put(RPC_MESSAGE_TYPE_REQUEST,RpcRequestMessage.class);
-//        messageTypeMap.put(RPC_MESSAGE_TYPE_REQUEST,RpcRequestMessage.class);
+        messageTypeMap.put(PING_REQUEST,PingMessage.class);
+        messageTypeMap.put(PONG_Message,PongMessage.class);
 
     }
 
