@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class PingMessage extends Message{
     @Override
-    public int getMessageType() {
+    public byte getMessageType() {
         return PING_REQUEST;
     }
 }

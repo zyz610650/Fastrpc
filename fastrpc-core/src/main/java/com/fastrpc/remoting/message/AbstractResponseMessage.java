@@ -1,6 +1,8 @@
 package com.fastrpc.remoting.message;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -12,18 +14,16 @@ import lombok.ToString;
  */
 //应答消息父类
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString(callSuper = true)
 public abstract class AbstractResponseMessage extends Message{
 
     private boolean success;
-    private String reason;
+    /**
+     * 异常值
+     */
+    private Exception exceptionValue;
 
-    public AbstractResponseMessage() {
 
-    }
-
-    public AbstractResponseMessage(boolean success, String reason) {
-        this.success = success;
-        this.reason = reason;
-    }
 }

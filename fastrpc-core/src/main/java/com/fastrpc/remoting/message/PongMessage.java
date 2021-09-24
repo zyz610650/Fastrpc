@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class PongMessage extends Message{
     @Override
-    public int getMessageType() {
+    public byte getMessageType() {
         return PONG_Message;
     }
 }

@@ -1,6 +1,8 @@
 package com.fastrpc.remoting.handler;
 
+import com.fastrpc.proxy.ProxyFactory;
 import com.fastrpc.remoting.message.RpcRequestMessage;
+import com.fastrpc.remoting.message.RpcResponseMessage;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -18,7 +20,19 @@ import lombok.extern.slf4j.Slf4j;
 public class RpcRequestHandler extends SimpleChannelInboundHandler<RpcRequestMessage> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, RpcRequestMessage msg) throws Exception {
-        log.info("server receive msg: [{}] ", msg);
-//        msg.getCompressType()
+        RpcResponseMessage responseMessage=new RpcResponseMessage();
+        responseMessage.setSeqId(msg.getSeqId());
+        try {
+            Object res=ProxyFactory.doMethod(msg);
+            responseMessage.setReturnValue(res);
+            responseMessage.setSuccess(true);
+        } catch (Exception e) {
+            responseMessage.setSuccess(false);
+            responseMessage.setExceptionValue(e);
+
+        } finally {
+            ctx.writeAndFlush(responseMessage);
+        }
+
     }
 }

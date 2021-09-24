@@ -3,6 +3,8 @@ package com.fastrpc.remoting.netty.server;
 import com.fastrpc.config.Config;
 
 import com.fastrpc.remoting.handler.MessageDuplexHandler;
+import com.fastrpc.remoting.handler.RpcRequestHandler;
+import com.fastrpc.remoting.message.RpcRequestMessage;
 import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
 import com.fastrpc.remoting.protocol.MessageCodecProtocol;
 import io.netty.bootstrap.ServerBootstrap;
@@ -21,6 +23,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -41,41 +44,46 @@ public class NettyRpcServer {
      */
     static int threadNums=Config.getServerCpuNum();
     static String host;
-    @SneakyThrows
+
     public void start()
     {
-        host= InetAddress.getLocalHost().getHostAddress();
+
         LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
         MessageDuplexHandler DUPLEX_HANDLER=new MessageDuplexHandler();
         EventLoopGroup boosGroup=new NioEventLoopGroup();
-        EventLoopGroup workerGroup=new NioEventLoopGroup();
+        EventLoopGroup workerGroup=new NioEventLoopGroup(2);
+        RpcRequestHandler REQUEST_HANDLER=new RpcRequestHandler();
         DefaultEventExecutorGroup serviceHandlerGroup=new DefaultEventExecutorGroup(threadNums);
         try {
+            host= InetAddress.getLocalHost().getHostAddress();
             ServerBootstrap bootstrap=new ServerBootstrap();
             bootstrap.channel(NioServerSocketChannel.class);
             bootstrap.group(boosGroup,workerGroup);
             bootstrap.childOption(ChannelOption.TCP_NODELAY,true);
             bootstrap.childOption(ChannelOption.SO_KEEPALIVE,true);
-            bootstrap.childOption(ChannelOption.SO_BACKLOG,128);
+            bootstrap.option(ChannelOption.SO_BACKLOG,128);
             bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 protected void initChannel(SocketChannel ch) throws Exception {
                    //处理半包粘包
                     ch.pipeline().addLast(new FrameDecoderProtocol());
+                    //日志
+                    ch.pipeline().addLast(LOGGING_HANDLER);
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
-                   //日志
-                    ch.pipeline().addLast(LOGGING_HANDLER);
                     //心跳机制
                     ch.pipeline().addLast(new IdleStateHandler(10,0,0, TimeUnit.SECONDS));
                     ch.pipeline().addLast(DUPLEX_HANDLER);
-                    //业务逻辑处理
+                    //业务逻辑处理 将该handler交给特定的业务线程处理
+                    ch.pipeline().addLast(serviceHandlerGroup,REQUEST_HANDLER);
+
                 }
             });
-            Channel channel=bootstrap.bind(host,port).sync().channel();
+            Channel channel=bootstrap.bind(port).sync().channel();
+
             channel.closeFuture().sync();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | UnknownHostException e) {
             log.error("occur exception when start server:", e);
         } finally {
             log.error("shutdown bossGroup and workerGroup");
@@ -85,4 +93,7 @@ public class NettyRpcServer {
 
     }
 
+    public static void main(String[] args) {
+        new NettyRpcServer().start();
+    }
 }

@@ -1,7 +1,9 @@
 package com.fastrpc.remoting.message;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -12,6 +14,8 @@ import lombok.ToString;
  * @idea:
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString(callSuper = true)
 public class RpcResponseMessage extends AbstractResponseMessage {
 
@@ -19,12 +23,16 @@ public class RpcResponseMessage extends AbstractResponseMessage {
      * 返回值
      */
     private Object returnValue;
-    /**
-     * 异常值
-     */
-    private Exception exceptionValue;
+
+
+    public RpcResponseMessage(boolean success,Object returnValue, Exception exceptionValue) {
+        super(success,exceptionValue);
+        this.returnValue = returnValue;
+
+    }
+
     @Override
-    public int getMessageType() {
+    public byte getMessageType() {
         return RPC_MESSAGE_TYPE_RESPONSE;
     }
 

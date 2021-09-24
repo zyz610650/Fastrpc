@@ -9,10 +9,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -33,17 +30,20 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) throws Exception {
+        log.debug("[================codec send message==========]");
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
-        buf.readBytes(RpcMessageProtocol.MAGIC_NUMBER);
+        buf.writeBytes(RpcMessageProtocol.MAGIC_NUMBER);
         // 版本 1byte
-        buf.readBytes(RpcMessageProtocol.VERSION);
+        buf.writeByte(RpcMessageProtocol.VERSION);
+        // 字节的序列化方式 jdk 0 , json 1 kryo 2 1byte
+        buf.writeByte(RpcMessageProtocol.SERIALIZETYPE);
         // 消息类型 1byte
-        buf.readBytes(msg.getMessageType());
-        //消息压缩类型
-        buf.readBytes(RpcMessageProtocol.COMPRESSTYPE);
+        buf.writeByte(msg.getMessageType());
+        //消息压缩类型 1byte
+        buf.writeByte(RpcMessageProtocol.COMPRESSTYPE);
         //消息序列 服务器和客户端通信标识信息 4byte
-        buf.readBytes(msg.getSeqId());
+        buf.writeInt(msg.getSeqId());
         //序列化和压缩
         byte[] bytes = Config.getSerializeAlgorithm().serialize(msg);
         bytes = Config.getZipAlgorithm().compress(bytes);
@@ -52,12 +52,16 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //内容
         buf.writeBytes(bytes);
+        System.out.println("发送");
         list.add(buf);
     }
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
-        String maicNum = in.readCharSequence(4, Charset.forName("UTF-8")).toString();
+        log.debug("[================codec receive message==========]");
+        byte[] maicNum =new byte[4];
+        in.readBytes(maicNum,0,4);
+
         Byte version=in.readByte();
         Byte serializeType=in.readByte();
         Byte messageType=in.readByte();
@@ -66,6 +70,7 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         int len=in.readInt();
         byte[] bytes=new byte[len];
         in.readBytes(bytes,0,len);
+
         //解压
         bytes=Config.getZipAlgorithm().decompress(bytes);
         //反序列化
