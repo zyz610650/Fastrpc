@@ -10,20 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/PingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/PingMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/PongMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/PongMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,13 +129,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,6 +178,7 @@
       <workItem from="1632454256403" duration="3819000" />
       <workItem from="1632465931064" duration="5000" />
       <workItem from="1632465948245" duration="4299000" />
+      <workItem from="1632490836280" duration="1111000" />
     </task>
     <servers />
   </component>
@@ -217,38 +210,38 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="293" key="GridCell.Tab.0.bottom" timestamp="1632482922804">
+    <state width="1397" height="293" key="GridCell.Tab.0.bottom" timestamp="1632491957037">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632482922804" />
-    <state width="1397" height="293" key="GridCell.Tab.0.center" timestamp="1632482922804">
+    <state width="1397" height="293" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
+    <state width="1397" height="293" key="GridCell.Tab.0.center" timestamp="1632491957037">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632482922804" />
-    <state width="1397" height="293" key="GridCell.Tab.0.left" timestamp="1632482922804">
+    <state width="1397" height="293" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
+    <state width="1397" height="293" key="GridCell.Tab.0.left" timestamp="1632491957037">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632482922804" />
-    <state width="1397" height="293" key="GridCell.Tab.0.right" timestamp="1632482922804">
+    <state width="1397" height="293" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
+    <state width="1397" height="293" key="GridCell.Tab.0.right" timestamp="1632491957037">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632482922804" />
-    <state width="1397" height="197" key="GridCell.Tab.1.bottom" timestamp="1632468350204">
+    <state width="1397" height="293" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
+    <state width="1397" height="197" key="GridCell.Tab.1.bottom" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="197" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468350204" />
-    <state width="1397" height="197" key="GridCell.Tab.1.center" timestamp="1632468350204">
+    <state width="1397" height="197" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957018" />
+    <state width="1397" height="197" key="GridCell.Tab.1.center" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="197" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468350204" />
-    <state width="1397" height="197" key="GridCell.Tab.1.left" timestamp="1632468350204">
+    <state width="1397" height="197" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957018" />
+    <state width="1397" height="197" key="GridCell.Tab.1.left" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="197" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468350204" />
-    <state width="1397" height="197" key="GridCell.Tab.1.right" timestamp="1632468350204">
+    <state width="1397" height="197" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957018" />
+    <state width="1397" height="197" key="GridCell.Tab.1.right" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="197" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468350204" />
+    <state width="1397" height="197" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957018" />
     <state x="1661" y="76" key="SettingsEditor" timestamp="1632448503320">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>

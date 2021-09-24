@@ -21,7 +21,7 @@ public class SerializeImpl {
     private static final ThreadLocal<Kryo> KRYO_THREADLOCAL=ThreadLocal.withInitial(()->{
         Kryo kryo=new Kryo();
         // 禁止类注册 因为在rpc上不同机器注册的Id可能不同
-        kryo.setRegistrationRequired(true);
+//        kryo.setRegistrationRequired(true);
         //禁止循环引用
         kryo.setReferences(false);
         return kryo;
@@ -48,7 +48,7 @@ public class SerializeImpl {
                    oos.writeObject(msg);
                    return bos.toByteArray();
                } catch (IOException e) {
-                   throw new RuntimeException("Deserialization failed");
+                   throw new RuntimeException("Deserialization failed"+e);
                }
 
 
@@ -88,20 +88,30 @@ public class SerializeImpl {
         Kryo{
             @Override
             public <T> byte[] serialize(T msg) {
-                Kryo kryo = KRYO_THREADLOCAL.get();
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                Output out=new Output(bos);
-                kryo.writeObject(out,msg);
-                return bos.toByteArray();
+                try {
+                    Kryo kryo = KRYO_THREADLOCAL.get();
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    Output out=new Output(bos);
+                    kryo.writeObject(out,msg);
+                    return bos.toByteArray();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("Deserialization failed");
+                }
             }
 
             @Override
             public <T> T deserialize(Class<T> clazz, byte[] bytes) {
-                Kryo kryo = KRYO_THREADLOCAL.get();
-                ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
-                Input in=new Input(bis);
-                KRYO_THREADLOCAL.remove();
-                return kryo.readObject(in, clazz);
+                try {
+                    Kryo kryo = KRYO_THREADLOCAL.get();
+                    ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
+                    Input in=new Input(bis);
+                    KRYO_THREADLOCAL.remove();
+                    return kryo.readObject(in, clazz);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException("Deserialization failed");
+                }
 
             }
         }

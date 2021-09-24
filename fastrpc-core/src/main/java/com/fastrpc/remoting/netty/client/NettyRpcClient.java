@@ -96,10 +96,6 @@ public class NettyRpcClient {
     }
 
 
-    public static void main(String[] args) {
-        NettyRpcClient.init();
-    }
-
 public static <T> T getProxyService(Class<T> serviceClass)
 {
     ClassLoader loader=serviceClass.getClassLoader();
@@ -131,4 +127,8 @@ public static <T> T getProxyService(Class<T> serviceClass)
     });
     return (T)o;
 }
+
+    public static void main(String[] args) {
+        NettyRpcClient.init();
+    }
 }

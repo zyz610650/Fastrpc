@@ -4,7 +4,7 @@ import com.fastrpc.config.Config;
 
 import com.fastrpc.remoting.handler.MessageDuplexHandler;
 import com.fastrpc.remoting.handler.RpcRequestHandler;
-import com.fastrpc.remoting.message.RpcRequestMessage;
+
 import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
 import com.fastrpc.remoting.protocol.MessageCodecProtocol;
 import io.netty.bootstrap.ServerBootstrap;
@@ -19,7 +19,6 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetAddress;
@@ -28,10 +27,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author zyz
- * @title:
- * @seq:
- * @address:
- * @idea:
  */
 @Slf4j
 public class NettyRpcServer {
@@ -65,7 +60,7 @@ public class NettyRpcServer {
             bootstrap.option(ChannelOption.SO_BACKLOG,128);
             bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
+                protected void initChannel(SocketChannel ch)  {
                    //处理半包粘包
                     ch.pipeline().addLast(new FrameDecoderProtocol());
                     //日志
