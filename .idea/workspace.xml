@@ -10,13 +10,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/MessageDuplexHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcServerDuplexHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/RpcMessageProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/RpcMessageProtocolConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.zk" />
       <recent name="com.fastrpc.remoting.handler" />
       <recent name="com.fastrpc.remoting.message" />
     </key>
@@ -67,13 +68,26 @@
       <recent name="D:\project\java\FastRpc\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.doTest">
-    <configuration name="NettyRpcClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.remoting.netty.client.NettyRpcClient" />
+  <component name="RunManager" selected="Application.CuratorUtils">
+    <configuration name="CuratorUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.zk.utils.CuratorUtils" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.remoting.netty.client.*" />
+          <option name="PATTERN" value="com.fastrpc.zk.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyRunnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.MyRunnable" />
+      <module name="fastrpc-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.config.test" />
+    <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.test" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.config.*" />
+          <option name="PATTERN" value="com.fastrpc.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,26 +134,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.remoting.handler.test" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.remoting.handler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,17 +150,17 @@
     <list>
       <item itemvalue="Application.doTest" />
       <item itemvalue="Application.NettyRpcServer" />
-      <item itemvalue="Application.test" />
       <item itemvalue="Application.test (1)" />
-      <item itemvalue="Application.NettyRpcClient" />
+      <item itemvalue="Application.MyRunnable" />
+      <item itemvalue="Application.CuratorUtils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CuratorUtils" />
+        <item itemvalue="Application.test (1)" />
+        <item itemvalue="Application.MyRunnable" />
         <item itemvalue="Application.doTest" />
         <item itemvalue="Application.NettyRpcServer" />
-        <item itemvalue="Application.NettyRpcClient" />
-        <item itemvalue="Application.test (1)" />
-        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +185,8 @@
       <workItem from="1632465948245" duration="4299000" />
       <workItem from="1632490836280" duration="1111000" />
       <workItem from="1632531603039" duration="46000" />
-      <workItem from="1632531680669" duration="2785000" />
+      <workItem from="1632531680669" duration="9480000" />
+      <workItem from="1632559263415" duration="9251000" />
     </task>
     <servers />
   </component>
@@ -202,34 +206,38 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632391989654" />
-    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632534068479">
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632537329682">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534068479" />
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632537329682" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632404251692">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632404251692" />
+    <state x="1868" y="176" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1632567383988">
+      <screen x="1440" y="0" width="1440" height="860" />
+    </state>
+    <state x="1868" y="176" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632567383988" />
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1632366560997">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="296" key="GridCell.Tab.0.bottom" timestamp="1632534655195">
+    <state width="1397" height="210" key="GridCell.Tab.0.bottom" timestamp="1632569838874">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="296" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
-    <state width="1397" height="296" key="GridCell.Tab.0.center" timestamp="1632534655195">
+    <state width="1397" height="210" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632569838874" />
+    <state width="1397" height="210" key="GridCell.Tab.0.center" timestamp="1632569838874">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="296" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
-    <state width="1397" height="296" key="GridCell.Tab.0.left" timestamp="1632534655195">
+    <state width="1397" height="210" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632569838874" />
+    <state width="1397" height="210" key="GridCell.Tab.0.left" timestamp="1632569838874">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="296" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
-    <state width="1397" height="296" key="GridCell.Tab.0.right" timestamp="1632534655195">
+    <state width="1397" height="210" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632569838874" />
+    <state width="1397" height="210" key="GridCell.Tab.0.right" timestamp="1632569838874">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="296" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
+    <state width="1397" height="210" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632569838874" />
     <state width="1397" height="197" key="GridCell.Tab.1.bottom" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -274,9 +282,9 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="2000" y="186" key="refactoring.ChangeSignatureDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632446219122" />
-    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1632449826553">
+    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1632541527578">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632449826553" />
+    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632541527578" />
   </component>
 </project>

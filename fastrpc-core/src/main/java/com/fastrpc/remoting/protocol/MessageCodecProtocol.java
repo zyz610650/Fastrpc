@@ -10,7 +10,7 @@ import io.netty.handler.codec.MessageToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
 
 
-import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,27 +29,27 @@ import java.util.List;
 @ChannelHandler.Sharable
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
-    protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) {
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
-        buf.writeBytes(RpcMessageProtocol.MAGIC_NUMBER);
+        buf.writeBytes(RpcMessageProtocolConstants.MAGIC_NUMBER);
         // 版本 1byte
-        buf.writeByte(RpcMessageProtocol.VERSION);
+        buf.writeByte(RpcMessageProtocolConstants.VERSION);
         // 字节的序列化方式 jdk 0 , json 1 kryo 2 1byte
-        buf.writeByte(RpcMessageProtocol.SERIALIZETYPE);
+        buf.writeByte(RpcMessageProtocolConstants.SERIALIZETYPE);
         // 消息类型 1byte
         buf.writeByte(msg.getMessageType());
         //消息压缩类型 1byte
-        buf.writeByte(RpcMessageProtocol.COMPRESSTYPE);
+        buf.writeByte(RpcMessageProtocolConstants.COMPRESSTYPE);
         //消息序列 服务器和客户端通信标识信息 4byte
         buf.writeInt(msg.getSeqId());
         //序列化和压缩
         byte[] bytes = Config.getSerializeAlgorithm().serialize(msg);
         bytes = Config.getZipAlgorithm().compress(bytes);
         int len=bytes.length;
-        //数据长度
+        //message length
         buf.writeInt(len);
-        //内容
+        //message
         buf.writeBytes(bytes);
         list.add(buf);
     }
@@ -67,16 +67,45 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         int len=in.readInt();
         byte[] bytes=new byte[len];
         in.readBytes(bytes,0,len);
-
+        checkMagicNumber(maicNum);
+        checkVersion(version);
         //解压
         bytes=Config.getZipAlgorithm().decompress(bytes);
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
-        Message msg = (Message) Config.getSerializeAlgorithm().deserialize(clazz, bytes);
+        Message msg =  Config.getSerializeAlgorithm().deserialize(clazz, bytes);
        // log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
         log.debug("message: [{}]", msg);
         list.add(msg);
 
+    }
 
+    /**
+     * check version
+     * @param version
+     */
+    private void checkVersion(Byte version)
+    {
+        if (version!=RpcMessageProtocolConstants.VERSION)
+        {
+            throw new RuntimeException("version isn't compatible" + version);
+        }
+    }
+
+    /**
+     * check magicNum
+     * @param maicNum
+     */
+    private void checkMagicNumber(byte[] maicNum)
+    {
+        if (maicNum.length!=RpcMessageProtocolConstants.MAGIC_NUMBER.length) {
+            throw new IllegalArgumentException("Unknown magic code: " + Arrays.toString(maicNum));
+        }
+        for (int i=0;i<maicNum.length;i++)
+        {
+            if (maicNum[i]!=RpcMessageProtocolConstants.MAGIC_NUMBER[i]) {
+                throw new IllegalArgumentException("Unknown magic code: " + Arrays.toString(maicNum));
+            }
+        }
     }
 }

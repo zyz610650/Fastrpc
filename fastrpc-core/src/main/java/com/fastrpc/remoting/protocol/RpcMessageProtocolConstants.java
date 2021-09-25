@@ -15,7 +15,7 @@ import lombok.Data;
  * 通信协议参数 封装所有协议参数
  */
 @Data
-public class RpcMessageProtocol {
+public class RpcMessageProtocolConstants {
 
     /**
      * 消息最大长度

@@ -37,12 +37,14 @@ import java.util.concurrent.TimeUnit;
 public class NettyRpcClient {
 
     private  static Channel channel;
+    private  static  Bootstrap bootstrap=new Bootstrap();
+    private  static  NioEventLoopGroup group=new NioEventLoopGroup();
     private  static String host= Config.getServerHost();
     private  static int port=Config.getServerPort();
     private static final Object lock=new Object();
 
     /**
-     * 获得channel 单例
+     * get channel 单例
      * @return
      */
     static Channel getChannel()
@@ -51,7 +53,7 @@ public class NettyRpcClient {
         {
             if (channel==null) {
                 log.info("Init channel");
-                init();
+                doConnect();
             }
             return channel;
 
@@ -62,69 +64,96 @@ public class NettyRpcClient {
      * 初始化客户端
      */
     public static void init(){
-        NioEventLoopGroup group=new NioEventLoopGroup();
+
         LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
         RpcClientDuplexHandler DUPLEX_HANDLER=new RpcClientDuplexHandler();
         RpcResponseHandler RESPONSE_HANDLER=new RpcResponseHandler();
-        try {
-            Bootstrap bootstrap=new Bootstrap();
-            bootstrap.channel(NioSocketChannel.class);
-            bootstrap.group(group);
-            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
-                ch.pipeline().addLast(new FrameDecoderProtocol());
-                ch.pipeline().addLast(LOGGING_HANDLER);
-                ch.pipeline().addLast(MESSAGE_CODEC);
-                ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
-                ch.pipeline().addLast(DUPLEX_HANDLER);
-                ch.pipeline().addLast(RESPONSE_HANDLER);
-                }
-            });
-            channel = bootstrap.connect(host, port).sync().channel();
-            channel.closeFuture()
-                    .addListener((promise)->{
-                    log.error("***remoting service close");
-                    group.shutdownGracefully();
-            });
-        } catch (InterruptedException e) {
-            log.error("***remoting service exception:[{}]",e.getCause().getMessage());
-        }
+
+        bootstrap.channel(NioSocketChannel.class);
+        bootstrap.group(group);
+        //5s没有连接成功，则连接失败
+        bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,5000);
+        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
+            @Override
+            protected void initChannel(SocketChannel ch) throws Exception {
+            ch.pipeline().addLast(new FrameDecoderProtocol());
+            ch.pipeline().addLast(LOGGING_HANDLER);
+            ch.pipeline().addLast(MESSAGE_CODEC);
+            //心跳
+            ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
+            ch.pipeline().addLast(DUPLEX_HANDLER);
+            ch.pipeline().addLast(RESPONSE_HANDLER);
+            }
+        });
+
     }
 
-
-public static <T> T getProxyService(Class<T> serviceClass)
-{
-    ClassLoader loader=serviceClass.getClassLoader();
-    Class<?>[] interfaces=new Class[]{serviceClass};
-    Object o = Proxy.newProxyInstance(loader, interfaces, new InvocationHandler() {
-        @Override
-        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            int seqId = SequenceIdGenerator.nextId();
-            RpcRequestMessage msg = new RpcRequestMessage(
-                    seqId,
-                    serviceClass.getName()
-                    , method.getName()
-                    , method.getParameterTypes()
-                    , args
-            );
-            getChannel().writeAndFlush(msg);
-
-            DefaultPromise promise = new DefaultPromise(channel.eventLoop());
-            RpcResponseHandler.PROMISES.put(seqId, promise);
-            promise.await();
-            if (promise.isSuccess()) {
-                return promise.getNow();
-            } else {
-                log.error("***remoting service exception " + promise.cause());
-                throw new RuntimeException(promise.cause().getMessage());
+    /**
+     * connect server and get Channel
+     */
+    public static void doConnect()
+    {
+        ChannelFuture future = bootstrap.connect(host, port);
+        future.addListener(promise->{
+            if (promise.isSuccess())
+            {
+                log.info("The client has connected [{}] successful!",host+":"+port);
+                channel=future.channel();
+            }else{
+                log.error("connection exception");
+                throw new IllegalAccessException();
             }
+        });
+        channel.closeFuture()
+                .addListener((promise)->{
+                    log.error("***remoting service close");
+                    group.shutdownGracefully();
+                });
+    }
 
-        }
-    });
-    return (T)o;
-}
+    /**
+     * 方法执行代理方法
+     * @param serviceClass
+     * @param <T> 接口类型
+     * @return 返回接口对象
+     */
+    public static <T> T getProxyService(Class<T> serviceClass)
+    {
+        ClassLoader loader=serviceClass.getClassLoader();
+        Class<?>[] interfaces=new Class[]{serviceClass};
+        Object o = Proxy.newProxyInstance(loader, interfaces, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                int seqId = SequenceIdGenerator.nextId();
+                RpcRequestMessage msg = new RpcRequestMessage(
+                        seqId,
+                        serviceClass.getName()
+                        , method.getName()
+                        , method.getParameterTypes()
+                        , args
+                );
+                Channel channel = getChannel();
+                if (channel.isActive()) {
+                    channel.writeAndFlush(msg);
+                    DefaultPromise promise = new DefaultPromise(NettyRpcClient.channel.eventLoop());
+                    RpcResponseHandler.PROMISES.put(seqId, promise);
+                    promise.await();
+                    if (promise.isSuccess()) {
+                        log.info("***do method success: [{}]", msg);
+                        return promise.getNow();
+                    } else {
+                        log.error("***remoting service exception " + promise.cause());
+                        throw new RuntimeException(promise.cause().getMessage());
+                    }
+                }else{
+                    channel.close();
+                    throw new IllegalStateException();
+                }
+            }
+        });
+        return (T)o;
+    }
 
     public static void main(String[] args) {
         NettyRpcClient.init();
