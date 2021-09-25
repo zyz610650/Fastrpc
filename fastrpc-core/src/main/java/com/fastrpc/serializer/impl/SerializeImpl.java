@@ -5,6 +5,8 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 
+import com.fastrpc.remoting.message.RpcRequestMessage;
+import com.fastrpc.remoting.message.RpcResponseMessage;
 import com.fastrpc.serializer.Serializer;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +23,10 @@ public class SerializeImpl {
     private static final ThreadLocal<Kryo> KRYO_THREADLOCAL=ThreadLocal.withInitial(()->{
         Kryo kryo=new Kryo();
         // 禁止类注册 因为在rpc上不同机器注册的Id可能不同
-//        kryo.setRegistrationRequired(true);
+        kryo.setRegistrationRequired(false);
         //禁止循环引用
         kryo.setReferences(false);
+
         return kryo;
     });
 
@@ -41,10 +44,9 @@ public class SerializeImpl {
                if (msg==null) {
                    throw new RuntimeException("msg is null");
                }
-               ByteArrayOutputStream bos=new ByteArrayOutputStream();
-               ObjectOutputStream oos;
-               try {
-                   oos = new ObjectOutputStream(bos);
+
+               try ( ByteArrayOutputStream bos=new ByteArrayOutputStream();
+                     ObjectOutputStream oos= new ObjectOutputStream(bos)){
                    oos.writeObject(msg);
                    return bos.toByteArray();
                } catch (IOException e) {
@@ -56,10 +58,9 @@ public class SerializeImpl {
 
            @Override
            public <T> T deserialize(Class<T> clazz, byte[] bytes) {
-               ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
-               ObjectInputStream ois;
-               try {
-                   ois = new ObjectInputStream(bis);
+
+               try (   ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
+                       ObjectInputStream ois= new ObjectInputStream(bis);){
                    Object o = ois.readObject();
                    return clazz.cast(o);
                } catch (IOException | ClassNotFoundException e) {
@@ -88,12 +89,12 @@ public class SerializeImpl {
         Kryo{
             @Override
             public <T> byte[] serialize(T msg) {
-                try {
+                try( ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                     Output out=new Output(bos)) {
                     Kryo kryo = KRYO_THREADLOCAL.get();
-                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    Output out=new Output(bos);
                     kryo.writeObject(out,msg);
-                    return bos.toByteArray();
+                    KRYO_THREADLOCAL.remove();
+                    return out.toBytes();
                 } catch (Exception e) {
                     e.printStackTrace();
                     throw new RuntimeException("Deserialization failed");
@@ -102,10 +103,9 @@ public class SerializeImpl {
 
             @Override
             public <T> T deserialize(Class<T> clazz, byte[] bytes) {
-                try {
+                try (ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
+                     Input in=new Input(bis)){
                     Kryo kryo = KRYO_THREADLOCAL.get();
-                    ByteArrayInputStream bis=new ByteArrayInputStream(bytes);
-                    Input in=new Input(bis);
                     KRYO_THREADLOCAL.remove();
                     return kryo.readObject(in, clazz);
                 } catch (Exception e) {

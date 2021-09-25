@@ -10,9 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/MessageDuplexHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcServerDuplexHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.remoting.handler" />
       <recent name="com.fastrpc.remoting.message" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -103,19 +107,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.remoting.handler.test" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.remoting.handler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.config.test" />
       <module name="fastrpc-core" />
@@ -129,15 +120,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.remoting.handler.test" />
+      <module name="fastrpc-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.remoting.handler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,6 +181,8 @@
       <workItem from="1632465931064" duration="5000" />
       <workItem from="1632465948245" duration="4299000" />
       <workItem from="1632490836280" duration="1111000" />
+      <workItem from="1632531603039" duration="46000" />
+      <workItem from="1632531680669" duration="2785000" />
     </task>
     <servers />
   </component>
@@ -198,10 +202,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632391989654" />
-    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632452103506">
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632534068479">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632452103506" />
+    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534068479" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632404251692">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -210,22 +214,22 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="293" key="GridCell.Tab.0.bottom" timestamp="1632491957037">
+    <state width="1397" height="296" key="GridCell.Tab.0.bottom" timestamp="1632534655195">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
-    <state width="1397" height="293" key="GridCell.Tab.0.center" timestamp="1632491957037">
+    <state width="1397" height="296" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
+    <state width="1397" height="296" key="GridCell.Tab.0.center" timestamp="1632534655195">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
-    <state width="1397" height="293" key="GridCell.Tab.0.left" timestamp="1632491957037">
+    <state width="1397" height="296" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
+    <state width="1397" height="296" key="GridCell.Tab.0.left" timestamp="1632534655195">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
-    <state width="1397" height="293" key="GridCell.Tab.0.right" timestamp="1632491957037">
+    <state width="1397" height="296" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
+    <state width="1397" height="296" key="GridCell.Tab.0.right" timestamp="1632534655195">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="293" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957037" />
+    <state width="1397" height="296" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534655195" />
     <state width="1397" height="197" key="GridCell.Tab.1.bottom" timestamp="1632491957018">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -242,10 +246,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state width="1397" height="197" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632491957018" />
-    <state x="1661" y="76" key="SettingsEditor" timestamp="1632448503320">
+    <state x="1661" y="76" key="SettingsEditor" timestamp="1632534023396">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632448503320" />
+    <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632534023396" />
     <state x="1964" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1632390683972">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>

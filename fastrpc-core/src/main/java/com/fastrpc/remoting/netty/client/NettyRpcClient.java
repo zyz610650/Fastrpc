@@ -2,10 +2,10 @@ package com.fastrpc.remoting.netty.client;
 
 
 import com.fastrpc.config.Config;
-import com.fastrpc.remoting.handler.MessageDuplexHandler;
+import com.fastrpc.remoting.handler.RpcClientDuplexHandler;
+import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
 import com.fastrpc.remoting.handler.RpcResponseHandler;
 import com.fastrpc.remoting.message.RpcRequestMessage;
-import com.fastrpc.remoting.message.RpcResponseMessage;
 import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
 import com.fastrpc.remoting.protocol.MessageCodecProtocol;
 import com.fastrpc.utils.SequenceIdGenerator;
@@ -18,13 +18,11 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultPromise;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.net.InetSocketAddress;
 
 import java.util.concurrent.TimeUnit;
 
@@ -67,7 +65,7 @@ public class NettyRpcClient {
         NioEventLoopGroup group=new NioEventLoopGroup();
         LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
-        MessageDuplexHandler DUPLEX_HANDLER=new MessageDuplexHandler();
+        RpcClientDuplexHandler DUPLEX_HANDLER=new RpcClientDuplexHandler();
         RpcResponseHandler RESPONSE_HANDLER=new RpcResponseHandler();
         try {
             Bootstrap bootstrap=new Bootstrap();
@@ -79,7 +77,7 @@ public class NettyRpcClient {
                 ch.pipeline().addLast(new FrameDecoderProtocol());
                 ch.pipeline().addLast(LOGGING_HANDLER);
                 ch.pipeline().addLast(MESSAGE_CODEC);
-                ch.pipeline().addLast(new IdleStateHandler(0,10,0, TimeUnit.SECONDS));
+                ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
                 ch.pipeline().addLast(DUPLEX_HANDLER);
                 ch.pipeline().addLast(RESPONSE_HANDLER);
                 }
@@ -87,11 +85,11 @@ public class NettyRpcClient {
             channel = bootstrap.connect(host, port).sync().channel();
             channel.closeFuture()
                     .addListener((promise)->{
-                    log.info("==============remoting service close");
+                    log.error("***remoting service close");
                     group.shutdownGracefully();
             });
         } catch (InterruptedException e) {
-            log.error("remoting service exception:[{}]",e.getCause().getMessage());
+            log.error("***remoting service exception:[{}]",e.getCause().getMessage());
         }
     }
 
@@ -119,7 +117,7 @@ public static <T> T getProxyService(Class<T> serviceClass)
             if (promise.isSuccess()) {
                 return promise.getNow();
             } else {
-                log.error("remoting service exception " + promise.cause());
+                log.error("***remoting service exception " + promise.cause());
                 throw new RuntimeException(promise.cause().getMessage());
             }
 

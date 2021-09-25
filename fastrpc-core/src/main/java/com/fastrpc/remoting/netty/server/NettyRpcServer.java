@@ -2,7 +2,7 @@ package com.fastrpc.remoting.netty.server;
 
 import com.fastrpc.config.Config;
 
-import com.fastrpc.remoting.handler.MessageDuplexHandler;
+import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
 import com.fastrpc.remoting.handler.RpcRequestHandler;
 
 import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
@@ -45,7 +45,7 @@ public class NettyRpcServer {
 
         LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
-        MessageDuplexHandler DUPLEX_HANDLER=new MessageDuplexHandler();
+        RpcServerDuplexHandler DUPLEX_HANDLER=new RpcServerDuplexHandler();
         EventLoopGroup boosGroup=new NioEventLoopGroup();
         EventLoopGroup workerGroup=new NioEventLoopGroup(2);
         RpcRequestHandler REQUEST_HANDLER=new RpcRequestHandler();
@@ -68,7 +68,7 @@ public class NettyRpcServer {
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
                     //心跳机制
-                    ch.pipeline().addLast(new IdleStateHandler(10,0,0, TimeUnit.SECONDS));
+                    ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
                     ch.pipeline().addLast(DUPLEX_HANDLER);
                     //业务逻辑处理 将该handler交给特定的业务线程处理
                     ch.pipeline().addLast(serviceHandlerGroup,REQUEST_HANDLER);
@@ -79,9 +79,9 @@ public class NettyRpcServer {
 
             channel.closeFuture().sync();
         } catch (InterruptedException | UnknownHostException e) {
-            log.error("occur exception when start server:", e);
+            log.error("***occur exception when start server:", e);
         } finally {
-            log.error("shutdown bossGroup and workerGroup");
+            log.error("***shutdown bossGroup and workerGroup");
             boosGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }

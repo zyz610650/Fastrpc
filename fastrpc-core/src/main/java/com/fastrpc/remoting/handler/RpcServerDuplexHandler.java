@@ -16,19 +16,14 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @ChannelHandler.Sharable
-public class MessageDuplexHandler extends ChannelDuplexHandler {
+public class RpcServerDuplexHandler extends ChannelDuplexHandler {
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         IdleStateEvent event= (IdleStateEvent) evt;
         if (event.state()== IdleState.READER_IDLE){
-            log.debug("5s no receive data close client");
+            log.debug("*** 15s no receive data close client");
             ctx.channel().close();
         }
-        if (event.state()==IdleState.WRITER_IDLE)
-        {
-            //发送一个心跳包
-            log.debug("send ping");
-            ctx.writeAndFlush(new PingMessage());
-        }
+
     }
 }

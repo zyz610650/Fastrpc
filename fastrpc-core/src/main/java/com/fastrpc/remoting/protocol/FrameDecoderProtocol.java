@@ -24,7 +24,7 @@ public class FrameDecoderProtocol extends LengthFieldBasedFrameDecoder  {
     public FrameDecoderProtocol()
     {
         this(RpcMessageProtocol.MAX_FRAME_LENGTH,12,4,0,0);
-        log.debug("[==========FrameDecoder receive message===============]");
+//        log.debug("[FrameDecoder receive message===============]");
     }
     public FrameDecoderProtocol(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength,
                                 int lengthAdjustment, int initialBytesToStrip)

@@ -30,7 +30,6 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) throws Exception {
-        log.debug("[================codec send message==========]");
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
         buf.writeBytes(RpcMessageProtocol.MAGIC_NUMBER);
@@ -52,13 +51,11 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //内容
         buf.writeBytes(bytes);
-        System.out.println("发送");
         list.add(buf);
     }
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
-        log.debug("[================codec receive message==========]");
         byte[] maicNum =new byte[4];
         in.readBytes(maicNum,0,4);
 
@@ -76,7 +73,7 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
         Message msg = (Message) Config.getSerializeAlgorithm().deserialize(clazz, bytes);
-        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
+       // log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
         log.debug("message: [{}]", msg);
         list.add(msg);
 
