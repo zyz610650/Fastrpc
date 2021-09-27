@@ -2,6 +2,7 @@ package com.fastrpc.remoting.netty.server;
 
 import com.fastrpc.config.Config;
 
+import com.fastrpc.proxy.ProxyFactory;
 import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
 import com.fastrpc.remoting.handler.RpcRequestHandler;
 
@@ -38,7 +39,11 @@ public class NettyRpcServer {
      * 指定worker线程数
      */
     static int threadNums=Config.getServerCpuNum();
-    static String host;
+
+    /**
+     * 使得fastRpc服务启动时 提前执行static里的代码
+     */
+    private static ProxyFactory proxyFactory=new ProxyFactory();
 
     public void start()
     {
@@ -51,7 +56,7 @@ public class NettyRpcServer {
         RpcRequestHandler REQUEST_HANDLER=new RpcRequestHandler();
         DefaultEventExecutorGroup serviceHandlerGroup=new DefaultEventExecutorGroup(threadNums);
         try {
-            host= InetAddress.getLocalHost().getHostAddress();
+
             ServerBootstrap bootstrap=new ServerBootstrap();
             bootstrap.channel(NioServerSocketChannel.class);
             bootstrap.group(boosGroup,workerGroup);
@@ -68,8 +73,8 @@ public class NettyRpcServer {
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
                     //心跳机制
-                    ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
-                    ch.pipeline().addLast(DUPLEX_HANDLER);
+//                    ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
+//                    ch.pipeline().addLast(DUPLEX_HANDLER);
                     //业务逻辑处理 将该handler交给特定的业务线程处理
                     ch.pipeline().addLast(serviceHandlerGroup,REQUEST_HANDLER);
 
@@ -78,7 +83,7 @@ public class NettyRpcServer {
             Channel channel=bootstrap.bind(port).sync().channel();
 
             channel.closeFuture().sync();
-        } catch (InterruptedException | UnknownHostException e) {
+        } catch (InterruptedException e) {
             log.error("***occur exception when start server:", e);
         } finally {
             log.error("***shutdown bossGroup and workerGroup");

@@ -3,9 +3,9 @@ package com.fastrpc.service;
 /**
  * @author yvioo
  */
-public class UserServceImpl implements UserService{
+public class InfoServiceImpl implements InfoService{
     @Override
     public String say(String name) {
-        return "hello "+name;
+        return "hello "+name+" from InfoService";
     }
 }

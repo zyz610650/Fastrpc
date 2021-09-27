@@ -2,6 +2,7 @@ package com.fastrpc.remoting.protocol;
 
 
 import com.fastrpc.config.Config;
+import com.fastrpc.constants.RpcMessageProtocolConstants;
 import com.fastrpc.remoting.message.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -30,6 +31,7 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) {
+
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
         buf.writeBytes(RpcMessageProtocolConstants.MAGIC_NUMBER);
@@ -51,11 +53,14 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //message
         buf.writeBytes(bytes);
+        System.out.println("发送数据========================"+msg);
         list.add(buf);
+        System.out.println("发送数据========================2222"+msg);
     }
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
+        System.out.println("收到消息======================================");
         byte[] maicNum =new byte[4];
         in.readBytes(maicNum,0,4);
 
@@ -74,7 +79,7 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
         Message msg =  Config.getSerializeAlgorithm().deserialize(clazz, bytes);
-       // log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
+        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
         log.debug("message: [{}]", msg);
         list.add(msg);
 

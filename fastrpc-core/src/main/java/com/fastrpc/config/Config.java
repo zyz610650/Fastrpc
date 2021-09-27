@@ -89,5 +89,12 @@ public class Config {
         return SerializeImpl.Algorithm.valueOf(value);
     }
 
+    /**
+     * get zookeeper host
+     * @return
+     */
+    public static String getZkHost() {
 
+        return "127.0.0.1:2181";
+    }
 }

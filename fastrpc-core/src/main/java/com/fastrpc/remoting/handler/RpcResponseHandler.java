@@ -1,5 +1,6 @@
 package com.fastrpc.remoting.handler;
 
+import com.fastrpc.Exception.RpcException;
 import com.fastrpc.remoting.message.RpcResponseMessage;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -19,12 +20,14 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
     public static Map<Integer,Promise> PROMISES=new ConcurrentHashMap<>();
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, RpcResponseMessage msg) throws Exception {
-
+        System.out.println("收到消息======================================");
+        System.out.println(msg);
         int seqId=msg.getSeqId();
         Promise promise=PROMISES.get(seqId);
+
         if (promise==null)
         {
-            throw new RuntimeException("***method execute exception");
+            throw new RpcException("***method execute exception");
         }
         /**
          * 异步执行结果返回给等待客户端等待的线程
@@ -33,6 +36,7 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
         {
             promise.setSuccess(msg.getReturnValue());
         }else{
+            System.out.println("==========方法执行失败");
             promise.setFailure(msg.getExceptionValue());
         }
 

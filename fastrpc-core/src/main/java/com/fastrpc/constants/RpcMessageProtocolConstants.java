@@ -1,4 +1,4 @@
-package com.fastrpc.remoting.protocol;
+package com.fastrpc.constants;
 
 /**
  * @author zyz

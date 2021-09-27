@@ -1,6 +1,7 @@
 package com.fastrpc.remoting.netty.client;
 
 
+import com.fastrpc.Exception.RpcException;
 import com.fastrpc.config.Config;
 import com.fastrpc.remoting.handler.RpcClientDuplexHandler;
 import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
@@ -9,6 +10,8 @@ import com.fastrpc.remoting.message.RpcRequestMessage;
 import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
 import com.fastrpc.remoting.protocol.MessageCodecProtocol;
 import com.fastrpc.utils.SequenceIdGenerator;
+import com.fastrpc.zkservice.ZkService;
+import com.fastrpc.zkservice.impl.ZkServiceImpl;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -24,6 +27,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -39,21 +43,27 @@ public class NettyRpcClient {
     private  static Channel channel;
     private  static  Bootstrap bootstrap=new Bootstrap();
     private  static  NioEventLoopGroup group=new NioEventLoopGroup();
-    private  static String host= Config.getServerHost();
-    private  static int port=Config.getServerPort();
+    private static   final ZkService zkService=new ZkServiceImpl();
     private static final Object lock=new Object();
+
+
+    public NettyRpcClient() {
+
+        //初始化netty服务器
+        init();
+    }
 
     /**
      * get channel 单例
      * @return
      */
-    static Channel getChannel()
+    static Channel getChannel(String rpcServiceName)
     {
         synchronized (lock)
         {
             if (channel==null) {
                 log.info("Init channel");
-                doConnect();
+                doConnect(rpcServiceName);
             }
             return channel;
 
@@ -73,7 +83,7 @@ public class NettyRpcClient {
         bootstrap.channel(NioSocketChannel.class);
         bootstrap.group(group);
         //5s没有连接成功，则连接失败
-        bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,5000);
+        bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,10000);
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
@@ -81,8 +91,8 @@ public class NettyRpcClient {
             ch.pipeline().addLast(LOGGING_HANDLER);
             ch.pipeline().addLast(MESSAGE_CODEC);
             //心跳
-            ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
-            ch.pipeline().addLast(DUPLEX_HANDLER);
+//            ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
+//            ch.pipeline().addLast(DUPLEX_HANDLER);
             ch.pipeline().addLast(RESPONSE_HANDLER);
             }
         });
@@ -92,19 +102,21 @@ public class NettyRpcClient {
     /**
      * connect server and get Channel
      */
-    public static void doConnect()
+    public static void doConnect(String rpcServiceName)
     {
-        ChannelFuture future = bootstrap.connect(host, port);
-        future.addListener(promise->{
-            if (promise.isSuccess())
-            {
-                log.info("The client has connected [{}] successful!",host+":"+port);
-                channel=future.channel();
-            }else{
-                log.error("connection exception");
-                throw new IllegalAccessException();
-            }
-        });
+        //从zk 获取服务器IP
+        InetSocketAddress inetAddress = zkService.getRpcService(rpcServiceName);
+
+        ChannelFuture future = null;
+        try {
+            future = bootstrap.connect(inetAddress).sync();
+            channel=future.channel();
+            log.info("The client has connected [{}] successful!",inetAddress);
+        } catch (InterruptedException e) {
+            log.error("connection exception");
+            throw new RpcException("connection exception");
+        }
+
         channel.closeFuture()
                 .addListener((promise)->{
                     log.error("***remoting service close");
@@ -118,7 +130,7 @@ public class NettyRpcClient {
      * @param <T> 接口类型
      * @return 返回接口对象
      */
-    public static <T> T getProxyService(Class<T> serviceClass)
+    public  <T> T getProxyService(Class<T> serviceClass)
     {
         ClassLoader loader=serviceClass.getClassLoader();
         Class<?>[] interfaces=new Class[]{serviceClass};
@@ -133,18 +145,19 @@ public class NettyRpcClient {
                         , method.getParameterTypes()
                         , args
                 );
-                Channel channel = getChannel();
+                // zk中存的时 simpleName 缓存中存的是全类名
+                Channel channel = getChannel(serviceClass.getSimpleName());
                 if (channel.isActive()) {
                     channel.writeAndFlush(msg);
                     DefaultPromise promise = new DefaultPromise(NettyRpcClient.channel.eventLoop());
                     RpcResponseHandler.PROMISES.put(seqId, promise);
                     promise.await();
                     if (promise.isSuccess()) {
-                        log.info("***do method success: [{}]", msg);
+                        log.info("************do method success: [{}]", msg);
                         return promise.getNow();
                     } else {
-                        log.error("***remoting service exception " + promise.cause());
-                        throw new RuntimeException(promise.cause().getMessage());
+                        log.error("*************remoting service exception " + promise.cause());
+                        throw new RpcException(promise.cause().getMessage());
                     }
                 }else{
                     channel.close();
