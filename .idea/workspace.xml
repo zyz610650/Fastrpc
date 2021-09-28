@@ -9,29 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zkservice/ZkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zkservice/impl/ZkServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/FrameDecoderProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/RpcMessageProtocolConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/constants/RpcMessageProtocolConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/UserServceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zk/ZkServiceDiscovery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zk/ZkServiceRegistry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zk/impl/ZkServiceDiscoveryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zk/impl/ZkServiceRegistryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/zk/utils/CuratorUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,15 +138,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,6 +192,7 @@
       <workItem from="1632571015761" duration="11000" />
       <workItem from="1632701780614" duration="22340000" />
       <workItem from="1632733528900" duration="8575000" />
+      <workItem from="1632787914703" duration="2273000" />
     </task>
     <servers />
   </component>
@@ -242,38 +228,38 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="276" key="GridCell.Tab.0.bottom" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.0.bottom" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.0.center" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.0.center" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.0.left" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.0.left" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.0.right" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.0.right" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.1.bottom" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.1.bottom" timestamp="1632789760132">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.1.center" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760132" />
+    <state width="1397" height="225" key="GridCell.Tab.1.center" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.1.left" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.1.left" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
-    <state width="1397" height="276" key="GridCell.Tab.1.right" timestamp="1632742175425">
+    <state width="1397" height="225" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="225" key="GridCell.Tab.1.right" timestamp="1632789760131">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="276" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632742175425" />
+    <state width="1397" height="225" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
     <state x="1661" y="76" key="SettingsEditor" timestamp="1632703663020">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -310,6 +296,17 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632541527578" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fastrpc$NettyRpcServer.ic" NAME="NettyRpcServer Coverage Results" MODIFIED="1632732307115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

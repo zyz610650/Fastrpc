@@ -53,9 +53,9 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //message
         buf.writeBytes(bytes);
-        System.out.println("发送数据========================"+msg);
+
         list.add(buf);
-        System.out.println("发送数据========================2222"+msg);
+
     }
 
     @Override

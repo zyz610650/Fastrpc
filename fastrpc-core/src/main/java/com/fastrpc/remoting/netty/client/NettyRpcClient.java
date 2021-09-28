@@ -91,8 +91,8 @@ public class NettyRpcClient {
             ch.pipeline().addLast(LOGGING_HANDLER);
             ch.pipeline().addLast(MESSAGE_CODEC);
             //心跳
-//            ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
-//            ch.pipeline().addLast(DUPLEX_HANDLER);
+            ch.pipeline().addLast(new IdleStateHandler(0,5,0, TimeUnit.SECONDS));
+            ch.pipeline().addLast(DUPLEX_HANDLER);
             ch.pipeline().addLast(RESPONSE_HANDLER);
             }
         });

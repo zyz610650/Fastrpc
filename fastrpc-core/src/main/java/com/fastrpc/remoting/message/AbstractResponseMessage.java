@@ -23,7 +23,7 @@ public abstract class AbstractResponseMessage extends Message{
     /**
      * 异常值
      */
-    private Exception exceptionValue;
+    private String exceptionValue;
 
 
 }

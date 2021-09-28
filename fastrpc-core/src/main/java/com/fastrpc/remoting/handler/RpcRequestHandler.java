@@ -23,18 +23,16 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<RpcRequestMes
         RpcResponseMessage responseMessage=new RpcResponseMessage();
         responseMessage.setSeqId(msg.getSeqId());
         try {
-//            Object res=ProxyFactory.doMethod(msg);
-//            responseMessage.setReturnValue(res);
-//            responseMessage.setSuccess(true);
+            Object res=ProxyFactory.doMethod(msg);
+            responseMessage.setReturnValue(res);
+            responseMessage.setSuccess(true);
 
-            responseMessage.setSuccess(false);
-            responseMessage.setExceptionValue(new RuntimeException("test error "));
+
         } catch (Exception e) {
             responseMessage.setSuccess(false);
-            responseMessage.setExceptionValue(e);
+            responseMessage.setExceptionValue(e.getMessage());
 
         } finally {
-            System.out.println("===================="+responseMessage);
             ctx.writeAndFlush(responseMessage);
         }
 

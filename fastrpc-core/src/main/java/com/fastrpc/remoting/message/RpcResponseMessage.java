@@ -25,7 +25,7 @@ public class RpcResponseMessage extends AbstractResponseMessage {
     private Object returnValue;
 
 
-    public RpcResponseMessage(boolean success,Object returnValue, Exception exceptionValue) {
+    public RpcResponseMessage(boolean success,Object returnValue, String exceptionValue) {
         super(success,exceptionValue);
         this.returnValue = returnValue;
 

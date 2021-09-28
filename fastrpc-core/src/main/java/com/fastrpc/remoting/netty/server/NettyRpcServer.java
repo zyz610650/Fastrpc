@@ -73,9 +73,9 @@ public class NettyRpcServer {
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
                     //心跳机制
-//                    ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
-//                    ch.pipeline().addLast(DUPLEX_HANDLER);
-                    //业务逻辑处理 将该handler交给特定的业务线程处理
+                    ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
+                    ch.pipeline().addLast(DUPLEX_HANDLER);
+                    // 业务逻辑处理 将该handler交给特定的业务线程处理
                     ch.pipeline().addLast(serviceHandlerGroup,REQUEST_HANDLER);
 
                 }

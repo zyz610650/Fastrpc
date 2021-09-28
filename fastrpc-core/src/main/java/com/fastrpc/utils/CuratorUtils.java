@@ -57,6 +57,7 @@ public class CuratorUtils {
                 .retryPolicy(retryPolicy)
                 .build();
         zkClient.start();
+        log.error("connect to ZooKeeper successfully");
         try {
             // 连接超时触发事件
             if (!zkClient.blockUntilConnected(ZkContants.CONNECTION_TIMEOUT, TimeUnit.SECONDS))

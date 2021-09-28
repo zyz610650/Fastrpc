@@ -20,7 +20,6 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
     public static Map<Integer,Promise> PROMISES=new ConcurrentHashMap<>();
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, RpcResponseMessage msg) throws Exception {
-        System.out.println("收到消息======================================");
         System.out.println(msg);
         int seqId=msg.getSeqId();
         Promise promise=PROMISES.get(seqId);
@@ -36,8 +35,7 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
         {
             promise.setSuccess(msg.getReturnValue());
         }else{
-            System.out.println("==========方法执行失败");
-            promise.setFailure(msg.getExceptionValue());
+            promise.setFailure(new RpcException(msg.getExceptionValue()));
         }
 
     }

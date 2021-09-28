@@ -97,6 +97,7 @@ public class SerializeImpl {
                     return out.toBytes();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println("***********************************************");
                     throw new RuntimeException("Deserialization failed");
                 }
             }
@@ -110,6 +111,7 @@ public class SerializeImpl {
                     return kryo.readObject(in, clazz);
                 } catch (Exception e) {
                     e.printStackTrace();
+
                     throw new RuntimeException("Deserialization failed");
                 }
 
