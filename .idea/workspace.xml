@@ -10,15 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/handler/RpcResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/AbstractResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/message/RpcResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/client/NettyRpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/netty/server/NettyRpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/remoting/protocol/MessageCodecProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/SerializeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +66,20 @@
       <recent name="D:\project\java\FastRpc\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.doTest">
+  <component name="RunManager" selected="Application.CuratorUtils">
+    <configuration name="ConsistentHashLoadBalance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance" />
+      <module name="fastrpc-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.loadbalance.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CuratorUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.utils.CuratorUtils" />
       <module name="fastrpc-core" />
@@ -112,19 +119,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZkServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.zkservice.impl.ZkServiceImpl" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.zkservice.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="doTest" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
       <module name="fastrpc-core" />
@@ -151,18 +145,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.doTest" />
-      <item itemvalue="Application.CuratorUtils" />
-      <item itemvalue="Application.ZkServiceImpl" />
       <item itemvalue="Application.NettyRpcServer" />
       <item itemvalue="Application.NettyRpcClient" />
+      <item itemvalue="Application.ConsistentHashLoadBalance" />
+      <item itemvalue="Application.CuratorUtils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CuratorUtils" />
+        <item itemvalue="Application.ConsistentHashLoadBalance" />
         <item itemvalue="Application.doTest" />
         <item itemvalue="Application.NettyRpcServer" />
         <item itemvalue="Application.NettyRpcClient" />
-        <item itemvalue="Application.ZkServiceImpl" />
-        <item itemvalue="Application.CuratorUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +186,7 @@
       <workItem from="1632571015761" duration="11000" />
       <workItem from="1632701780614" duration="22340000" />
       <workItem from="1632733528900" duration="8575000" />
-      <workItem from="1632787914703" duration="2273000" />
+      <workItem from="1632787914703" duration="11323000" />
     </task>
     <servers />
   </component>
@@ -228,38 +222,38 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="225" key="GridCell.Tab.0.bottom" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.0.bottom" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.0.center" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.0.center" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.0.left" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.0.left" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.0.right" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.0.right" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.1.bottom" timestamp="1632789760132">
+    <state width="1397" height="226" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.1.bottom" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760132" />
-    <state width="1397" height="225" key="GridCell.Tab.1.center" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.1.center" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.1.left" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.1.left" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
-    <state width="1397" height="225" key="GridCell.Tab.1.right" timestamp="1632789760131">
+    <state width="1397" height="226" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
+    <state width="1397" height="226" key="GridCell.Tab.1.right" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="225" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632789760131" />
+    <state width="1397" height="226" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
     <state x="1661" y="76" key="SettingsEditor" timestamp="1632703663020">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -292,18 +286,23 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="2000" y="186" key="refactoring.ChangeSignatureDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632446219122" />
-    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1632541527578">
+    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1632812575309">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632541527578" />
+    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632812575309" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/service/doTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

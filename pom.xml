@@ -23,7 +23,9 @@
         <lombok.version>1.18.10</lombok.version>
         <lomback.version>1.2.3</lomback.version>
         <fastjson.version>1.2.73</fastjson.version>
+        <commonlang.version>2.6</commonlang.version>
         <curator-version>4.2.0</curator-version>
+
         <checkstyle-maven-plugin.version>3.1.1</checkstyle-maven-plugin.version>
     </properties>
     <dependencies>
@@ -37,6 +39,12 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${lomback.version}</version>
+        </dependency>
+        <!-- StringUtils-->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commonlang.version}</version>
         </dependency>
     </dependencies>
 
