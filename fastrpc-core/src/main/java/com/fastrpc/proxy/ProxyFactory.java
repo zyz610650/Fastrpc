@@ -1,18 +1,15 @@
 package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
-import com.fastrpc.remoting.message.RpcRequestMessage;
+import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.zkservice.ZkService;
 import com.fastrpc.zkservice.impl.ZkServiceImpl;
 import lombok.Getter;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -29,6 +26,7 @@ public class ProxyFactory  {
         private static Map<Class<?>,Class<?>> map=new ConcurrentHashMap<>();
         static {
             try(InputStream in=ProxyFactory.class.getClassLoader().getResourceAsStream("service.properties")){
+                log.info("The server is registering services to zookeeper. Please waiting......");
                 properties=new Properties();
                 properties.load(in);
                 Set<String> proNames = properties.stringPropertyNames();
@@ -37,11 +35,9 @@ public class ProxyFactory  {
                 {
                     if (name.endsWith("Service"))
                     {
-                        //向zk中注册service.application里配置的Service
-                        // zk中存的时 simpleName 缓存中存的是全类名
-                        String[] split = name.split("\\.");
-                        System.out.println(Arrays.toString(split));
-                        zkService.registerRpcService(split[split.length-1]);
+
+                        zkService.registerRpcService(name);
+                        log.info("refister to zookeeper :[{}]",name);
                         Class<?> interfaceClass=Class.forName(name);
                         Class<?> instanceClass=Class.forName(properties.getProperty(name));
                         map.put(interfaceClass,instanceClass);

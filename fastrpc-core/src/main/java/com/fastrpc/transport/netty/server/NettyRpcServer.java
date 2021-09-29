@@ -1,13 +1,15 @@
-package com.fastrpc.remoting.netty.server;
+package com.fastrpc.transport.netty.server;
 
 import com.fastrpc.config.Config;
 
 import com.fastrpc.proxy.ProxyFactory;
-import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
-import com.fastrpc.remoting.handler.RpcRequestHandler;
+import com.fastrpc.transport.handler.RpcServerDuplexHandler;
+import com.fastrpc.transport.handler.RpcRequestHandler;
 
-import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
-import com.fastrpc.remoting.protocol.MessageCodecProtocol;
+import com.fastrpc.transport.protocol.FrameDecoderProtocol;
+import com.fastrpc.transport.protocol.MessageCodecProtocol;
+import com.fastrpc.zkservice.ZkService;
+import com.fastrpc.zkservice.impl.ZkServiceImpl;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -22,8 +24,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -35,6 +36,10 @@ public class NettyRpcServer {
      * 服务器端口号
      */
     static int port= Config.getServerPort();
+    /**
+     * 服务器Ip地址
+     */
+    static String host= Config.getServerHost();
     /**
      * 指定worker线程数
      */
@@ -84,11 +89,14 @@ public class NettyRpcServer {
 
             channel.closeFuture().sync();
         } catch (InterruptedException e) {
-            log.error("***occur exception when start server:", e);
+            log.error("occur exception when start server:", e);
         } finally {
-            log.error("***shutdown bossGroup and workerGroup");
+            log.error("shutdown bossGroup and workerGroup");
             boosGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            ZkService zkService=new ZkServiceImpl();
+            log.error("zookeeper: logout [{}] node"+host+port);
+            zkService.delRpcServiceNode(new InetSocketAddress(host,port));
         }
 
     }

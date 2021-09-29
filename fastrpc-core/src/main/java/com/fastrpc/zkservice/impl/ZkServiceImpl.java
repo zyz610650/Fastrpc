@@ -1,6 +1,9 @@
 package com.fastrpc.zkservice.impl;
 
 import com.fastrpc.config.Config;
+import com.fastrpc.loadbalance.LoadBalance;
+import com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance;
+import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.utils.CuratorUtils;
 import com.fastrpc.zkservice.ZkService;
 
@@ -12,7 +15,12 @@ import java.util.List;
  */
 public class ZkServiceImpl implements ZkService {
 
-//    项目初始话就需要将所有配置的类和服务器注册到zk里
+    static LoadBalance loadBalance=new ConsistentHashLoadBalance();
+
+    /**
+     * 项目初始话就需要将所有配置的类和服务器注册到zk里
+     * @param rpcServiceName
+     */
     @Override
     public void registerRpcService(String rpcServiceName) {
         InetSocketAddress inetSocketAddress= new InetSocketAddress(Config.getServerHost(),Config.getServerPort());
@@ -33,10 +41,11 @@ public class ZkServiceImpl implements ZkService {
     }
 
     @Override
-    public InetSocketAddress getRpcService(String rpcServiceName) {
-        List<String> childNodes = CuratorUtils.getChildNodes(rpcServiceName);
-        String host = childNodes.get(0);
-        String[] split = host.split(":");
+    public InetSocketAddress getRpcService(RpcRequestMessage rpcRequestMessage) {
+        List<String> childNodes = CuratorUtils.getChildNodes(rpcRequestMessage.getInterfaceName());
+
+        String address = loadBalance.selectServiceAddress(childNodes, rpcRequestMessage);
+        String[] split = address.split(":");
         return new InetSocketAddress(split[0],Integer.parseInt(split[1]));
     }
     /**

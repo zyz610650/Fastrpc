@@ -1,14 +1,12 @@
-package com.fastrpc.remoting.message;
+package com.fastrpc.transport.message;
 
 
-import com.fastrpc.serializer.Serializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.lang.reflect.Parameter;
 
 
 /**

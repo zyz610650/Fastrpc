@@ -1,4 +1,4 @@
-package com.fastrpc.remoting.message;
+package com.fastrpc.transport.message;
 
 import lombok.Data;
 import lombok.ToString;

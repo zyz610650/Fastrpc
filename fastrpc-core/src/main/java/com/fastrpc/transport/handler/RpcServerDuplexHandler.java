@@ -1,6 +1,5 @@
-package com.fastrpc.remoting.handler;
+package com.fastrpc.transport.handler;
 
-import com.fastrpc.remoting.message.PingMessage;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;

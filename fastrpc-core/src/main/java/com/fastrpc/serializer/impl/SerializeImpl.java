@@ -5,8 +5,6 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 
-import com.fastrpc.remoting.message.RpcRequestMessage;
-import com.fastrpc.remoting.message.RpcResponseMessage;
 import com.fastrpc.serializer.Serializer;
 
 import lombok.extern.slf4j.Slf4j;

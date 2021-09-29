@@ -1,14 +1,12 @@
-package com.fastrpc.remoting.netty.client;
+package com.fastrpc.transport.netty.client;
 
 
 import com.fastrpc.Exception.RpcException;
-import com.fastrpc.config.Config;
-import com.fastrpc.remoting.handler.RpcClientDuplexHandler;
-import com.fastrpc.remoting.handler.RpcServerDuplexHandler;
-import com.fastrpc.remoting.handler.RpcResponseHandler;
-import com.fastrpc.remoting.message.RpcRequestMessage;
-import com.fastrpc.remoting.protocol.FrameDecoderProtocol;
-import com.fastrpc.remoting.protocol.MessageCodecProtocol;
+import com.fastrpc.transport.handler.RpcClientDuplexHandler;
+import com.fastrpc.transport.handler.RpcResponseHandler;
+import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.transport.protocol.FrameDecoderProtocol;
+import com.fastrpc.transport.protocol.MessageCodecProtocol;
 import com.fastrpc.utils.SequenceIdGenerator;
 import com.fastrpc.zkservice.ZkService;
 import com.fastrpc.zkservice.impl.ZkServiceImpl;
@@ -43,8 +41,8 @@ public class NettyRpcClient {
     private  static Channel channel;
     private  static  Bootstrap bootstrap=new Bootstrap();
     private  static  NioEventLoopGroup group=new NioEventLoopGroup();
-    private static   final ZkService zkService=new ZkServiceImpl();
-    private static final Object lock=new Object();
+    private  static   final ZkService zkService=new ZkServiceImpl();
+    private  static final Object lock=new Object();
 
 
     public NettyRpcClient() {
@@ -57,13 +55,13 @@ public class NettyRpcClient {
      * get channel 单例
      * @return
      */
-    static Channel getChannel(String rpcServiceName)
+    static Channel getChannel(RpcRequestMessage rpcRequestMessage)
     {
         synchronized (lock)
         {
             if (channel==null) {
                 log.info("Init channel");
-                doConnect(rpcServiceName);
+                doConnect(rpcRequestMessage);
             }
             return channel;
 
@@ -102,10 +100,10 @@ public class NettyRpcClient {
     /**
      * connect server and get Channel
      */
-    public static void doConnect(String rpcServiceName)
+    public static void doConnect(RpcRequestMessage rpcRequestMessage)
     {
         //从zk 获取服务器IP
-        InetSocketAddress inetAddress = zkService.getRpcService(rpcServiceName);
+        InetSocketAddress inetAddress = zkService.getRpcService(rpcRequestMessage);
 
         ChannelFuture future = null;
         try {
@@ -146,17 +144,17 @@ public class NettyRpcClient {
                         , args
                 );
                 // zk中存的时 simpleName 缓存中存的是全类名
-                Channel channel = getChannel(serviceClass.getSimpleName());
+                Channel channel = getChannel(msg);
                 if (channel.isActive()) {
                     channel.writeAndFlush(msg);
                     DefaultPromise promise = new DefaultPromise(NettyRpcClient.channel.eventLoop());
                     RpcResponseHandler.PROMISES.put(seqId, promise);
                     promise.await();
                     if (promise.isSuccess()) {
-                        log.info("************do method success: [{}]", msg);
+                        log.info("do method success: [{}]", msg);
                         return promise.getNow();
                     } else {
-                        log.error("*************remoting service exception " + promise.cause());
+                        log.error("remoting service exception " + promise.cause());
                         throw new RpcException(promise.cause().getMessage());
                     }
                 }else{

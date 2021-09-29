@@ -1,5 +1,7 @@
 package com.fastrpc.zkservice;
 
+import com.fastrpc.transport.message.RpcRequestMessage;
+
 import java.net.InetSocketAddress;
 
 /**
@@ -21,10 +23,10 @@ public interface ZkService {
 
     /**
      * 获得rpc服务提供者地址
-     * @param rpcServiceName
+     * @param rpcRequestMessage
      * @return 服务提供者地址
      */
-    InetSocketAddress getRpcService(String rpcServiceName);
+    public InetSocketAddress getRpcService(RpcRequestMessage rpcRequestMessage);
 
     /**
      * 删除注册到zk上的rpc服务的提供者

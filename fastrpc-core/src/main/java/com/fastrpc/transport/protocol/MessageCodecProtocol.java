@@ -1,9 +1,9 @@
-package com.fastrpc.remoting.protocol;
+package com.fastrpc.transport.protocol;
 
 
 import com.fastrpc.config.Config;
 import com.fastrpc.constants.RpcMessageProtocolConstants;
-import com.fastrpc.remoting.message.Message;
+import com.fastrpc.transport.message.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -60,7 +60,6 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
-        System.out.println("收到消息======================================");
         byte[] maicNum =new byte[4];
         in.readBytes(maicNum,0,4);
 
@@ -79,8 +78,8 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
         Message msg =  Config.getSerializeAlgorithm().deserialize(clazz, bytes);
-        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
-        log.debug("message: [{}]", msg);
+//        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
+        log.debug("Message: [{}]", msg);
         list.add(msg);
 
     }

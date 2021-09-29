@@ -2,13 +2,17 @@ package com.fastrpc.utils;
 
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.constants.ZkContants;
+import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.service.InfoService;
+import com.fastrpc.service.User;
+import com.fastrpc.zkservice.ZkService;
+import com.fastrpc.zkservice.impl.ZkServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.imps.CuratorFrameworkState;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
-import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
@@ -149,16 +153,15 @@ public class CuratorUtils {
      */
     public static List<String> getChildNodes(String rpcServiceName)
     {
-//        if (SERVICE_ADDRESS_MAP.containsKey(rpcServiceName))
-//        {
-//            return SERVICE_ADDRESS_MAP.get(rpcServiceName);
-//        }
+        if (SERVICE_ADDRESS_MAP.containsKey(rpcServiceName))
+        {
+            return SERVICE_ADDRESS_MAP.get(rpcServiceName);
+        }
         String servicePath=getPath(rpcServiceName);
         List<String> res;
         zkClient=getZkClient();
         try {
             res=zkClient.getChildren().forPath(servicePath);
-            System.out.println("========  "+System.identityHashCode(res));
             SERVICE_ADDRESS_MAP.put(rpcServiceName,res);
             addListener(rpcServiceName);
         } catch (Exception e) {
@@ -195,13 +198,26 @@ public class CuratorUtils {
     }
 
     public static void main(String[] args) {
+
         createPersistentNode("/fastrpc/redisService/192.168.2.1:8080");
         createPersistentNode("/fastrpc/redisService/122.4.2.1:7464");
         createPersistentNode("/fastrpc/redisService/32.22.2.1:2568");
         createPersistentNode("/fastrpc/redisService/192.33.2.1:80");
-
-        getChildNodes("redisService");
-        getChildNodes("redisService");
-        getChildNodes("redisService");
+        RpcRequestMessage msg=new RpcRequestMessage(1,"redisService","say",
+                new Class[]{String.class, User.class},new Object[]{"zyz",new User()});
+        RpcRequestMessage msg1=new RpcRequestMessage(1,"redisService","sayHello",
+                new Class[]{String.class, User.class},new Object[]{"zyz",new User()});
+        RpcRequestMessage msg2=new RpcRequestMessage(1,"redisService","say",
+                new Class[]{String.class, User.class},new Object[]{"zyz",new User()});
+        RpcRequestMessage msg3=new RpcRequestMessage(1,"redisService","sayH",
+                new Class[]{String.class, User.class},new Object[]{"zyzdsa",new User()});
+        RpcRequestMessage msg4=new RpcRequestMessage(1,"redisService","say",
+                new Class[]{String.class, InfoService.class},new Object[]{"zyz",new User()});
+        ZkService zkService=new ZkServiceImpl();
+        System.out.println(zkService.getRpcService(msg));
+        System.out.println(zkService.getRpcService(msg1));
+        System.out.println(zkService.getRpcService(msg2));
+        System.out.println(zkService.getRpcService(msg3));
+        System.out.println(zkService.getRpcService(msg4));
     }
 }
