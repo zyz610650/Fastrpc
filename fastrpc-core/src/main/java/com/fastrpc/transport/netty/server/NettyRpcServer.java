@@ -3,6 +3,7 @@ package com.fastrpc.transport.netty.server;
 import com.fastrpc.config.Config;
 
 import com.fastrpc.proxy.ProxyFactory;
+import com.fastrpc.transport.handler.RpcLogoutHandler;
 import com.fastrpc.transport.handler.RpcServerDuplexHandler;
 import com.fastrpc.transport.handler.RpcRequestHandler;
 
@@ -59,6 +60,7 @@ public class NettyRpcServer {
         EventLoopGroup boosGroup=new NioEventLoopGroup();
         EventLoopGroup workerGroup=new NioEventLoopGroup(2);
         RpcRequestHandler REQUEST_HANDLER=new RpcRequestHandler();
+        RpcLogoutHandler LOROUT_HANDLER=new RpcLogoutHandler();
         DefaultEventExecutorGroup serviceHandlerGroup=new DefaultEventExecutorGroup(threadNums);
         try {
 
@@ -77,6 +79,8 @@ public class NettyRpcServer {
                     ch.pipeline().addLast(LOGGING_HANDLER);
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
+                    //channel关闭处理
+                    ch.pipeline().addLast(LOROUT_HANDLER);
                     //心跳机制
                     ch.pipeline().addLast(new IdleStateHandler(15,0,0, TimeUnit.SECONDS));
                     ch.pipeline().addLast(DUPLEX_HANDLER);

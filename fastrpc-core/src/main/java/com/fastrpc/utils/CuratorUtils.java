@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
  * Curator(Zookeeper client) utils
  * CuratorFramework is thread safety
  *
+ * REGISTERED_PATH_PATH_SET: Netty服务器中对于ZK节点的缓存
+ * SERVICE_ADDRESS_MAP:  Netty客户端对于ZK节点的缓存
  * @author yvioo
  */
 @Slf4j
@@ -118,7 +120,7 @@ public class CuratorUtils {
                         throw new RpcException(e.getMessage());
                     }
                 });
-        //不用清除Map缓存 节点下线后会触发下面的监听器 清除Map缓存
+
 
 
     }
