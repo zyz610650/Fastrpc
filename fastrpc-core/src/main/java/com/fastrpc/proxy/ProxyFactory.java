@@ -1,6 +1,7 @@
 package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
+import com.fastrpc.enums.CompressTypeEnum;
 import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.registry.ZkService;
 import com.fastrpc.registry.impl.ZkServiceImpl;
@@ -93,4 +94,6 @@ public class ProxyFactory  {
         }
 
     }
+
+
 }

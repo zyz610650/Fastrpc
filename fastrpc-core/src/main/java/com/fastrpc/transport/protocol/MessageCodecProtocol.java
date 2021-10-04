@@ -1,8 +1,11 @@
 package com.fastrpc.transport.protocol;
 
 
+import com.fastrpc.compress.Compress;
 import com.fastrpc.config.Config;
 import com.fastrpc.constants.RpcMessageProtocolConstants;
+import com.fastrpc.extension.ExtensionLoader;
+import com.fastrpc.serializer.Serializer;
 import com.fastrpc.transport.message.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -46,8 +49,8 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         //消息序列 服务器和客户端通信标识信息 4byte
         buf.writeInt(msg.getSeqId());
         //序列化和压缩
-        byte[] bytes = Config.getSerializeAlgorithm().serialize(msg);
-        bytes = Config.getZipAlgorithm().compress(bytes);
+        byte[] bytes = ExtensionLoader.getExtensionLoader(Serializer.class).getExtension().serialize(msg);
+        bytes = ExtensionLoader.getExtensionLoader(Compress.class).getExtension().compress(bytes);
         int len=bytes.length;
         //message length
         buf.writeInt(len);
@@ -74,10 +77,10 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         checkMagicNumber(maicNum);
         checkVersion(version);
         //解压
-        bytes=Config.getZipAlgorithm().decompress(bytes);
+        bytes=ExtensionLoader.getExtensionLoader(Compress.class).getExtension().decompress(bytes);
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
-        Message msg =  Config.getSerializeAlgorithm().deserialize(clazz, bytes);
+        Message msg = ExtensionLoader.getExtensionLoader(Serializer.class).getExtension().deserialize(clazz, bytes);
 //        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
         log.debug("Message: [{}]", msg);
         list.add(msg);

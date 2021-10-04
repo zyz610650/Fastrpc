@@ -21,6 +21,7 @@
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -46,6 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -53,8 +55,12 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\docs" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.fastrpc" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
+      <recent name="D:\project\java\FastRpc\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.fastrpc.extension" />
@@ -63,9 +69,8 @@
       <recent name="com.fastrpc.remoting.handler" />
       <recent name="com.fastrpc.remoting.message" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
-      <recent name="D:\project\java\FastRpc\config" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\docs" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AdaptiveTest1">
@@ -134,19 +139,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.doTest" />
       <item itemvalue="Application.NettyRpcServer" />
@@ -201,7 +193,8 @@
       <workItem from="1633307217852" duration="2436000" />
       <workItem from="1633309856844" duration="117000" />
       <workItem from="1633309983359" duration="8913000" />
-      <workItem from="1633348002590" duration="3208000" />
+      <workItem from="1633348002590" duration="7076000" />
+      <workItem from="1633355151845" duration="141000" />
     </task>
     <servers />
   </component>
@@ -217,19 +210,29 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1614" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468330373" />
-    <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1632730446058">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633354661199">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633354661199" />
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632730446058" />
     <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1633314981699">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633314981699" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
-    <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632718865915">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633354915098">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633354915098" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632718865915" />
+    <state x="2008" y="296" width="464" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1633353678727">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="2008" y="296" width="464" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633353678727" />
+    <state x="2008" y="309" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1633354916035">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="2008" y="309" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633354916035" />
     <state x="1868" y="176" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1632567383988">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -238,11 +241,11 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633350770479">
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633353544068">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state x="450" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633056643520" />
-    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633350770479" />
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633353544068" />
     <state x="1940" y="184" key="FileChooserDialogImpl" timestamp="1632906165162">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -292,6 +295,10 @@
     </state>
     <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633315013124" />
     <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632703663020" />
+    <state x="2039" y="207" key="chooseDestDirectoryDialog" timestamp="1633354965284">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="2039" y="207" key="chooseDestDirectoryDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633354965284" />
     <state x="1765" y="40" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1632711109979">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>

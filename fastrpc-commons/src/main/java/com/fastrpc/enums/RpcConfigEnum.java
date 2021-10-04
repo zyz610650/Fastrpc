@@ -21,7 +21,7 @@ public enum RpcConfigEnum {
     /**
      * rpc配置文件地址
      */
-    RPC_CONFIG_PATH("application.properties"),
+    RPC_CONFIG_PATH("/application.properties"),
     /**
      * 客户端端口号
      */
@@ -31,6 +31,10 @@ public enum RpcConfigEnum {
      */
     SERVER_PORT("rpc.server.port"),
     /**
+     * 服务器地址
+     */
+    SERVER_HOST("rpc.server.host"),
+    /**
      * zookeeper host
      */
     ZK_ADDRESS("rpc.zookeeper.host"),
@@ -38,6 +42,7 @@ public enum RpcConfigEnum {
      *  线程数核数
      */
     CPU_NUM("rpc.cpunums");
+
 
     /**
      * 枚举变量的值

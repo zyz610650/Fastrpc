@@ -1,5 +1,7 @@
 package com.fastrpc.serializer;
 
+import com.fastrpc.extension.SPI;
+
 /**
  * @author zyz
  * @title:
@@ -7,6 +9,8 @@ package com.fastrpc.serializer;
  * @address:
  * @idea:
  */
+
+@SPI("kyro")
 public interface Serializer {
    <T> byte[] serialize(T msg);
 

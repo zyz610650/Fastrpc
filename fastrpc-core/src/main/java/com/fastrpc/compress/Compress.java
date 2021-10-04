@@ -1,5 +1,8 @@
 package com.fastrpc.compress;
 
+import com.fastrpc.enums.CompressTypeEnum;
+import com.fastrpc.extension.SPI;
+
 /**
  * @author zyz
  * @title:
@@ -7,6 +10,7 @@ package com.fastrpc.compress;
  * @address:
  * @idea:
  */
+@SPI("gzip")
 public interface Compress {
 
     byte[] compress(byte[] bytes);

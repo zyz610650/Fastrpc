@@ -8,6 +8,9 @@ package com.fastrpc.constants;
  * @idea:
  */
 
+import com.fastrpc.enums.CompressTypeEnum;
+import com.fastrpc.enums.SerializationTypeEnum;
+import com.fastrpc.enums.VersionEnum;
 import com.fastrpc.utils.SequenceIdGenerator;
 import lombok.Data;
 
@@ -28,16 +31,16 @@ public class RpcMessageProtocolConstants {
     /**
      * 协议版本 1byte
      */
-    public  static byte VERSION=0;
+    public  static byte VERSION= VersionEnum.v1.getCode();
     /**
-     *  序列化反射 1byte 0 java 1 json 2 kryo
+     *  序列化反射
      */
-    public static  byte SERIALIZETYPE=0;
+    public static  byte SERIALIZETYPE= SerializationTypeEnum.KYRO.getCode();
 
     /**
      *  压缩类型 1byte
      */
-    public static  byte COMPRESSTYPE=0;
+    public static  byte COMPRESSTYPE= CompressTypeEnum.GZIP.getCode();
 
 
 
