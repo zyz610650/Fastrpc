@@ -10,9 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/handler/RpcLogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/handler/RpcLogoutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/server/NettyRpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/server/NettyRpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/utils/CuratorUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -48,14 +46,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fastrpc-core/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39885056" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\docs" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.extension" />
       <recent name="com.fastrpc.service" />
       <recent name="com.fastrpc.zk" />
       <recent name="com.fastrpc.remoting.handler" />
@@ -66,39 +68,13 @@
       <recent name="D:\project\java\FastRpc\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.doTest">
-    <configuration name="ConsistentHashLoadBalance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance" />
+  <component name="RunManager" selected="Application.AdaptiveTest1">
+    <configuration name="AdaptiveTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.adaptive.AdaptiveTest1" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.loadbalance.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CuratorUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.utils.CuratorUtils" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NettyRpcClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.client.NettyRpcClient" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.transport.netty.client.*" />
+          <option name="PATTERN" value="com.fastrpc.adaptive.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,12 +95,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="doTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.test.doTest" />
+      <module name="fastrpc-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="doTest" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.fastrpc.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.adaptive.test" />
+      <module name="fastrpc-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.adaptive.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,17 +150,17 @@
     <list>
       <item itemvalue="Application.doTest" />
       <item itemvalue="Application.NettyRpcServer" />
-      <item itemvalue="Application.NettyRpcClient" />
-      <item itemvalue="Application.ConsistentHashLoadBalance" />
-      <item itemvalue="Application.CuratorUtils" />
+      <item itemvalue="Application.doTest (1)" />
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.AdaptiveTest1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AdaptiveTest1" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.doTest (1)" />
         <item itemvalue="Application.doTest" />
         <item itemvalue="Application.NettyRpcServer" />
-        <item itemvalue="Application.NettyRpcClient" />
-        <item itemvalue="Application.CuratorUtils" />
-        <item itemvalue="Application.ConsistentHashLoadBalance" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +191,17 @@
       <workItem from="1632701780614" duration="22340000" />
       <workItem from="1632733528900" duration="8575000" />
       <workItem from="1632787914703" duration="11323000" />
-      <workItem from="1632874390883" duration="11062000" />
+      <workItem from="1632874390883" duration="13442000" />
+      <workItem from="1632909407613" duration="5600000" />
+      <workItem from="1632915814729" duration="19000" />
+      <workItem from="1632960918409" duration="684000" />
+      <workItem from="1632961965160" duration="3560000" />
+      <workItem from="1633054177715" duration="102000" />
+      <workItem from="1633054288660" duration="2234000" />
+      <workItem from="1633307217852" duration="2436000" />
+      <workItem from="1633309856844" duration="117000" />
+      <workItem from="1633309983359" duration="8913000" />
+      <workItem from="1633348002590" duration="3208000" />
     </task>
     <servers />
   </component>
@@ -197,10 +209,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1640" y="4" key="#Project_Structure" timestamp="1632451978327">
+    <state x="1640" y="4" key="#Project_Structure" timestamp="1632910804566">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632451978327" />
+    <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632910804566" />
     <state x="1614" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1632468330373">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -209,9 +221,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632730446058" />
-    <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1632897569888">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1633314981699">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633314981699" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1632718865915">
       <screen x="1440" y="0" width="1440" height="860" />
@@ -225,22 +238,35 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state width="1397" height="297" key="GridCell.Tab.0.bottom" timestamp="1632898734004">
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633350770479">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="450" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633056643520" />
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633350770479" />
+    <state x="1940" y="184" key="FileChooserDialogImpl" timestamp="1632906165162">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="297" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632898734004" />
-    <state width="1397" height="297" key="GridCell.Tab.0.center" timestamp="1632898734003">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom" timestamp="1633059900559">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="297" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632898734003" />
-    <state width="1397" height="297" key="GridCell.Tab.0.left" timestamp="1632898734003">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
+    <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
+    <state width="1397" height="222" key="GridCell.Tab.0.center" timestamp="1633059900559">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="297" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632898734003" />
-    <state width="1397" height="297" key="GridCell.Tab.0.right" timestamp="1632898734004">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
+    <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
+    <state width="1397" height="222" key="GridCell.Tab.0.left" timestamp="1633059900559">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="297" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632898734004" />
+    <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
+    <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
+    <state width="1397" height="222" key="GridCell.Tab.0.right" timestamp="1633059900559">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
+    <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
     <state width="1397" height="226" key="GridCell.Tab.1.bottom" timestamp="1632827927736">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
@@ -257,9 +283,14 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state width="1397" height="226" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state x="1661" y="76" key="SettingsEditor" timestamp="1632703663020">
+    <state x="1800" y="133" key="NewModule_or_Project.wizard" timestamp="1632906167032">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
+    <state x="1800" y="133" key="NewModule_or_Project.wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906167032" />
+    <state x="1686" y="8" key="SettingsEditor" timestamp="1633315013124">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633315013124" />
     <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632703663020" />
     <state x="1765" y="40" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1632711109979">
       <screen x="1440" y="0" width="1440" height="860" />
@@ -293,6 +324,17 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632812575309" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/test/java/com/fastrpc/adaptive/test.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fastrpc$NettyRpcServer.ic" NAME="NettyRpcServer Coverage Results" MODIFIED="1632732307115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

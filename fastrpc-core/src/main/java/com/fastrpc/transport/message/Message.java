@@ -1,6 +1,8 @@
 package com.fastrpc.transport.message;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -20,10 +22,17 @@ public abstract class Message implements Serializable {
      * 用于服务器向客户端发送消息,客户端知道服务器返回的是哪次通信的结果
      */
     private int seqId;
+
+
     /**
      * 用于反射创建对应的消息
      */
     private byte messageType;
+
+    /**
+     * 用于区分接口的多实现
+     */
+    private String group;
 
     private static final Map<Byte,Class<? extends Message>> messageTypeMap=new ConcurrentHashMap<>();
 
@@ -37,6 +46,9 @@ public abstract class Message implements Serializable {
      * @return 返回消息类型
      */
     public abstract byte getMessageType();
+
+
+
 
     /**
      * 请求类型

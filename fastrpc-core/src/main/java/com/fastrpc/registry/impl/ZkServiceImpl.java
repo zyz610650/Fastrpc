@@ -1,11 +1,11 @@
-package com.fastrpc.zkservice.impl;
+package com.fastrpc.registry.impl;
 
 import com.fastrpc.config.Config;
 import com.fastrpc.loadbalance.LoadBalance;
 import com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance;
 import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.utils.CuratorUtils;
-import com.fastrpc.zkservice.ZkService;
+import com.fastrpc.registry.ZkService;
 
 import java.net.InetSocketAddress;
 import java.util.List;

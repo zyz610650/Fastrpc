@@ -9,8 +9,8 @@ import com.fastrpc.transport.handler.RpcRequestHandler;
 
 import com.fastrpc.transport.protocol.FrameDecoderProtocol;
 import com.fastrpc.transport.protocol.MessageCodecProtocol;
-import com.fastrpc.zkservice.ZkService;
-import com.fastrpc.zkservice.impl.ZkServiceImpl;
+import com.fastrpc.registry.ZkService;
+import com.fastrpc.registry.impl.ZkServiceImpl;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;

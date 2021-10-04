@@ -2,8 +2,8 @@ package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.transport.message.RpcRequestMessage;
-import com.fastrpc.zkservice.ZkService;
-import com.fastrpc.zkservice.impl.ZkServiceImpl;
+import com.fastrpc.registry.ZkService;
+import com.fastrpc.registry.impl.ZkServiceImpl;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ProxyFactory  {
         private static Properties properties;
         private static Map<Class<?>,Class<?>> map=new ConcurrentHashMap<>();
-        static {
+
+    /**
+     * 发布服务到zk
+     */
+    static {
             try(InputStream in=ProxyFactory.class.getClassLoader().getResourceAsStream("service.properties")){
                 log.info("The server is registering services to zookeeper. Please waiting......");
                 properties=new Properties();
@@ -76,7 +80,7 @@ public class ProxyFactory  {
         String methodName=msg.getMethodName();
         Class[] paramTypes=msg.getParamTypes();
         Object[] parameters=msg.getParameters();
-
+        String group=msg.getGroup();
         Class<?> instanceClass = ProxyFactory.getInstanceClass(interfaceName);
         Method method = null;
         try {

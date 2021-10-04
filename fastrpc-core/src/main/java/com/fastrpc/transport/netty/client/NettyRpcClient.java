@@ -8,8 +8,8 @@ import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.transport.protocol.FrameDecoderProtocol;
 import com.fastrpc.transport.protocol.MessageCodecProtocol;
 import com.fastrpc.utils.SequenceIdGenerator;
-import com.fastrpc.zkservice.ZkService;
-import com.fastrpc.zkservice.impl.ZkServiceImpl;
+import com.fastrpc.registry.ZkService;
+import com.fastrpc.registry.impl.ZkServiceImpl;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -124,11 +124,22 @@ public class NettyRpcClient {
 
     /**
      * 方法执行代理方法
-     * @param serviceClass
+     * @param serviceClass  不指定具体的实现类
      * @param <T> 接口类型
      * @return 返回接口对象
      */
     public  <T> T getProxyService(Class<T> serviceClass)
+    {
+        return getProxyService(serviceClass,null);
+    }
+
+    /**
+     * 方法执行代理方法
+     * @param serviceClass group 接口的具体实现类
+     * @param <T> 接口类型
+     * @return 返回接口对象
+     */
+    public  <T> T getProxyService(Class<T> serviceClass,String group)
     {
         ClassLoader loader=serviceClass.getClassLoader();
         Class<?>[] interfaces=new Class[]{serviceClass};
@@ -139,6 +150,7 @@ public class NettyRpcClient {
                 RpcRequestMessage msg = new RpcRequestMessage(
                         seqId,
                         serviceClass.getName()
+                        ,group
                         , method.getName()
                         , method.getParameterTypes()
                         , args

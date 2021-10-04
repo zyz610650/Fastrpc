@@ -1,4 +1,4 @@
-package com.fastrpc.zkservice;
+package com.fastrpc.registry;
 
 import com.fastrpc.transport.message.RpcRequestMessage;
 
