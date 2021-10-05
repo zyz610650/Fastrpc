@@ -27,7 +27,6 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<RpcRequestMes
             responseMessage.setReturnValue(res);
             responseMessage.setSuccess(true);
 
-
         } catch (Exception e) {
             responseMessage.setSuccess(false);
             responseMessage.setExceptionValue(e.getMessage());

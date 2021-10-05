@@ -24,8 +24,8 @@ public class KyroSerializeImpl implements Serializer {
 
     @Override
     public <T> byte[] serialize(T msg) {
-        try(ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            Output out=new Output(bos)) {
+        try( ByteArrayOutputStream bos = new ByteArrayOutputStream();
+             Output out=new Output(bos)) {
             Kryo kryo = KRYO_THREADLOCAL.get();
             kryo.writeObject(out,msg);
             KRYO_THREADLOCAL.remove();
@@ -36,6 +36,7 @@ public class KyroSerializeImpl implements Serializer {
             throw new RuntimeException("Deserialization failed");
         }
     }
+
 
     @Override
     public <T> T deserialize(Class<T> clazz, byte[] bytes) {

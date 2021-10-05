@@ -14,7 +14,7 @@ public enum  SerializationTypeEnum {
 
     JDK((byte) 0x01,"jdk"),
     JSON((byte) 0x02,"json"),
-    KYRO ((byte) 0x01,"kyro");
+    KYRO ((byte) 0x03,"kyro");
 
     /**
      * 编码

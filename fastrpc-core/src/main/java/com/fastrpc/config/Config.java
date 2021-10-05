@@ -1,8 +1,6 @@
 package com.fastrpc.config;
 
-import com.fastrpc.compress.impl.CompressImpl;
 import com.fastrpc.enums.RpcConfigEnum;
-import com.fastrpc.serializer.impl.SerializeImpl;
 import com.fastrpc.utils.CpuUtil;
 
 import java.io.IOException;
@@ -16,9 +14,13 @@ import java.util.Properties;
 public class Config {
 
     static Properties properties;
+    final static String zkHost="127.0.0.1:2181";
+    final static String serverHost="localhost";
+    final static Integer serverPort=8800;
 
     static {
-        try (InputStream in = Config.class.getResourceAsStream(String.valueOf(RpcConfigEnum.RPC_CONFIG_PATH))) {
+
+        try (InputStream in = Config.class.getResourceAsStream(String.valueOf(RpcConfigEnum.RPC_CONFIG_PATH.getValue()).trim())) {
             properties = new Properties();
             properties.load(in);
 
@@ -31,7 +33,7 @@ public class Config {
         String value=properties.getProperty(String.valueOf(RpcConfigEnum.SERVER_PORT));
         int port;
         if (value==null) {
-            port= Integer.parseInt("8800");
+            port= serverPort;
         } else {
             port=Integer.valueOf(value);
         }
@@ -41,7 +43,7 @@ public class Config {
     public static String getServerHost(){
         String value=properties.getProperty(String.valueOf(RpcConfigEnum.SERVER_HOST));
         if (value==null) {
-            value= "localhost";
+            value= serverHost;
         }
         return value;
     }
@@ -70,7 +72,7 @@ public class Config {
 
         String value=properties.getProperty(String.valueOf(RpcConfigEnum.ZK_ADDRESS));
         if (value==null) {
-            value="127.0.0.1:2181";
+            value=zkHost;
         }
         return value;
     }

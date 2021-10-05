@@ -88,7 +88,7 @@ public class SerializeImpl {
             @Override
             public <T> byte[] serialize(T msg) {
                 try( ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                     Output out=new Output(bos)) {
+                    Output out=new Output(bos)) {
                     Kryo kryo = KRYO_THREADLOCAL.get();
                     kryo.writeObject(out,msg);
                     KRYO_THREADLOCAL.remove();

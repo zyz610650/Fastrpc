@@ -1,11 +1,8 @@
 package com.fastrpc.extension;
 
 /**
+ *
  * @author: @zyz
- * @title:
- * @seq:
- * @address:
- * @idea:
  */
 public class Holder<T> {
     private volatile T value;

@@ -150,8 +150,8 @@ public class NettyRpcClient {
                 RpcRequestMessage msg = new RpcRequestMessage(
                         seqId,
                         serviceClass.getName()
-                        ,group
                         , method.getName()
+                        ,group
                         , method.getParameterTypes()
                         , args
                 );

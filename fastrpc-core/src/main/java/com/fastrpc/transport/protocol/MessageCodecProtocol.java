@@ -4,8 +4,11 @@ package com.fastrpc.transport.protocol;
 import com.fastrpc.compress.Compress;
 import com.fastrpc.config.Config;
 import com.fastrpc.constants.RpcMessageProtocolConstants;
+import com.fastrpc.enums.CompressTypeEnum;
+import com.fastrpc.enums.SerializationTypeEnum;
 import com.fastrpc.extension.ExtensionLoader;
 import com.fastrpc.serializer.Serializer;
+import com.fastrpc.serializer.impl.SerializeImpl;
 import com.fastrpc.transport.message.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
@@ -34,7 +37,7 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) {
-
+//        log.info("============================发送数据 {}",msg);
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
         buf.writeBytes(RpcMessageProtocolConstants.MAGIC_NUMBER);
@@ -49,6 +52,7 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         //消息序列 服务器和客户端通信标识信息 4byte
         buf.writeInt(msg.getSeqId());
         //序列化和压缩
+       // byte[] bytes =SerializeImpl.Algorithm.Kryo.serialize(msg);
         byte[] bytes = ExtensionLoader.getExtensionLoader(Serializer.class).getExtension().serialize(msg);
         bytes = ExtensionLoader.getExtensionLoader(Compress.class).getExtension().compress(bytes);
         int len=bytes.length;
@@ -56,13 +60,14 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //message
         buf.writeBytes(bytes);
-
+//        log.info("============================发送完毕 {}");
         list.add(buf);
 
     }
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
+//        log.info("============================接收到数据 {}");
         byte[] maicNum =new byte[4];
         in.readBytes(maicNum,0,4);
 
@@ -77,10 +82,12 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         checkMagicNumber(maicNum);
         checkVersion(version);
         //解压
-        bytes=ExtensionLoader.getExtensionLoader(Compress.class).getExtension().decompress(bytes);
+        bytes=ExtensionLoader.getExtensionLoader(Compress.class).getExtension(CompressTypeEnum.getName(compressType)).decompress(bytes);
+
         //反序列化
         Class<? extends Message>  clazz=Message.getMessageType(messageType);
-        Message msg = ExtensionLoader.getExtensionLoader(Serializer.class).getExtension().deserialize(clazz, bytes);
+        //Message msg= SerializeImpl.Algorithm.Kryo.deserialize(clazz,bytes);
+       Message msg = ExtensionLoader.getExtensionLoader(Serializer.class).getExtension(SerializationTypeEnum.getName(serializeType)).deserialize(clazz, bytes);
 //        log.debug("decode message: [{}{}{}{}{}{}]",maicNum,version,serializeType,messageType,compressType,seqId,len);
         log.debug("Message: [{}]", msg);
         list.add(msg);

@@ -3,6 +3,7 @@ package com.fastrpc.extension;
 import java.lang.annotation.*;
 
 /**
+ *
  * @author: @zyz
  */
 @Documented

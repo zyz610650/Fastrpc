@@ -1,12 +1,14 @@
 package com.fastrpc.serializer.impl;
 
 import com.fastrpc.serializer.Serializer;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 
 /**
  * @author: @zyz
  */
+@Slf4j
 public class JdkSerializeImpl  implements Serializer {
 
     @Override
@@ -34,7 +36,8 @@ public class JdkSerializeImpl  implements Serializer {
             Object o = ois.readObject();
             return clazz.cast(o);
         } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException("Deserialization failed");
+            log.error(e.getMessage());
+            throw new RuntimeException("Deserialization failed",e);
         }
 
     }

@@ -1,0 +1,3 @@
+kyro=com.fastrpc.serializer.impl.KyroSerializeImpl
+json=com.fastrpc.serializer.impl.JsonSerializeImpl
+jdk=com.fastrpc.serializer.impl.JdkSerializeImpl
