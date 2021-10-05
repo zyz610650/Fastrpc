@@ -44,9 +44,6 @@ public enum RpcConfigEnum {
     CPU_NUM("rpc.cpunums");
 
 
-    /**
-     * 枚举变量的值
-     */
     private String value;
 
 

@@ -29,6 +29,10 @@ public class Config {
         }
     }
 
+    /**
+     * 获取rpc服务器断开号
+     * @return
+     */
     public static int getServerPort(){
         String value=properties.getProperty(String.valueOf(RpcConfigEnum.SERVER_PORT));
         int port;
@@ -40,6 +44,10 @@ public class Config {
         return port;
     }
 
+    /**
+     * 获取Rpc服务器IP地址
+     * @return
+     */
     public static String getServerHost(){
         String value=properties.getProperty(String.valueOf(RpcConfigEnum.SERVER_HOST));
         if (value==null) {
