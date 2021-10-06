@@ -8,3 +8,5 @@
 
 3.Rpc client选择 Rpc Server 的负载均衡策略可以扩展 目前只实现了一致性Hash算法
 
+4.不使用Spring的IOC/DI机制,自己实现IOC/DI,现存的问题是,使用后如何自动注入呢？
+

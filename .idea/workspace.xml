@@ -19,10 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,23 +55,23 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\docs" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fastrpc" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.fastrpc.extension" />
-      <recent name="com.fastrpc.service" />
-      <recent name="com.fastrpc.zk" />
-      <recent name="com.fastrpc.remoting.handler" />
-      <recent name="com.fastrpc.remoting.message" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\project\java\FastRpc\fastrpc-commons\src\main\java\com\fastrpc" />
       <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
       <recent name="D:\project\java\FastRpc\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.annotation" />
+      <recent name="com.fastrpc.extension" />
+      <recent name="com.fastrpc.service" />
+      <recent name="com.fastrpc.zk" />
+      <recent name="com.fastrpc.remoting.handler" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\docs" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ScannerUtils">
@@ -106,7 +106,7 @@
       <module name="fastrpc-commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.annotation.*" />
+          <option name="PATTERN" value="com.fastrpc.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,11 +115,11 @@
       </method>
     </configuration>
     <configuration name="ScannerUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.annotation.ScannerUtils" />
-      <module name="fastrpc-commons" />
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.utils.ScannerUtils" />
+      <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.annotation.*" />
+          <option name="PATTERN" value="com.fastrpc.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -210,6 +210,8 @@
       <workItem from="1633399864851" duration="5421000" />
       <workItem from="1633426869106" duration="9063000" />
       <workItem from="1633438981744" duration="3242000" />
+      <workItem from="1633487107456" duration="3585000" />
+      <workItem from="1633521706260" duration="1978000" />
     </task>
     <servers />
   </component>
@@ -235,10 +237,10 @@
     </state>
     <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633439989743" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
-    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633354915098">
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633489762320">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633354915098" />
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633489762320" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632718865915" />
     <state x="2008" y="296" width="464" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1633353678727">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -355,9 +357,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="2000" y="186" key="refactoring.ChangeSignatureDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632446219122" />
-    <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1632812575309">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1866" y="180" width="747" height="678" key="search.everywhere.popup" timestamp="1633523274866">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1866" y="180" width="747" height="678" key="search.everywhere.popup/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633523274866" />
     <state x="1823" y="180" width="672" height="678" key="search.everywhere.popup/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632812575309" />
   </component>
   <component name="XDebuggerManager">

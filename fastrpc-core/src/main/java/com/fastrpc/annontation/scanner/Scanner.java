@@ -1,4 +1,4 @@
-package com.fastrpc.annontation;
+package com.fastrpc.annontation.scanner;
 
 import java.util.Set;
 
