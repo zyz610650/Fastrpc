@@ -45,15 +45,11 @@ public class RpcClientProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         int seqId = SequenceIdGenerator.nextId();
-        RpcRequestMessage msg = RpcRequestMessage.builder()
-                .interfaceName(proxy.getClass().getCanonicalName())
-                .methodName(method.getName())
-                .group(rpcServiceConfig.getGroup())
-                .parameters(args)
-                .seqId(seqId)
-                .paramTypes(method.getParameterTypes())
-                .version(rpcServiceConfig.getVersion())
-                .build();
+
+        RpcRequestMessage msg = new RpcRequestMessage(seqId,proxy.getClass().getCanonicalName()
+                ,method.getName(),method.getParameterTypes(),args
+                ,rpcServiceConfig.getGroup(),rpcServiceConfig.getVersion());
+
         Object o = rpcRequestTransportService.sendRpcRequest(msg);
         return o;
 

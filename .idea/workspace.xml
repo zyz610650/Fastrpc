@@ -48,39 +48,41 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fastrpc-example-common/src/main/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39885056" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\docs" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fastrpc" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.controller" />
+      <recent name="com.fastrpc.service.impl" />
+      <recent name="com.fastrpc.annotation" />
+      <recent name="com.fastrpc.extension" />
+      <recent name="com.fastrpc.service" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\fastrpc-example-common\src\main\java" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java" />
       <recent name="D:\project\java\FastRpc\fastrpc-commons\src\main\java\com\fastrpc" />
       <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
       <recent name="D:\project\java\FastRpc\config" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.fastrpc.annotation" />
-      <recent name="com.fastrpc.extension" />
-      <recent name="com.fastrpc.service" />
-      <recent name="com.fastrpc.zk" />
-      <recent name="com.fastrpc.remoting.handler" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\docs" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.doTest (1)">
-    <configuration name="NettyRpcServerProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.server.NettyRpcServerProvider" />
-      <module name="fastrpc-core" />
+  <component name="RunManager" selected="Application.ApplicationServerMain">
+    <configuration name="ApplicationServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationServerMain" />
+      <module name="fastrpc-example" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.transport.netty.server.*" />
+          <option name="PATTERN" value="com.fastrpc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,12 +116,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="doTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="doTest" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
-      <module name="fastrpc-commons" />
+      <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.service.*" />
+          <option name="PATTERN" value="com.fastrpc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,12 +129,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="doTest" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="doTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
-      <module name="fastrpc-core" />
+      <module name="fastrpc-commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.service.*" />
+          <option name="PATTERN" value="com.fastrpc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,15 +158,15 @@
       <item itemvalue="Application.Scanner" />
       <item itemvalue="Application.ScannerUtils" />
       <item itemvalue="Application.doTest (1)" />
-      <item itemvalue="Application.NettyRpcServerProvider" />
+      <item itemvalue="Application.ApplicationServerMain" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ApplicationServerMain" />
         <item itemvalue="Application.doTest (1)" />
         <item itemvalue="Application.ScannerUtils" />
         <item itemvalue="Application.Scanner" />
         <item itemvalue="Application.doTest" />
-        <item itemvalue="Application.NettyRpcServerProvider" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +217,7 @@
       <workItem from="1633566872251" duration="10185000" />
       <workItem from="1633596707733" duration="3399000" />
       <workItem from="1633601144980" duration="2447000" />
-      <workItem from="1633603624672" duration="5337000" />
+      <workItem from="1633603624672" duration="8449000" />
     </task>
     <servers />
   </component>
@@ -223,9 +225,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1640" y="4" key="#Project_Structure" timestamp="1632910804566">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1662" y="4" key="#Project_Structure" timestamp="1633611005636">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1662" y="4" key="#Project_Structure/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633611005636" />
     <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632910804566" />
     <state x="1614" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1632468330373">
       <screen x="1440" y="0" width="1440" height="860" />
@@ -236,11 +239,15 @@
     </state>
     <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633400315615" />
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632730446058" />
-    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1633601214138">
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1633612846976">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633601214138" />
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633612846976" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
+    <state x="1857" y="107" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1633611058256">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="1857" y="107" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633611058256" />
     <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633600875887">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
@@ -276,29 +283,29 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="123" key="GridCell.Tab.0.bottom" timestamp="1633587161560">
+    <state width="1557" height="234" key="GridCell.Tab.0.bottom" timestamp="1633613388584">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="123" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633587161560" />
+    <state width="1557" height="234" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633613388584" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="123" key="GridCell.Tab.0.center" timestamp="1633587161560">
+    <state width="1557" height="234" key="GridCell.Tab.0.center" timestamp="1633613388584">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="123" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633587161560" />
+    <state width="1557" height="234" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633613388584" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="123" key="GridCell.Tab.0.left" timestamp="1633587161559">
+    <state width="1557" height="234" key="GridCell.Tab.0.left" timestamp="1633613388584">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="123" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633587161559" />
+    <state width="1557" height="234" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633613388584" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="123" key="GridCell.Tab.0.right" timestamp="1633587161560">
+    <state width="1557" height="234" key="GridCell.Tab.0.right" timestamp="1633613388584">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="123" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633587161560" />
+    <state width="1557" height="234" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633613388584" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
     <state width="1557" height="235" key="GridCell.Tab.1.bottom" timestamp="1633442255564">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -352,15 +359,16 @@
     <state x="1613" y="77" width="1102" height="848" maximized="true" key="dock-window-2/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633609565073" />
     <state x="1613" y="77" width="1102" height="848" key="dock-window-2/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633606555573" />
     <state x="332" y="42" width="989" height="647" maximized="true" key="dock-window-2/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632463814793" />
-    <state x="33" y="91" width="956" height="637" key="dock-window-3" timestamp="1633604282060">
+    <state x="378" y="0" width="1054" height="625" key="dock-window-3" timestamp="1633613121210">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="1666" y="82" width="956" height="637" maximized="true" key="dock-window-3/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633603930825" />
-    <state x="33" y="91" width="956" height="637" key="dock-window-3/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633604282060" />
+    <state x="378" y="0" width="1054" height="625" key="dock-window-3/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633613121210" />
     <state x="169" y="57" width="1001" height="508" maximized="true" key="dock-window-3/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632454321733" />
-    <state x="1534" y="90" key="new project wizard" timestamp="1632282066039">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1732" y="99" key="new project wizard" timestamp="1633611073868">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1732" y="99" key="new project wizard/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633611073868" />
     <state x="1534" y="90" key="new project wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632282066039" />
     <state x="2000" y="186" key="refactoring.ChangeSignatureDialog" timestamp="1632446219122">
       <screen x="1440" y="0" width="1440" height="860" />

@@ -1,0 +1,1 @@
+netty=com.fastrpc.transport.netty.client.NettyRpcClientProvider

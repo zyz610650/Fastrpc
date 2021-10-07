@@ -26,6 +26,7 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +35,7 @@ import java.util.concurrent.TimeUnit;
  * @author zyz
  */
 @Slf4j
+@Component
 public class NettyRpcServerProvider {
     /**
      * 服务器端口号
@@ -53,6 +55,13 @@ public class NettyRpcServerProvider {
      * 服务注册中心
      */
     private static RegistryService registryService= SingletonFactory.getInstance(RegistryServiceImpl.class);
+
+    public NettyRpcServerProvider()
+    {
+        log.info("rpc server startup..................");
+        start();
+    }
+
     public void start()
     {
 
@@ -107,7 +116,7 @@ public class NettyRpcServerProvider {
 
     }
 
-    public static void main(String[] args) {
-        new NettyRpcServerProvider().start();
-    }
+//    public static void main(String[] args) {
+//        new NettyRpcServerProvider().start();
+//    }
 }

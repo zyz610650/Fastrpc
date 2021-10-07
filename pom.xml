@@ -11,6 +11,9 @@
     <modules>
         <module>fastrpc-core</module>
         <module>fastrpc-commons</module>
+        <module>fastrpc-example-server</module>
+        <module>fastrpc-example-client</module>
+        <module>fastrpc-example-common</module>
     </modules>
 
     <properties>
@@ -65,21 +68,21 @@
             </plugin>
 
 <!--            checkstyle-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle-maven-plugin.version}</version>
-                <configuration>
-                    <configLocation>config/checkstyle.xml</configLocation>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                <version>${checkstyle-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <configLocation>config/checkstyle.xml</configLocation>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>

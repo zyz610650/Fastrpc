@@ -20,6 +20,10 @@ import java.util.concurrent.ConcurrentHashMap;
 @AllArgsConstructor
 public abstract class Message implements Serializable {
 
+    /**
+     * 用于服务器向客户端发送消息,客户端知道服务器返回的是哪次通信的结果
+     */
+    public int seqId;
 
     /**
      * 用于反射创建对应的消息
@@ -29,6 +33,9 @@ public abstract class Message implements Serializable {
 
 
     private static final Map<Byte,Class<? extends Message>> messageTypeMap=new ConcurrentHashMap<>();
+
+    public Message(int seqId) {
+    }
 
     public static Class<? extends Message> getMessageType(byte messageType)
     {
