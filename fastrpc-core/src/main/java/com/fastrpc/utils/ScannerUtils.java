@@ -1,5 +1,6 @@
 package com.fastrpc.utils;
 
+import com.fastrpc.annotation.RpcReference;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -127,7 +128,7 @@ public class ScannerUtils {
         return cachedAnnotation.get(annotationClazz);
     }
      public static void main(String[] args) {
-         Set<Class<?>> aClass = getClass(Controller.class, "com.fastrpc.service");
+         Set<Class<?>> aClass = getClass(RpcReference.class, "com.fastrpc.service");
          if (aClass!=null)
          for (Class<?> cl:aClass) {
              System.out.println(cl.getName());
