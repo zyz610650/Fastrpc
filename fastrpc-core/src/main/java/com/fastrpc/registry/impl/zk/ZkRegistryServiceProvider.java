@@ -1,11 +1,12 @@
-package com.fastrpc.registry.impl;
+package com.fastrpc.registry.impl.zk;
 
 import com.fastrpc.config.Config;
+import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.loadbalance.LoadBalance;
 import com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance;
+import com.fastrpc.registry.RegistryService;
 import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.utils.CuratorUtils;
-import com.fastrpc.registry.ZkService;
 
 import java.net.InetSocketAddress;
 import java.util.List;
@@ -13,9 +14,10 @@ import java.util.List;
 /**
  * @author yvioo
  */
-public class ZkServiceImpl implements ZkService {
+public class ZkRegistryServiceProvider implements RegistryService {
 
-    static LoadBalance loadBalance=new ConsistentHashLoadBalance();
+    private static LoadBalance loadBalance=new ConsistentHashLoadBalance();
+
 
     /**
      * 项目初始话就需要将所有配置的类和服务器注册到zk里
@@ -41,10 +43,11 @@ public class ZkServiceImpl implements ZkService {
     }
 
     @Override
-    public InetSocketAddress getRpcService(RpcRequestMessage rpcRequestMessage) {
-        List<String> childNodes = CuratorUtils.getChildNodes(rpcRequestMessage.getInterfaceName());
+    public InetSocketAddress getRpcService(RpcRequestMessage msg) {
+    ;
+        List<String> childNodes = CuratorUtils.getChildNodes(msg.getRpcServcieName());
 
-        String address = loadBalance.selectServiceAddress(childNodes, rpcRequestMessage);
+        String address = loadBalance.selectServiceAddress(childNodes, msg);
         String[] split = address.split(":");
         return new InetSocketAddress(split[0],Integer.parseInt(split[1]));
     }

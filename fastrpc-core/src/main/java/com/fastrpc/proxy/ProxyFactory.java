@@ -1,10 +1,11 @@
 package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
-import com.fastrpc.enums.CompressTypeEnum;
+import com.fastrpc.factory.SingletonFactory;
+import com.fastrpc.registry.RegistryService;
+import com.fastrpc.registry.impl.RegistryServiceImpl;
 import com.fastrpc.transport.message.RpcRequestMessage;
-import com.fastrpc.registry.ZkService;
-import com.fastrpc.registry.impl.ZkServiceImpl;
+
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class ProxyFactory  {
         private static Properties properties;
-        private static Map<Class<?>,Class<?>> map=new ConcurrentHashMap<>();
+        public static Map<Class<?>,Class<?>> SERVICE_MAP=new ConcurrentHashMap<>();
 
     /**
      * 发布服务到zk
@@ -35,17 +36,17 @@ public class ProxyFactory  {
                 properties=new Properties();
                 properties.load(in);
                 Set<String> proNames = properties.stringPropertyNames();
-                ZkService zkService=new ZkServiceImpl();
+                RegistryService registryService = SingletonFactory.getInstance(RegistryServiceImpl.class);
                 for (String name: proNames)
                 {
                     if (name.endsWith("Service"))
                     {
 
-                        zkService.registerRpcService(name);
+                        registryService.registerRpcService(name);
                         log.info("refister to zookeeper :[{}]",name);
                         Class<?> interfaceClass=Class.forName(name);
                         Class<?> instanceClass=Class.forName(properties.getProperty(name));
-                        map.put(interfaceClass,instanceClass);
+                        SERVICE_MAP.put(interfaceClass,instanceClass);
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
@@ -62,7 +63,7 @@ public class ProxyFactory  {
         {
 
             try {
-                return map.get(Class.forName(interfaceName));
+                return SERVICE_MAP.get(Class.forName(interfaceName));
             } catch (ClassNotFoundException e) {
                throw new RpcException("no corresponding instance");
             }

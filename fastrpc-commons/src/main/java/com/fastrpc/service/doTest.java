@@ -2,8 +2,6 @@ package com.fastrpc.service;
 
 
 
-import com.fastrpc.annotation.Controller;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -11,7 +9,6 @@ import java.net.URISyntaxException;
 /**
  * @author yvioo
  */
-@Controller
 public class doTest {
     public static void main(String[] args) throws URISyntaxException, IOException {
 
@@ -24,7 +21,8 @@ public class doTest {
 //        System.out.println(   userService.say("zyz"));
 
 
-
+        System.out.println(InfoServiceImpl.class.getInterfaces()[0].getName());
+        System.out.println(doTest.class.toString());
     }
 
 }

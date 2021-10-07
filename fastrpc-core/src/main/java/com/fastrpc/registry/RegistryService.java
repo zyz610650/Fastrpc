@@ -1,13 +1,16 @@
 package com.fastrpc.registry;
 
+import com.fastrpc.config.RpcServiceConfig;
+import com.fastrpc.extension.SPI;
 import com.fastrpc.transport.message.RpcRequestMessage;
 
 import java.net.InetSocketAddress;
 
 /**
- * @author zyz
+ * @author: @zyz
  */
-public interface ZkService {
+@SPI("zk")
+public interface RegistryService {
 
     /**
      * 向zk上注册rpc服务
@@ -23,16 +26,13 @@ public interface ZkService {
 
     /**
      * 获得rpc服务提供者地址
-     * @param rpcRequestMessage
+     * @param msg
      * @return 服务提供者地址
      */
-    public InetSocketAddress getRpcService(RpcRequestMessage rpcRequestMessage);
+    public InetSocketAddress getRpcService(RpcRequestMessage msg);
 
     /**
      * 删除注册到zk上的rpc服务的提供者
      */
     public void delRpcServiceNode(InetSocketAddress inetSocketAddress);
-
-
-
 }

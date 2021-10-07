@@ -29,10 +29,18 @@ public class RpcRequestMessage extends Message implements Serializable {
 
     private Class[] paramTypes;
     private Object[] parameters;
-
-    public RpcRequestMessage(int seqId,String interfaceName, String methodName,String group,Class[] paramTypes, Object[] parameters) {
+    /**
+     * 用于区分接口的多实现
+     */
+    private String group;
+    /**
+     * 版本
+     */
+    private String version;
+    public RpcRequestMessage(int seqId,String interfaceName, String methodName,String group,String version,Class[] paramTypes, Object[] parameters) {
         super.setSeqId(seqId);
-        super.setGroup(group);
+        this.group=group;
+        this.version=version;
         this.interfaceName = interfaceName;
         this.methodName = methodName;
         this.paramTypes = paramTypes;
@@ -49,7 +57,7 @@ public class RpcRequestMessage extends Message implements Serializable {
      * 获得注册到zk的服务名
      * @return
      */
-    public String getRegistryName() {
-        return interfaceName+"$"+getGroup();
+    public String getRpcServcieName() {
+        return interfaceName+"&"+getVersion()+"&"+getGroup();
     }
 }

@@ -2,14 +2,16 @@ package com.fastrpc.transport.netty.client;
 
 
 import com.fastrpc.Exception.RpcException;
+import com.fastrpc.factory.SingletonFactory;
+import com.fastrpc.registry.RegistryService;
+import com.fastrpc.registry.impl.RegistryServiceImpl;
 import com.fastrpc.transport.handler.RpcClientDuplexHandler;
 import com.fastrpc.transport.handler.RpcResponseHandler;
 import com.fastrpc.transport.message.RpcRequestMessage;
 import com.fastrpc.transport.protocol.FrameDecoderProtocol;
 import com.fastrpc.transport.protocol.MessageCodecProtocol;
 import com.fastrpc.utils.SequenceIdGenerator;
-import com.fastrpc.registry.ZkService;
-import com.fastrpc.registry.impl.ZkServiceImpl;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -41,7 +43,7 @@ public class NettyRpcClient {
     private  static Channel channel;
     private  static  Bootstrap bootstrap=new Bootstrap();
     private  static  NioEventLoopGroup group=new NioEventLoopGroup();
-    private  static   final ZkService zkService=new ZkServiceImpl();
+    private  static RegistryService ZK_REGISTRY_SERVICE= SingletonFactory.getInstance(RegistryServiceImpl.class);
     private  static final Object lock=new Object();
 
 
@@ -103,7 +105,7 @@ public class NettyRpcClient {
     public static void doConnect(RpcRequestMessage rpcRequestMessage)
     {
         //从zk 获取服务器IP
-        InetSocketAddress inetAddress = zkService.getRpcService(rpcRequestMessage);
+        InetSocketAddress inetAddress = ZK_REGISTRY_SERVICE.getRpcService(rpcRequestMessage);
 
         ChannelFuture future = null;
         try {

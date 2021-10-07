@@ -21,8 +21,8 @@
       <list>
         <option value="Enum" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,13 +55,11 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\docs" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fastrpc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\fastrpc-commons\src\main\java\com\fastrpc" />
-      <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
-      <recent name="D:\project\java\FastRpc\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.fastrpc.annotation" />
@@ -70,24 +68,13 @@
       <recent name="com.fastrpc.zk" />
       <recent name="com.fastrpc.remoting.handler" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\docs" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\fastrpc-commons\src\main\java\com\fastrpc" />
+      <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
+      <recent name="D:\project\java\FastRpc\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ScannerUtils">
-    <configuration name="AdaptiveTest1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.adaptive.AdaptiveTest1" />
-      <module name="fastrpc-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.adaptive.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.doTest (1)">
     <configuration name="NettyRpcServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.server.NettyRpcServer" />
       <module name="fastrpc-core" />
@@ -127,6 +114,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="doTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
+      <module name="fastrpc-commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="doTest" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
       <module name="fastrpc-core" />
@@ -140,13 +140,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,17 +156,17 @@
     <list>
       <item itemvalue="Application.doTest" />
       <item itemvalue="Application.NettyRpcServer" />
-      <item itemvalue="Application.AdaptiveTest1" />
       <item itemvalue="Application.Scanner" />
       <item itemvalue="Application.ScannerUtils" />
+      <item itemvalue="Application.doTest (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.doTest (1)" />
         <item itemvalue="Application.ScannerUtils" />
         <item itemvalue="Application.Scanner" />
         <item itemvalue="Application.doTest" />
         <item itemvalue="Application.NettyRpcServer" />
-        <item itemvalue="Application.AdaptiveTest1" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +213,8 @@
       <workItem from="1633426869106" duration="9063000" />
       <workItem from="1633438981744" duration="3242000" />
       <workItem from="1633487107456" duration="3585000" />
-      <workItem from="1633521706260" duration="1978000" />
+      <workItem from="1633521706260" duration="2007000" />
+      <workItem from="1633566872251" duration="9582000" />
     </task>
     <servers />
   </component>
@@ -232,15 +235,15 @@
     </state>
     <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633400315615" />
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632730446058" />
-    <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser" timestamp="1633439989743">
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1633574942661">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="2023" y="135" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633439989743" />
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633574942661" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
-    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633489762320">
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1633575292684">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633489762320" />
+    <state x="1777" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633575292684" />
     <state x="1743" y="352" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632718865915" />
     <state x="2008" y="296" width="464" height="274" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1633353678727">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -254,15 +257,16 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1868" y="176" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632567383988" />
-    <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1632366560997">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1739" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1633574754196">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1739" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633574754196" />
     <state x="1709" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632366560997" />
-    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633439882613">
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1633575266589">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state x="450" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633056643520" />
-    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633439882613" />
+    <state x="1940" y="176" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633575266589" />
     <state x="1995" y="131" key="#xdebugger.evaluate" timestamp="1633401658698">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
@@ -271,29 +275,29 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="233" key="GridCell.Tab.0.bottom" timestamp="1633442255567">
+    <state width="1557" height="123" key="GridCell.Tab.0.bottom" timestamp="1633578465139">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="233" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255567" />
+    <state width="1557" height="123" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633578465139" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="233" key="GridCell.Tab.0.center" timestamp="1633442255566">
+    <state width="1557" height="123" key="GridCell.Tab.0.center" timestamp="1633578465139">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="233" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255566" />
+    <state width="1557" height="123" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633578465139" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="233" key="GridCell.Tab.0.left" timestamp="1633442255566">
+    <state width="1557" height="123" key="GridCell.Tab.0.left" timestamp="1633578465138">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="233" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255566" />
+    <state width="1557" height="123" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633578465138" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="233" key="GridCell.Tab.0.right" timestamp="1633442255567">
+    <state width="1557" height="123" key="GridCell.Tab.0.right" timestamp="1633578465139">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="233" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255567" />
+    <state width="1557" height="123" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633578465139" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
     <state width="1557" height="235" key="GridCell.Tab.1.bottom" timestamp="1633442255564">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -336,14 +340,15 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1964" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632390683972" />
-    <state x="153" y="135" width="1248" height="571" maximized="true" key="dock-window-1" timestamp="1633439261394">
+    <state x="169" y="37" width="1148" height="636" key="dock-window-1" timestamp="1633577041084">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="153" y="135" width="1248" height="571" maximized="true" key="dock-window-1/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633439261394" />
+    <state x="169" y="37" width="1148" height="636" key="dock-window-1/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633577041084" />
     <state x="271" y="18" width="965" height="677" maximized="true" key="dock-window-1/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632894432441" />
-    <state x="332" y="42" width="989" height="647" maximized="true" key="dock-window-2" timestamp="1632463814793">
+    <state x="308" y="0" width="1148" height="697" key="dock-window-2" timestamp="1633577860997">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state x="308" y="0" width="1148" height="697" key="dock-window-2/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633577860997" />
     <state x="332" y="42" width="989" height="647" maximized="true" key="dock-window-2/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632463814793" />
     <state x="169" y="57" width="1001" height="508" maximized="true" key="dock-window-3" timestamp="1632454321733">
       <screen x="0" y="0" width="1440" height="860" />
@@ -375,11 +380,6 @@
           <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/JdkSerializeImpl.java</url>
           <line>39</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc/annotation/Scanner.java</url>
-          <line>206</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

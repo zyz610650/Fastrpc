@@ -14,7 +14,7 @@ public @interface RpcService {
      * version
      * @return
      */
-    String version() default "";
+    String version() default "v1.0.0";
 
     /**
      * 选择具体的实现类

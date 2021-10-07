@@ -2,15 +2,17 @@ package com.fastrpc.transport.netty.server;
 
 import com.fastrpc.config.Config;
 
+import com.fastrpc.factory.SingletonFactory;
 import com.fastrpc.proxy.ProxyFactory;
+import com.fastrpc.registry.RegistryService;
+import com.fastrpc.registry.impl.RegistryServiceImpl;
 import com.fastrpc.transport.handler.RpcLogoutHandler;
 import com.fastrpc.transport.handler.RpcServerDuplexHandler;
 import com.fastrpc.transport.handler.RpcRequestHandler;
 
 import com.fastrpc.transport.protocol.FrameDecoderProtocol;
 import com.fastrpc.transport.protocol.MessageCodecProtocol;
-import com.fastrpc.registry.ZkService;
-import com.fastrpc.registry.impl.ZkServiceImpl;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -51,6 +53,10 @@ public class NettyRpcServer {
      */
     private static ProxyFactory proxyFactory=new ProxyFactory();
 
+    /**
+     * 服务注册中心
+     */
+    private static RegistryService registryService= SingletonFactory.getInstance(RegistryServiceImpl.class);
     public void start()
     {
 
@@ -98,9 +104,9 @@ public class NettyRpcServer {
             log.error("shutdown bossGroup and workerGroup");
             boosGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
-            ZkService zkService=new ZkServiceImpl();
+
             log.error("zookeeper: logout [{}] node"+host+port);
-            zkService.delRpcServiceNode(new InetSocketAddress(host,port));
+            registryService.delRpcServiceNode(new InetSocketAddress(host,port));
         }
 
     }

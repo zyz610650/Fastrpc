@@ -29,10 +29,7 @@ public abstract class Message implements Serializable {
      */
     private byte messageType;
 
-    /**
-     * 用于区分接口的多实现
-     */
-    private String group;
+
 
     private static final Map<Byte,Class<? extends Message>> messageTypeMap=new ConcurrentHashMap<>();
 

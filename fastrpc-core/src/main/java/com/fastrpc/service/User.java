@@ -1,12 +1,8 @@
 package com.fastrpc.service;
 
-import com.fastrpc.annotation.Controller;
-import lombok.SneakyThrows;
-
 /**
  * @author yvioo
  */
-@Controller
 public class User {
     private static String name="zyz";
     static {

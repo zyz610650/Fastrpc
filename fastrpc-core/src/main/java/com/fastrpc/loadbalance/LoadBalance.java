@@ -1,5 +1,6 @@
 package com.fastrpc.loadbalance;
 
+import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.extension.SPI;
 import com.fastrpc.transport.message.RpcRequestMessage;
 
