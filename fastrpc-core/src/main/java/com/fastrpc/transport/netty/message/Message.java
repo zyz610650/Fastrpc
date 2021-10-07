@@ -1,8 +1,8 @@
-package com.fastrpc.transport.message;
+package com.fastrpc.transport.netty.message;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -16,12 +16,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @idea:
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Message implements Serializable {
-
-    /**
-     * 用于服务器向客户端发送消息,客户端知道服务器返回的是哪次通信的结果
-     */
-    private int seqId;
 
 
     /**
@@ -43,8 +40,6 @@ public abstract class Message implements Serializable {
      * @return 返回消息类型
      */
     public abstract byte getMessageType();
-
-
 
 
     /**

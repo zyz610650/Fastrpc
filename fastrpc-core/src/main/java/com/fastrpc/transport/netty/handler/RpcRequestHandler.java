@@ -1,8 +1,8 @@
-package com.fastrpc.transport.handler;
+package com.fastrpc.transport.netty.handler;
 
 import com.fastrpc.proxy.ProxyFactory;
-import com.fastrpc.transport.message.RpcRequestMessage;
-import com.fastrpc.transport.message.RpcResponseMessage;
+import com.fastrpc.transport.netty.message.RpcRequestMessage;
+import com.fastrpc.transport.netty.message.RpcResponseMessage;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -23,7 +23,7 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<RpcRequestMes
         RpcResponseMessage responseMessage=new RpcResponseMessage();
         responseMessage.setSeqId(msg.getSeqId());
         try {
-            Object res=ProxyFactory.doMethod(msg);
+            Object res=ProxyFactory.invokeMethod(msg);
             responseMessage.setReturnValue(res);
             responseMessage.setSuccess(true);
 

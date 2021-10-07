@@ -1,4 +1,4 @@
-package com.fastrpc.transport.message;
+package com.fastrpc.transport.netty.message;
 
 
 import lombok.AllArgsConstructor;
@@ -23,7 +23,10 @@ public class RpcResponseMessage extends AbstractResponseMessage {
      * 返回值
      */
     private Object returnValue;
-
+    /**
+     * 用于服务器向客户端发送消息,客户端知道服务器返回的是哪次通信的结果
+     */
+    public int seqId;
 
     public RpcResponseMessage(boolean success,Object returnValue, String exceptionValue) {
         super(success,exceptionValue);

@@ -6,12 +6,12 @@ import com.fastrpc.factory.SingletonFactory;
 import com.fastrpc.proxy.ProxyFactory;
 import com.fastrpc.registry.RegistryService;
 import com.fastrpc.registry.impl.RegistryServiceImpl;
-import com.fastrpc.transport.handler.RpcLogoutHandler;
-import com.fastrpc.transport.handler.RpcServerDuplexHandler;
-import com.fastrpc.transport.handler.RpcRequestHandler;
+import com.fastrpc.transport.netty.handler.RpcLogoutHandler;
+import com.fastrpc.transport.netty.handler.RpcServerDuplexHandler;
+import com.fastrpc.transport.netty.handler.RpcRequestHandler;
 
-import com.fastrpc.transport.protocol.FrameDecoderProtocol;
-import com.fastrpc.transport.protocol.MessageCodecProtocol;
+import com.fastrpc.transport.netty.protocol.FrameDecoderProtocol;
+import com.fastrpc.transport.netty.protocol.MessageCodecProtocol;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  * @author zyz
  */
 @Slf4j
-public class NettyRpcServer {
+public class NettyRpcServerProvider {
     /**
      * 服务器端口号
      */
@@ -48,10 +48,6 @@ public class NettyRpcServer {
      */
     static int threadNums=Config.getServerCpuNum();
 
-    /**
-     * 使得fastRpc服务启动时 提前执行static里的代码
-     */
-    private static ProxyFactory proxyFactory=new ProxyFactory();
 
     /**
      * 服务注册中心
@@ -112,6 +108,6 @@ public class NettyRpcServer {
     }
 
     public static void main(String[] args) {
-        new NettyRpcServer().start();
+        new NettyRpcServerProvider().start();
     }
 }

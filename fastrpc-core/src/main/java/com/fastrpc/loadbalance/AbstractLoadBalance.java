@@ -1,6 +1,6 @@
 package com.fastrpc.loadbalance;
 
-import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
 import java.util.List;
 

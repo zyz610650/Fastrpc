@@ -1,4 +1,4 @@
-package com.fastrpc.transport.handler;
+package com.fastrpc.transport.netty.handler;
 
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;

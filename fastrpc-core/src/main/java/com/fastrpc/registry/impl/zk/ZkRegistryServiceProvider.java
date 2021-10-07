@@ -1,11 +1,10 @@
 package com.fastrpc.registry.impl.zk;
 
 import com.fastrpc.config.Config;
-import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.loadbalance.LoadBalance;
 import com.fastrpc.loadbalance.impl.ConsistentHashLoadBalance;
 import com.fastrpc.registry.RegistryService;
-import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.transport.netty.message.RpcRequestMessage;
 import com.fastrpc.utils.CuratorUtils;
 
 import java.net.InetSocketAddress;

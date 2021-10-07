@@ -1,15 +1,24 @@
 package com.fastrpc.annontation;
 
+import com.fastrpc.Exception.RpcException;
+import com.fastrpc.annotation.RpcReference;
 import com.fastrpc.annotation.RpcService;
 import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.factory.SingletonFactory;
 
+import com.fastrpc.proxy.ProxyFactory;
+import com.fastrpc.proxy.RpcClientProxy;
 import com.fastrpc.registry.RegistryService;
 import com.fastrpc.registry.impl.RegistryServiceImpl;
+import com.fastrpc.transport.RpcRequestTransportService;
+import com.fastrpc.transport.impl.RpcRequestTransportServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Proxy;
 
 /**
  * @author: @zyz
@@ -19,27 +28,54 @@ import org.springframework.stereotype.Component;
 public class SpringBeanPostProcessor implements BeanPostProcessor {
 
     private final RegistryService registryService = SingletonFactory.getInstance(RegistryServiceImpl.class);
+    private final RpcRequestTransportService rpcRequestTransportService=SingletonFactory.getInstance(RpcRequestTransportServiceImpl.class);
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         Class<?> clazz=bean.getClass();
 
         if (clazz.isAnnotationPresent(RpcService.class))
         {
-            RpcService annotation = clazz.getAnnotation(RpcService.class);
+            RpcService rpcService = clazz.getAnnotation(RpcService.class);
 
-            String group=annotation.group();
-            String version=annotation.version();
-            RpcServiceConfig rpcServiceConfig=new RpcServiceConfig(version,group,bean);
+
+            RpcServiceConfig rpcServiceConfig=RpcServiceConfig.builder()
+                    .group(rpcService.group())
+                    .version(rpcService.version())
+                    .service(bean)
+                    .build();
             //向注册中心发布服务
             registryService.registerRpcService(rpcServiceConfig.getRpcServcieName());
+            //添加Bean缓存
+            ProxyFactory.CACHE_BEAN.put(rpcServiceConfig.getRpcServcieName(),bean);
             log.info("refister to zookeeper :[{}]",rpcServiceConfig.getRpcServcieName());
         }
-        return null;
+        return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        Class<?> clazz=bean.getClass();
+       for(Field field: clazz.getDeclaredFields())
+       {
+           if (field.isAnnotationPresent(RpcReference.class))
+           {
+               RpcReference rpcReference=field.getAnnotation(RpcReference.class);
 
-        return null;
+                RpcServiceConfig rpcServiceConfig=RpcServiceConfig.builder()
+                        .version(rpcReference.version())
+                        .group(rpcReference.group())
+                        .service(bean)
+                        .build();
+               RpcClientProxy rpcClientProxy=new RpcClientProxy(rpcServiceConfig,rpcRequestTransportService);
+               Object clientProxy = rpcClientProxy.getProxy(clazz);
+               field.setAccessible(true);
+               try {
+                   field.set(bean,clientProxy);
+               } catch (IllegalAccessException e) {
+                  throw new RpcException(e);
+               }
+           }
+       }
+        return bean;
     }
 }

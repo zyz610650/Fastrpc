@@ -1,9 +1,8 @@
 package com.fastrpc.registry.impl;
 
-import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.extension.ExtensionLoader;
 import com.fastrpc.registry.RegistryService;
-import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
 import java.net.InetSocketAddress;
 

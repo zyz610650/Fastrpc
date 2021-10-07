@@ -1,7 +1,7 @@
 package com.fastrpc.loadbalance.impl;
 
 import com.fastrpc.loadbalance.AbstractLoadBalance;
-import com.fastrpc.transport.message.RpcRequestMessage;
+import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

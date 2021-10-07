@@ -1,4 +1,4 @@
-package com.fastrpc.transport.protocol;
+package com.fastrpc.transport.netty.protocol;
 
 import com.fastrpc.constants.RpcMessageProtocolConstants;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;

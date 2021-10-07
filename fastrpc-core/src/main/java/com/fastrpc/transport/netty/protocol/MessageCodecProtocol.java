@@ -1,15 +1,13 @@
-package com.fastrpc.transport.protocol;
+package com.fastrpc.transport.netty.protocol;
 
 
 import com.fastrpc.compress.Compress;
-import com.fastrpc.config.Config;
 import com.fastrpc.constants.RpcMessageProtocolConstants;
 import com.fastrpc.enums.CompressTypeEnum;
 import com.fastrpc.enums.SerializationTypeEnum;
 import com.fastrpc.extension.ExtensionLoader;
 import com.fastrpc.serializer.Serializer;
-import com.fastrpc.serializer.impl.SerializeImpl;
-import com.fastrpc.transport.message.Message;
+import com.fastrpc.transport.netty.message.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;

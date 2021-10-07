@@ -1,4 +1,4 @@
-package com.fastrpc.transport.message;
+package com.fastrpc.transport.netty.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
