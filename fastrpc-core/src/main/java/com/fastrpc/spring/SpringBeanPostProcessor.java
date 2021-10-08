@@ -1,4 +1,4 @@
-package com.fastrpc.annontation;
+package com.fastrpc.spring;
 
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcReference;
@@ -18,7 +18,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Proxy;
 
 /**
  * @author: @zyz

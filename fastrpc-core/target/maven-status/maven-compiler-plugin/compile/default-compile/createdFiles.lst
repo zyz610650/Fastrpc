@@ -1,0 +1,6 @@
+com\fastrpc\annotation\RpcService.class
+com\fastrpc\annotation\RpcReference.class
+com\fastrpc\spring\SpringBeanPostProcessor.class
+com\fastrpc\annotation\RpcScanner.class
+com\fastrpc\spring\BeanDefinitionScanner.class
+com\fastrpc\spring\BeanScannerRegistrar.class

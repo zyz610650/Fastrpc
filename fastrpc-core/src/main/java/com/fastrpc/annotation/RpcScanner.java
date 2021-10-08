@@ -1,6 +1,8 @@
 package com.fastrpc.annotation;
 
+import com.fastrpc.spring.BeanScannerRegistrar;
 import org.omg.SendingContext.RunTime;
+import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
 
@@ -9,6 +11,7 @@ import java.lang.annotation.*;
  */
 @Documented
 @Target(ElementType.TYPE)
+@Import(BeanScannerRegistrar.class)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RpcScanner {
     /**

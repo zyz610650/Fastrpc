@@ -1,11 +1,9 @@
-package com.fastrpc.annontation;
+package com.fastrpc.spring;
 
 import com.fastrpc.annotation.RpcScanner;
 import com.fastrpc.annotation.RpcService;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
-import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.annotation.AnnotationAttributes;

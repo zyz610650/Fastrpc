@@ -9,13 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="fastrpc-core" />
         <module name="fastrpc-example-common" />
-        <module name="fastrpc-example" />
+        <module name="fastrpc-example-server" />
         <module name="fastrpc-commons" />
         <module name="fastrpc-example-client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="fastrpc-example-server" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
