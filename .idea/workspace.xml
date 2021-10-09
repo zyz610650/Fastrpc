@@ -78,7 +78,7 @@
       <recent name="D:\project\java\FastRpc\config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationMain">
+  <component name="RunManager" selected="Application.ApplicationServerMain">
     <configuration name="ApplicationMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationMain" />
       <module name="fastrpc-example-client" />
@@ -118,12 +118,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scanner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.annotation.Scanner" />
+    <configuration name="SingletonFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.factory.SingletonFactory" />
       <module name="fastrpc-commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.utils.*" />
+          <option name="PATTERN" value="com.fastrpc.factory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,12 +131,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.utils.ScannerUtils" />
+    <configuration name="SpringBeanPostProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.spring.SpringBeanPostProcessor" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.utils.*" />
+          <option name="PATTERN" value="com.fastrpc.spring.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,45 +144,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="doTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.service.doTest" />
-      <module name="fastrpc-commons" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.doTest" />
-      <item itemvalue="Application.Scanner" />
-      <item itemvalue="Application.ScannerUtils" />
       <item itemvalue="Application.ApplicationServerMain" />
       <item itemvalue="Application.ApplicationMain" />
       <item itemvalue="Application.ApplicationServerMain (1)" />
+      <item itemvalue="Application.SingletonFactory" />
+      <item itemvalue="Application.SpringBeanPostProcessor" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApplicationMain" />
         <item itemvalue="Application.ApplicationServerMain" />
+        <item itemvalue="Application.SpringBeanPostProcessor" />
+        <item itemvalue="Application.SingletonFactory" />
+        <item itemvalue="Application.ApplicationMain" />
         <item itemvalue="Application.ApplicationServerMain (1)" />
-        <item itemvalue="Application.ScannerUtils" />
-        <item itemvalue="Application.Scanner" />
       </list>
     </recent_temporary>
   </component>
@@ -236,6 +224,9 @@
       <workItem from="1633603624672" duration="8656000" />
       <workItem from="1633699093025" duration="1620000" />
       <workItem from="1633700739056" duration="195000" />
+      <workItem from="1633742490046" duration="613000" />
+      <workItem from="1633747419826" duration="1424000" />
+      <workItem from="1633781018139" duration="808000" />
     </task>
     <servers />
   </component>
@@ -257,10 +248,10 @@
     </state>
     <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633400315615" />
     <state x="1907" y="230" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632730446058" />
-    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1633612846976">
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1633781690259">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633612846976" />
+    <state x="2023" y="135" width="645" height="569" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781690259" />
     <state x="1965" y="135" key="#com.intellij.ide.util.MemberChooser/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632897569888" />
     <state x="1857" y="107" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1633611058256">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -301,49 +292,49 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="234" key="GridCell.Tab.0.bottom" timestamp="1633700934808">
+    <state width="1557" height="234" key="GridCell.Tab.0.bottom" timestamp="1633781751974">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="234" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633700934808" />
+    <state width="1557" height="234" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781751974" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="234" key="GridCell.Tab.0.center" timestamp="1633700934808">
+    <state width="1557" height="234" key="GridCell.Tab.0.center" timestamp="1633781751974">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="234" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633700934808" />
+    <state width="1557" height="234" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781751974" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="234" key="GridCell.Tab.0.left" timestamp="1633700934808">
+    <state width="1557" height="234" key="GridCell.Tab.0.left" timestamp="1633781751974">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="234" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633700934808" />
+    <state width="1557" height="234" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781751974" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="234" key="GridCell.Tab.0.right" timestamp="1633700934808">
+    <state width="1557" height="234" key="GridCell.Tab.0.right" timestamp="1633781751974">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="234" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633700934808" />
+    <state width="1557" height="234" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781751974" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="235" key="GridCell.Tab.1.bottom" timestamp="1633442255564">
+    <state width="1557" height="235" key="GridCell.Tab.1.bottom" timestamp="1633781336939">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="235" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255564" />
+    <state width="1557" height="235" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781336939" />
     <state width="1397" height="226" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="235" key="GridCell.Tab.1.center" timestamp="1633442255563">
+    <state width="1557" height="235" key="GridCell.Tab.1.center" timestamp="1633781336939">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="235" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255563" />
+    <state width="1557" height="235" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781336939" />
     <state width="1397" height="226" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="235" key="GridCell.Tab.1.left" timestamp="1633442255563">
+    <state width="1557" height="235" key="GridCell.Tab.1.left" timestamp="1633781336939">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="235" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255563" />
+    <state width="1557" height="235" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781336939" />
     <state width="1397" height="226" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="235" key="GridCell.Tab.1.right" timestamp="1633442255564">
+    <state width="1557" height="235" key="GridCell.Tab.1.right" timestamp="1633781336939">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="235" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633442255564" />
+    <state width="1557" height="235" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633781336939" />
     <state width="1397" height="226" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
     <state x="1800" y="133" key="NewModule_or_Project.wizard" timestamp="1632906167032">
       <screen x="1440" y="0" width="1440" height="860" />
@@ -410,6 +401,26 @@
           <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/JdkSerializeImpl.java</url>
           <line>39</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/spring/SpringBeanPostProcessor.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/spring/SpringBeanPostProcessor.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/spring/SpringBeanPostProcessor.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/spring/SpringBeanPostProcessor.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

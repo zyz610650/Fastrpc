@@ -77,4 +77,8 @@ public class SpringBeanPostProcessor implements BeanPostProcessor {
        }
         return bean;
     }
+
+    public static void main (String[] args) {
+        System.out.println (SingletonFactory.getInstance(RpcRequestTransportServiceImpl.class));;
+    }
 }

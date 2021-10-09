@@ -27,11 +27,8 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 /**
+ *
  * @author zyz
- * @title:
- * @seq:
- * @address:
- * @idea:
  */
 @Slf4j
 public class NettyRpcClientProvider implements RpcRequestTransportService {

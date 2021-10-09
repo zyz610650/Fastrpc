@@ -30,7 +30,7 @@ public class BeanScannerRegistrar implements ImportBeanDefinitionRegistrar, Reso
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 
-        log.info("scan All classes...........................");
+        log.info("Scan All classes");
         // 这个类是通过@RpcScan导入的，所以AnnotationMetadata里面就包含了这个注解
         AnnotationAttributes rpcScanAnnotationAttributes=AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(RpcScanner.class.getName()));
         String[] rpcScanBasePackages=new String[0];

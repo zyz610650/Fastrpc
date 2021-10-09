@@ -1,5 +1,8 @@
 package com.fastrpc.factory;
 
+import com.fastrpc.service.User;
+import com.fastrpc.service.doTest;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Map;
@@ -43,5 +46,9 @@ public class SingletonFactory {
 
     return clazz.cast(instance);
 
+    }
+
+    public static void main (String[] args) {
+        System.out.println (SingletonFactory.getInstance(User.class));
     }
 }
