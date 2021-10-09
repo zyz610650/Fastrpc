@@ -10,6 +10,7 @@ import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.StandardAnnotationMetadata;
+import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -45,6 +46,7 @@ public class BeanScannerRegistrar implements ImportBeanDefinitionRegistrar, Reso
             rpcScanBasePackages = new String[]{((StandardAnnotationMetadata) importingClassMetadata).getIntrospectedClass().getPackage().getName()};
         }
         //添加RpcService为Spring需要扫描的注解
+
         BeanDefinitionScanner rpcServiceScanner=new BeanDefinitionScanner(registry, RpcService.class);
         BeanDefinitionScanner springBeanScanner=new BeanDefinitionScanner(registry, Component.class);
         if(resourceLoader!=null)

@@ -45,8 +45,8 @@ public class RpcClientProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         int seqId = SequenceIdGenerator.nextId();
-
-        RpcRequestMessage msg = new RpcRequestMessage(seqId,proxy.getClass().getCanonicalName()
+    
+        RpcRequestMessage msg = new RpcRequestMessage(seqId,method.getDeclaringClass().getCanonicalName()
                 ,method.getName(),method.getParameterTypes(),args
                 ,rpcServiceConfig.getGroup(),rpcServiceConfig.getVersion());
 

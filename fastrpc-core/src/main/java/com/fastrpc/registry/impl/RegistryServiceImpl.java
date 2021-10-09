@@ -15,7 +15,7 @@ public class RegistryServiceImpl implements RegistryService {
     private RegistryService registryService;
 
     public RegistryServiceImpl () {
-        ExtensionLoader.getExtensionLoader(RegistryService.class).getExtension();
+        registryService=ExtensionLoader.getExtensionLoader(RegistryService.class).getExtension();
     }
 
     @Override

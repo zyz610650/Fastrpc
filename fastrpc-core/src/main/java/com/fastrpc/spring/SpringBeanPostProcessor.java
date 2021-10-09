@@ -34,8 +34,8 @@ public class SpringBeanPostProcessor implements BeanPostProcessor {
 
         if (clazz.isAnnotationPresent(RpcService.class))
         {
+            log.info("[{}] is annotated with  [{}]", clazz.getName(), RpcService.class.getCanonicalName());
             RpcService rpcService = clazz.getAnnotation(RpcService.class);
-
 
             RpcServiceConfig rpcServiceConfig=RpcServiceConfig.builder()
                     .group(rpcService.group())
@@ -44,6 +44,7 @@ public class SpringBeanPostProcessor implements BeanPostProcessor {
                     .build();
             //向注册中心发布服务
             registryService.registerRpcService(rpcServiceConfig.getRpcServcieName());
+
             //添加Bean缓存
             ProxyFactory.CACHE_BEAN.put(rpcServiceConfig.getRpcServcieName(),bean);
             log.info("refister to zookeeper :[{}]",rpcServiceConfig.getRpcServcieName());
@@ -63,10 +64,10 @@ public class SpringBeanPostProcessor implements BeanPostProcessor {
                 RpcServiceConfig rpcServiceConfig=RpcServiceConfig.builder()
                         .version(rpcReference.version())
                         .group(rpcReference.group())
-                        .service(bean)
+                        .service(field.getType ())
                         .build();
                RpcClientProxy rpcClientProxy=new RpcClientProxy(rpcServiceConfig,rpcRequestTransportService);
-               Object clientProxy = rpcClientProxy.getProxy(clazz);
+               Object clientProxy = rpcClientProxy.getProxy(field.getType ());
                field.setAccessible(true);
                try {
                    field.set(bean,clientProxy);
@@ -78,7 +79,5 @@ public class SpringBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 
-    public static void main (String[] args) {
-        System.out.println (SingletonFactory.getInstance(RpcRequestTransportServiceImpl.class));;
-    }
+
 }

@@ -59,7 +59,7 @@ public class NettyRpcServerProvider {
     public NettyRpcServerProvider()
     {
         log.info("rpc server startup..................");
-        start();
+      //  start();
     }
 
     public void start()
@@ -116,7 +116,5 @@ public class NettyRpcServerProvider {
 
     }
 
-//    public static void main(String[] args) {
-//        new NettyRpcServerProvider().start();
-//    }
+
 }

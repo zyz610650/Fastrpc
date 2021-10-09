@@ -10,8 +10,9 @@ import java.lang.annotation.*;
  * @author: @zyz
  */
 @Documented
-@Target(ElementType.TYPE)
+//和@Component等类一样将类加到IOC容器中
 @Import(BeanScannerRegistrar.class)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RpcScanner {
     /**

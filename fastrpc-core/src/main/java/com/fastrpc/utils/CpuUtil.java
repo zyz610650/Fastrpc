@@ -8,6 +8,8 @@ package com.fastrpc.utils;
  * @idea:
  */
 
+import com.fastrpc.annotation.RpcService;
+
 /**
  * 获取CPU核心数
  */
