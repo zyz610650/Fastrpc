@@ -45,7 +45,7 @@ public class RpcClientProxy implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
         int seqId = SequenceIdGenerator.nextId();
-    
+        // 通过方法获取类名，如果通过proxy获取则得到的是代理类的类名
         RpcRequestMessage msg = new RpcRequestMessage(seqId,method.getDeclaringClass().getCanonicalName()
                 ,method.getName(),method.getParameterTypes(),args
                 ,rpcServiceConfig.getGroup(),rpcServiceConfig.getVersion());
