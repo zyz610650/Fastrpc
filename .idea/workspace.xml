@@ -78,23 +78,10 @@
       <recent name="D:\project\java\FastRpc\docs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationMain">
-    <configuration name="ApplicationMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationMain" />
+  <component name="RunManager" selected="Application.ApplicationServerMain">
+    <configuration name="ApplicationClintMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationClintMain" />
       <module name="fastrpc-example-client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fastrpc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApplicationServerMain (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationServerMain" />
-      <module name="fastrpc-example-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.fastrpc.*" />
@@ -107,6 +94,19 @@
     </configuration>
     <configuration name="ApplicationServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rpc.ApplicationServerMain" />
+      <module name="fastrpc-example-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationServerMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationServerMain" />
       <module name="fastrpc-example-server" />
       <extension name="coverage">
         <pattern>
@@ -157,30 +157,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.ApplicationServerMain" />
-      <item itemvalue="Application.ApplicationMain" />
-      <item itemvalue="Application.ApplicationServerMain (1)" />
       <item itemvalue="Application.SingletonFactory" />
       <item itemvalue="Application.SpringBeanPostProcessor" />
+      <item itemvalue="Application.ApplicationClintMain" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApplicationMain" />
-        <item itemvalue="Application.ApplicationServerMain (1)" />
+        <item itemvalue="Application.ApplicationServerMain" />
+        <item itemvalue="Application.ApplicationClintMain" />
         <item itemvalue="Application.SpringBeanPostProcessor" />
         <item itemvalue="Application.ApplicationServerMain" />
         <item itemvalue="Application.SingletonFactory" />
@@ -239,7 +236,11 @@
       <workItem from="1633700739056" duration="195000" />
       <workItem from="1633742490046" duration="613000" />
       <workItem from="1633747419826" duration="1424000" />
-      <workItem from="1633781018139" duration="6222000" />
+      <workItem from="1633781018139" duration="6542000" />
+      <workItem from="1633917544562" duration="11000" />
+      <workItem from="1633919846940" duration="3000" />
+      <workItem from="1633920003277" duration="2000" />
+      <workItem from="1634042052571" duration="5110000" />
     </task>
     <servers />
   </component>
@@ -247,14 +248,15 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1662" y="4" key="#Project_Structure" timestamp="1633700751218">
+    <state x="1662" y="4" key="#Project_Structure" timestamp="1634042252689">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1662" y="4" key="#Project_Structure/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633700751218" />
+    <state x="1662" y="4" key="#Project_Structure/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634042252689" />
     <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632910804566" />
-    <state x="1614" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1632468330373">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1633" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1634044816538">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1633" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634044816538" />
     <state x="1614" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632468330373" />
     <state x="1959" y="230" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1633400315615">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -305,49 +307,49 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="270" key="GridCell.Tab.0.bottom" timestamp="1633787199281">
+    <state width="1557" height="266" key="GridCell.Tab.0.bottom" timestamp="1634047214144">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="270" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633787199281" />
+    <state width="1557" height="266" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="270" key="GridCell.Tab.0.center" timestamp="1633787199281">
+    <state width="1557" height="266" key="GridCell.Tab.0.center" timestamp="1634047214144">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="270" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633787199281" />
+    <state width="1557" height="266" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="270" key="GridCell.Tab.0.left" timestamp="1633787199281">
+    <state width="1557" height="266" key="GridCell.Tab.0.left" timestamp="1634047214144">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="270" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633787199281" />
+    <state width="1557" height="266" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="270" key="GridCell.Tab.0.right" timestamp="1633787199281">
+    <state width="1557" height="266" key="GridCell.Tab.0.right" timestamp="1634047214144">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="270" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633787199281" />
+    <state width="1557" height="266" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="192" key="GridCell.Tab.1.bottom" timestamp="1633786639813">
+    <state width="1557" height="266" key="GridCell.Tab.1.bottom" timestamp="1634047214145">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="192" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633786639813" />
+    <state width="1557" height="266" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="192" key="GridCell.Tab.1.center" timestamp="1633786639813">
+    <state width="1557" height="266" key="GridCell.Tab.1.center" timestamp="1634047214145">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="192" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633786639813" />
+    <state width="1557" height="266" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="192" key="GridCell.Tab.1.left" timestamp="1633786639813">
+    <state width="1557" height="266" key="GridCell.Tab.1.left" timestamp="1634047214145">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="192" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633786639813" />
+    <state width="1557" height="266" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="192" key="GridCell.Tab.1.right" timestamp="1633786639813">
+    <state width="1557" height="266" key="GridCell.Tab.1.right" timestamp="1634047214145">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="192" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633786639813" />
+    <state width="1557" height="266" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
     <state x="1800" y="133" key="NewModule_or_Project.wizard" timestamp="1632906167032">
       <screen x="1440" y="0" width="1440" height="860" />
@@ -370,6 +372,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1964" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632390683972" />
+    <state x="1774" y="158" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1634045582220">
+      <screen x="1440" y="0" width="1600" height="860" />
+    </state>
+    <state x="1774" y="158" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634045582220" />
     <state x="354" y="0" width="1102" height="848" key="dock-window-1" timestamp="1633604435492">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
@@ -414,11 +420,6 @@
           <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/serializer/impl/JdkSerializeImpl.java</url>
           <line>39</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/spring/SpringBeanPostProcessor.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

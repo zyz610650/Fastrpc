@@ -14,10 +14,7 @@ import com.fastrpc.transport.netty.protocol.FrameDecoderProtocol;
 import com.fastrpc.transport.netty.protocol.MessageCodecProtocol;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -59,7 +56,14 @@ public class NettyRpcServerProvider {
     public NettyRpcServerProvider()
     {
         log.info("rpc server startup..................");
-      //  start();
+        //netty随rpc框架启动所加载,随项目运行结束
+        //netty服务器关闭
+        Thread thread=new Thread (()->{
+            start();
+        },"netty-thread");
+        thread.setDaemon (true);
+        thread.start ();
+
     }
 
     public void start()
@@ -100,9 +104,18 @@ public class NettyRpcServerProvider {
 
                 }
             });
-            Channel channel=bootstrap.bind(port).sync().channel();
+//            Channel channel=bootstrap.bind(port).sync().channel();
+            ChannelFuture channelFuture = bootstrap.bind (port);
+            Channel channel = channelFuture.channel ();
+            System.out.println ("=========="+channel);
+            channelFuture.addListener (future -> {
+                System.out.println ("客户端连接");
+            });
 
-            channel.closeFuture().sync();
+            ChannelFuture closeFuture = channel.closeFuture ();
+            closeFuture.sync ();
+
+            System.out.println ();
         } catch (InterruptedException e) {
             log.error("occur exception when start server:", e);
         } finally {

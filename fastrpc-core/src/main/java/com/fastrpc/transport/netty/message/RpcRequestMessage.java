@@ -55,6 +55,6 @@ public class RpcRequestMessage extends Message implements Serializable {
      * @return
      */
     public String getRpcServcieName() {
-        return interfaceName+"&"+getVersion()+"&"+getGroup();
+        return interfaceName+"&"+getGroup()+"&"+getVersion();
     }
 }

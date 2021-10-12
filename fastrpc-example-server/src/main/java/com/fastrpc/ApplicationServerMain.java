@@ -12,14 +12,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @RpcScanner(basePackage = "com.fastrpc")
 public class ApplicationServerMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationServerMain.class);
         String[] beanDefinitionNames = ctx.getBeanDefinitionNames ();
         for (String name:beanDefinitionNames)
         {
             System.out.println (name);
         }
-        NettyRpcServerProvider nettyRpcServerProvider = (NettyRpcServerProvider) ctx.getBean("nettyRpcServerProvider",NettyRpcServerProvider.class);
-        nettyRpcServerProvider.start();
+        Thread.sleep (9000);
+//        NettyRpcServerProvider nettyRpcServerProvider = (NettyRpcServerProvider) ctx.getBean("nettyRpcServerProvider",NettyRpcServerProvider.class);
+//        nettyRpcServerProvider.start();
+//        System.out.println ("结束");
+
     }
 }

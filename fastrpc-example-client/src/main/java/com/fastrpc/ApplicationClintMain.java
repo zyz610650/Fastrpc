@@ -9,11 +9,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @author: @zyz
  */
 @RpcScanner(basePackage = "com.fastrpc")
-public class ApplicationMain {
-   public static void main(String[] args) {
-      ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationMain.class);
+public class ApplicationClintMain {
+   public static void main(String[] args) throws InterruptedException {
+      ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationClintMain.class);
       HelloController helloController= (HelloController) ctx.getBean("helloController");
       helloController.sayHi();
+
    }
 
 }

@@ -22,9 +22,9 @@ public class HelloController {
     {
         User user=new User();
         user.setName("zyz");
-        helloService.sayHi(user);
+        System.out.println (helloService.sayHi(user));
         user.setName("mzd");
-        hiService.sayHi(user);
+        System.out.println (hiService.sayHi(user));
 
     }
 
