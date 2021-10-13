@@ -14,7 +14,5 @@ public class ApplicationClintMain {
       ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationClintMain.class);
       HelloController helloController= (HelloController) ctx.getBean("helloController");
       helloController.sayHi();
-
    }
-
 }

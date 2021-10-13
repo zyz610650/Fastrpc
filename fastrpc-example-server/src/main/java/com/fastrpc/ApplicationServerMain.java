@@ -3,26 +3,22 @@ package com.fastrpc;
 
 import com.fastrpc.annotation.RpcScanner;
 import com.fastrpc.transport.netty.server.NettyRpcServerProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @author: @zyz
  */
+@Slf4j
 @RpcScanner(basePackage = "com.fastrpc")
 public class ApplicationServerMain {
 
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationServerMain.class);
-        String[] beanDefinitionNames = ctx.getBeanDefinitionNames ();
-        for (String name:beanDefinitionNames)
-        {
-            System.out.println (name);
-        }
-        Thread.sleep (9000);
-//        NettyRpcServerProvider nettyRpcServerProvider = (NettyRpcServerProvider) ctx.getBean("nettyRpcServerProvider",NettyRpcServerProvider.class);
-//        nettyRpcServerProvider.start();
-//        System.out.println ("结束");
+//        NettyRpcServerProvider server = ctx.getBean (NettyRpcServerProvider.class);
+//        server.start ();
+        Thread.sleep (10000);
 
     }
 }

@@ -48,22 +48,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fastrpc-example-common/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39885056" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\resources" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java\com" />
+      <recent name="D:\project\java\FastRpc\docs" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.fastrpc" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\fastrpc-example-common\src\main\java" />
-      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java" />
-      <recent name="D:\project\java\FastRpc\fastrpc-commons\src\main\java\com\fastrpc" />
-      <recent name="D:\project\java\FastRpc\fastrpc-core\src\main\resources" />
-      <recent name="D:\project\java\FastRpc\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.fastrpc" />
@@ -72,10 +71,12 @@
       <recent name="com.fastrpc.annotation" />
       <recent name="com.fastrpc.extension" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java\com" />
-      <recent name="D:\project\java\FastRpc" />
-      <recent name="D:\project\java\FastRpc\docs" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\java\FastRpc\img" />
+      <recent name="D:\project\java\FastRpc\resource" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\resources" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-common\src\main\java" />
+      <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ApplicationClintMain">
@@ -144,12 +145,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SingletonFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.factory.SingletonFactory" />
-      <module name="fastrpc-commons" />
+    <configuration name="NettyRpcClientProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.client.NettyRpcClientProvider" />
+      <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.factory.*" />
+          <option name="PATTERN" value="com.fastrpc.transport.netty.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -185,18 +186,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.ApplicationServerMain" />
-      <item itemvalue="Application.SingletonFactory" />
       <item itemvalue="Application.SpringBeanPostProcessor" />
       <item itemvalue="Application.ApplicationClintMain" />
       <item itemvalue="Application.ApplicationServerMain (1)" />
+      <item itemvalue="Application.NettyRpcClientProvider" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ApplicationClintMain" />
+        <item itemvalue="Application.NettyRpcClientProvider" />
         <item itemvalue="Application.ApplicationServerMain (1)" />
         <item itemvalue="Application.ApplicationServerMain" />
         <item itemvalue="Application.SpringBeanPostProcessor" />
-        <item itemvalue="Application.ApplicationServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +258,7 @@
       <workItem from="1633919846940" duration="3000" />
       <workItem from="1633920003277" duration="2000" />
       <workItem from="1634042052571" duration="5110000" />
-      <workItem from="1634115248501" duration="2479000" />
+      <workItem from="1634115248501" duration="11044000" />
     </task>
     <servers />
   </component>
@@ -265,10 +266,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1662" y="4" key="#Project_Structure" timestamp="1634042252689">
+    <state x="1662" y="4" key="#Project_Structure" timestamp="1634122111915">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1662" y="4" key="#Project_Structure/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634042252689" />
+    <state x="1662" y="4" key="#Project_Structure/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634122111915" />
     <state x="1640" y="4" key="#Project_Structure/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632910804566" />
     <state x="1633" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1634044816538">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -320,62 +321,67 @@
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state x="1995" y="131" key="#xdebugger.evaluate/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633401658698" />
-    <state x="1940" y="184" key="FileChooserDialogImpl" timestamp="1632906165162">
-      <screen x="1440" y="0" width="1440" height="860" />
+    <state x="1996" y="184" key="FileChooserDialogImpl" timestamp="1634119318712">
+      <screen x="1440" y="0" width="1600" height="860" />
     </state>
+    <state x="1996" y="184" key="FileChooserDialogImpl/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634119318712" />
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="286" key="GridCell.Tab.0.bottom" timestamp="1634117276374">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="133" key="GridCell.Tab.0.bottom" timestamp="1634126723847">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="286" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
+    <state width="1397" height="133" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634126723847" />
+    <state width="1557" height="266" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634121835889" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="286" key="GridCell.Tab.0.center" timestamp="1634117276374">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="133" key="GridCell.Tab.0.center" timestamp="1634126723847">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="286" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
+    <state width="1397" height="133" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634126723847" />
+    <state width="1557" height="266" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634121835889" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="286" key="GridCell.Tab.0.left" timestamp="1634117276373">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="133" key="GridCell.Tab.0.left" timestamp="1634126723847">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="286" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276373" />
+    <state width="1397" height="133" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634126723847" />
+    <state width="1557" height="266" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634121835889" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="286" key="GridCell.Tab.0.right" timestamp="1634117276374">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="133" key="GridCell.Tab.0.right" timestamp="1634126723847">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="286" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
+    <state width="1397" height="133" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634126723847" />
+    <state width="1557" height="266" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634121835889" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="266" key="GridCell.Tab.1.bottom" timestamp="1634047214145">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="266" key="GridCell.Tab.1.bottom" timestamp="1634122774334">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state width="1397" height="266" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634122774334" />
     <state width="1557" height="266" key="GridCell.Tab.1.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="266" key="GridCell.Tab.1.center" timestamp="1634047214145">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="266" key="GridCell.Tab.1.center" timestamp="1634122774333">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state width="1397" height="266" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634122774333" />
     <state width="1557" height="266" key="GridCell.Tab.1.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="266" key="GridCell.Tab.1.left" timestamp="1634047214145">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="266" key="GridCell.Tab.1.left" timestamp="1634122774333">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state width="1397" height="266" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634122774333" />
     <state width="1557" height="266" key="GridCell.Tab.1.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
-    <state width="1557" height="266" key="GridCell.Tab.1.right" timestamp="1634047214145">
-      <screen x="1440" y="0" width="1600" height="860" />
+    <state width="1397" height="266" key="GridCell.Tab.1.right" timestamp="1634122774333">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state width="1397" height="266" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1634122774333" />
     <state width="1557" height="266" key="GridCell.Tab.1.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214145" />
     <state width="1397" height="226" key="GridCell.Tab.1.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632827927736" />
     <state x="1800" y="133" key="NewModule_or_Project.wizard" timestamp="1632906167032">
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1800" y="133" key="NewModule_or_Project.wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906167032" />
-    <state x="1686" y="8" key="SettingsEditor" timestamp="1634117745762">
+    <state x="1686" y="8" key="SettingsEditor" timestamp="1634119328969">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117745762" />
+    <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634119328969" />
     <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632703663020" />
     <state x="2039" y="207" key="chooseDestDirectoryDialog" timestamp="1633354965284">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -410,10 +416,10 @@
     <state x="1666" y="82" width="956" height="637" maximized="true" key="dock-window-3/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633603930825" />
     <state x="155" y="107" width="1054" height="625" key="dock-window-3/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633699640868" />
     <state x="169" y="57" width="1001" height="508" maximized="true" key="dock-window-3/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632454321733" />
-    <state x="1732" y="99" key="new project wizard" timestamp="1633611073868">
+    <state x="1732" y="99" key="new project wizard" timestamp="1634120275851">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1732" y="99" key="new project wizard/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633611073868" />
+    <state x="1732" y="99" key="new project wizard/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634120275851" />
     <state x="1534" y="90" key="new project wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632282066039" />
     <state x="2000" y="186" key="refactoring.ChangeSignatureDialog" timestamp="1632446219122">
       <screen x="1440" y="0" width="1440" height="860" />

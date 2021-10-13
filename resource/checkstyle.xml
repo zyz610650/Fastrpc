@@ -4,31 +4,52 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-
+    <!--
+        If you set the basedir property below, then all reported file
+        names will be relative to the specified directory. See
+http://checkstyle.sourceforge.net/5.x/config.html#Checker
+        <property name="basedir" value="${basedir}"/>
+    -->
+    <!-- 检查每个包中是否有java注释文件，默认有package-info.java -->
+    <!-- <module name="JavadocPackage"/> -->
     <!-- 检查文件是否以一个空行结束 -->
     <module name="NewlineAtEndOfFile"/>
 
+    <!-- 检查property文件中是否有相同的key -->
+    <module name="Translation"/>
     <!-- 文件长度不超过1500行 -->
     <module name="FileLength">
         <property name="max" value="1500"/>
     </module>
 
+    <!-- 检查文件中是否含有'\t' -->
+    <module name="FileTabCharacter"/>
+
+    <!-- Miscellaneous other checks. -->
+    <module name="RegexpSingleline">
+        <property name="format" value="\s+$"/>
+        <property name="minimum" value="0"/>
+        <property name="maximum" value="0"/>
+        <property name="message" value="Line has trailing spaces."/>
+    </module>
+
     <!-- 每个java文件一个语法树 -->
     <module name="TreeWalker">
-        <!-- import检查-->
-        <!-- 检查是否从非法的包中导入了类 -->
-        <module name="IllegalImport"/>
-        <!-- 检查是否导入了多余的包 -->
-        <module name="RedundantImport"/>
-        <!-- 没用的import检查，比如：1.没有被用到2.重复的3.import java.lang的4.import 与该类在同一个package的 -->
-        <module name="UnusedImports" />
-
         <!-- 注释检查 -->
-        <!-- 检查构造函数的javadoc -->
-        <module name="JavadocType">
-            <property name="allowUnknownTags" value="true"/>
-            <message key="javadoc.missing" value="类注释：缺少Javadoc注释。"/>
+        <!-- 检查方法和构造函数的javadoc -->
+        <module name="JavadocMethod">
+            <property name="tokens" value="METHOD_DEF" />
         </module>
+        <!-- 检查类和接口的javadoc。默认不检查author和version tags -->
+        <module name="JavadocType"/>
+        <!-- 检查变量的javadoc -->
+        <module name="JavadocVariable"/>
+        <!-- 检查javadoc的格式 -->
+        <module name="JavadocStyle">
+            <property name="checkFirstSentence" value="false"/>
+        </module>
+        <!-- 检查TODO:注释 -->
+        <module name="TodoComment"/>
 
         <!-- 命名检查 -->
         <!-- 局部的final变量，包括catch中的参数的检查 -->
@@ -59,22 +80,53 @@
         <!-- 定义检查 -->
         <!-- 检查数组类型定义的样式 -->
         <module name="ArrayTypeStyle"/>
+        <!-- 检查方法名、构造函数、catch块的参数是否是final的 -->
+        <!-- <module name="FinalParameters"/> -->
         <!-- 检查long型定义是否有大写的“L” -->
         <module name="UpperEll"/>
 
+
+        <!-- Checks for Headers                                -->
+        <!-- See http://checkstyle.sf.net/config_header.html   -->
+        <!-- <module name="Header">                            -->
+        <!-- The follow property value demonstrates the ability     -->
+        <!-- to have access to ANT properties. In this case it uses -->
+        <!-- the ${basedir} property to allow Checkstyle to be run  -->
+        <!-- from any directory within a project. See property      -->
+        <!-- expansion,                                             -->
+        <!-- http://checkstyle.sf.net/config.html#properties        -->
+        <!-- <property                                              -->
+        <!--     name="headerFile"                                  -->
+        <!--     value="${basedir}/java.header"/>                   -->
+        <!-- </module> -->
+
+        <!-- Following interprets the header file as regular expressions. -->
+        <!-- <module name="RegexpHeader"/>                                -->
+
+
+        <!-- import检查-->
+        <!-- 避免使用* -->
+        <module name="AvoidStarImport"/>
+        <!-- 检查是否从非法的包中导入了类 -->
+        <module name="IllegalImport"/>
+        <!-- 检查是否导入了多余的包 -->
+        <module name="RedundantImport"/>
+        <!-- 没用的import检查，比如：1.没有被用到2.重复的3.import java.lang的4.import 与该类在同一个package的 -->
+        <module name="UnusedImports" />
+
         <!-- 长度检查 -->
-        <!-- 每行不超过140个字符 -->
+        <!-- 每行不超过150个字符 -->
         <module name="LineLength">
-            <property name="max" value="140" />
+            <property name="max" value="150" />
         </module>
-        <!-- 方法不超过50行 -->
+        <!-- 方法不超过150行 -->
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF" />
-            <property name="max" value="50" />
+            <property name="max" value="150" />
         </module>
         <!-- 方法的参数个数不超过5个。 并且不对构造方法进行检查-->
         <module name="ParameterNumber">
-            <property name="max" value="5" />
+            <property name="max" value="10" />
             <property name="ignoreOverriddenMethods" value="true"/>
             <property name="tokens" value="METHOD_DEF" />
         </module>
@@ -84,6 +136,10 @@
         <module name="MethodParamPad" />
         <!-- 在类型转换时，不允许左圆括号右边有空格，也不允许与右圆括号左边有空格 -->
         <module name="TypecastParenPad" />
+        <!-- Iterator -->
+        <!-- <module name="EmptyForIteratorPad"/> -->
+        <!-- 检查尖括号 -->
+        <!-- <module name="GenericWhitespace"/> -->
         <!-- 检查在某个特定关键字之后应保留空格 -->
         <module name="NoWhitespaceAfter"/>
         <!-- 检查在某个特定关键字之前应保留空格 -->
@@ -97,11 +153,13 @@
         <!-- 检查分隔符周围是否有空白 -->
         <module name="WhitespaceAround"/>
 
+
         <!-- 修饰符检查 -->
         <!-- 检查修饰符的顺序是否遵照java语言规范，默认public、protected、private、abstract、static、final、transient、volatile、synchronized、native、strictfp -->
         <module name="ModifierOrder"/>
         <!-- 检查接口和annotation中是否有多余修饰符，如接口方法不必使用public -->
         <module name="RedundantModifier"/>
+
 
         <!-- 代码块检查 -->
         <!-- 检查是否有嵌套代码块 -->
@@ -115,7 +173,10 @@
         <!-- 检查右大括号位置 -->
         <module name="RightCurly"/>
 
+
         <!-- 代码检查 -->
+        <!-- 检查是否在同一行初始化 -->
+        <!-- <module name="AvoidInlineConditionals"/> -->
         <!-- 检查空的代码段 -->
         <module name="EmptyStatement"/>
         <!-- 检查在重写了equals方法后是否重写了hashCode方法 -->
@@ -124,8 +185,15 @@
         <module name="HiddenField">
             <property name="tokens" value="VARIABLE_DEF"/>
         </module>
+        <!-- 检查是否使用工厂方法实例化 -->
+        <module name="IllegalInstantiation"/>
         <!-- 检查子表达式中是否有赋值操作 -->
         <module name="InnerAssignment"/>
+        <!-- 检查是否有"魔术"数字 -->
+        <module name="MagicNumber">
+            <property name="ignoreNumbers" value="0, 1"/>
+            <property name="ignoreAnnotation" value="true"/>
+        </module>
         <!-- 检查switch语句是否有default -->
         <module name="MissingSwitchDefault"/>
         <!-- 检查是否有过度复杂的布尔表达式 -->
@@ -135,50 +203,33 @@
 
         <!-- 类设计检查 -->
         <!-- 检查类是否为扩展设计l -->
+        <!-- <module name="DesignForExtension"/> -->
         <!-- 检查只有private构造函数的类是否声明为final -->
         <module name="FinalClass"/>
+        <!-- 检查工具类是否有putblic的构造器 -->
+        <module name="HideUtilityClassConstructor"/>
         <!-- 检查接口是否仅定义类型 -->
         <module name="InterfaceIsType"/>
-        <!-- 检查类成员的可见度 检查类成员的可见性。只有static final 成员是public的
-        除非在本检查的protectedAllowed和packagedAllowed属性中进行了设置-->
-        <module name="VisibilityModifier">
-            <property name="packageAllowed" value="true"/>
-            <property name="protectedAllowed" value="true"/>
-        </module>
-
-        <!-- 语法 -->
-        <!-- String的比较不能用!= 和 == -->
-        <module name="StringLiteralEquality"/>
-        <!-- 限制for循环最多嵌套2层 -->
-        <module name="NestedForDepth">
-            <property name="max" value="2"/>
-        </module>
-        <!-- if最多嵌套3层 -->
-        <module name="NestedIfDepth">
-            <property name="max" value="3"/>
-        </module>
-        <!-- 检查未被注释的main方法,排除以Appllication结尾命名的类 -->
-        <module name="UncommentedMain">
-            <property name="excludedClasses" value=".*[Application,Test]$"/>
-        </module>
-        <!-- 禁止使用System.out.println -->
-        <module name="Regexp">
-            <property name="format" value="System\.out\.println"/>
-            <property name="illegalPattern" value="true"/>
-        </module>
-        <!-- return个数 3个-->
-        <module name="ReturnCount">
-            <property name="max" value="3"/>
-        </module>
-        <!--try catch 异常处理数量 3-->
-        <module name="NestedTryDepth ">
-            <property name="max" value="3"/>
-        </module>
-        <!-- clone方法必须调用了super.clone() -->
-        <module name="SuperClone" />
-        <!-- finalize 必须调用了super.finalize() -->
-        <module name="SuperFinalize" />
+        <!-- 检查类成员的可见度 -->
+        <module name="VisibilityModifier"/>
 
 
+        <!-- 其他检查 -->
+        <!-- 文件中使用了System.out.print等
+        <module name="GenericIllegalRegexp">
+            <property name="format" value="System\.out\.print"/>
+        </module>
+        <module name="GenericIllegalRegexp">
+            <property name="format" value="System\.exit"/>
+        </module>
+        <module name="GenericIllegalRegexp">
+            <property name="format" value="printStackTrace"/>
+        </module>-->
+
+        <!-- 代码质量 -->
+        <!-- 圈复杂度
+        <module name="CyclomaticComplexity">
+              <property name="max" value="2"/>
+        </module> -->
     </module>
 </module>

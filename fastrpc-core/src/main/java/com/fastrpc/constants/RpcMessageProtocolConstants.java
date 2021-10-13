@@ -43,9 +43,4 @@ public class RpcMessageProtocolConstants {
     public static  byte COMPRESSTYPE= CompressTypeEnum.GZIP.getCode();
 
 
-
-
-
-
-
 }

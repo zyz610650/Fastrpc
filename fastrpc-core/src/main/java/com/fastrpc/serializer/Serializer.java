@@ -4,10 +4,6 @@ import com.fastrpc.extension.SPI;
 
 /**
  * @author zyz
- * @title:
- * @seq:
- * @address:
- * @idea:
  */
 
 @SPI("kyro")

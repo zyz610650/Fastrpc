@@ -36,7 +36,7 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) {
-        ByteBuf buf=ctx.alloc().buffer();
+        ByteBuf buf = ctx.alloc().buffer();
         //魔数 4byte
         buf.writeBytes(RpcMessageProtocolConstants.MAGIC_NUMBER);
         // 版本 1byte
