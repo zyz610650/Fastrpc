@@ -26,7 +26,7 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
 
         if (promise==null)
         {
-            throw new RpcException("***method execute exception");
+            throw new RpcException("method execute exception");
         }
         /**
          * 异步执行结果返回给等待客户端等待的线程

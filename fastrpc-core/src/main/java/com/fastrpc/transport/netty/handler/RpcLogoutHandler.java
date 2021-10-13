@@ -16,10 +16,9 @@ public class RpcLogoutHandler extends ChannelInboundHandlerAdapter {
     /**
      * channel 连接正常断开触发
      * @param ctx
-     * @throws Exception
      */
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    public void channelInactive(ChannelHandlerContext ctx) {
         log.info("client {[]} logout", ctx.channel().remoteAddress());
         ctx.close();
     }
@@ -28,10 +27,9 @@ public class RpcLogoutHandler extends ChannelInboundHandlerAdapter {
      * channel 连接异常断开触发
      * @param ctx
      * @param cause
-     * @throws Exception
      */
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
 
         log.info("Exception: client  [{}] is closed", ctx.channel());
         ctx.close();

@@ -52,7 +52,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.39885056" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -78,10 +78,23 @@
       <recent name="D:\project\java\FastRpc\docs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationServerMain">
+  <component name="RunManager" selected="Application.ApplicationClintMain">
     <configuration name="ApplicationClintMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationClintMain" />
       <module name="fastrpc-example-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationServerMain (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationServerMain" />
+      <module name="fastrpc-example-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.fastrpc.*" />
@@ -157,13 +170,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -173,14 +188,15 @@
       <item itemvalue="Application.SingletonFactory" />
       <item itemvalue="Application.SpringBeanPostProcessor" />
       <item itemvalue="Application.ApplicationClintMain" />
+      <item itemvalue="Application.ApplicationServerMain (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApplicationServerMain" />
         <item itemvalue="Application.ApplicationClintMain" />
+        <item itemvalue="Application.ApplicationServerMain (1)" />
+        <item itemvalue="Application.ApplicationServerMain" />
         <item itemvalue="Application.SpringBeanPostProcessor" />
         <item itemvalue="Application.ApplicationServerMain" />
-        <item itemvalue="Application.SingletonFactory" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +257,7 @@
       <workItem from="1633919846940" duration="3000" />
       <workItem from="1633920003277" duration="2000" />
       <workItem from="1634042052571" duration="5110000" />
+      <workItem from="1634115248501" duration="2479000" />
     </task>
     <servers />
   </component>
@@ -307,29 +324,29 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1940" y="184" key="FileChooserDialogImpl/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906165162" />
-    <state width="1557" height="266" key="GridCell.Tab.0.bottom" timestamp="1634047214144">
+    <state width="1557" height="286" key="GridCell.Tab.0.bottom" timestamp="1634117276374">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="266" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
+    <state width="1557" height="286" key="GridCell.Tab.0.bottom/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
     <state width="1397" height="170" key="GridCell.Tab.0.bottom/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
-    <state width="1557" height="266" key="GridCell.Tab.0.center" timestamp="1634047214144">
+    <state width="1557" height="286" key="GridCell.Tab.0.center" timestamp="1634117276374">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="266" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
+    <state width="1557" height="286" key="GridCell.Tab.0.center/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
     <state width="1397" height="170" key="GridCell.Tab.0.center/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="266" key="GridCell.Tab.0.left" timestamp="1634047214144">
+    <state width="1557" height="286" key="GridCell.Tab.0.left" timestamp="1634117276373">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="266" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
+    <state width="1557" height="286" key="GridCell.Tab.0.left/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276373" />
     <state width="1397" height="170" key="GridCell.Tab.0.left/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221908" />
-    <state width="1557" height="266" key="GridCell.Tab.0.right" timestamp="1634047214144">
+    <state width="1557" height="286" key="GridCell.Tab.0.right" timestamp="1634117276374">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
     <state width="1397" height="222" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@0.0.1440.860" timestamp="1633059900559" />
-    <state width="1557" height="266" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634047214144" />
+    <state width="1557" height="286" key="GridCell.Tab.0.right/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117276374" />
     <state width="1397" height="170" key="GridCell.Tab.0.right/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632915221909" />
     <state width="1557" height="266" key="GridCell.Tab.1.bottom" timestamp="1634047214145">
       <screen x="1440" y="0" width="1600" height="860" />
@@ -355,10 +372,10 @@
       <screen x="1440" y="0" width="1440" height="860" />
     </state>
     <state x="1800" y="133" key="NewModule_or_Project.wizard/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632906167032" />
-    <state x="1686" y="8" key="SettingsEditor" timestamp="1633315013124">
+    <state x="1686" y="8" key="SettingsEditor" timestamp="1634117745762">
       <screen x="1440" y="0" width="1600" height="860" />
     </state>
-    <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1633315013124" />
+    <state x="1686" y="8" key="SettingsEditor/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1634117745762" />
     <state x="1661" y="76" key="SettingsEditor/1440.0.1440.860/0.0.1440.860@1440.0.1440.860" timestamp="1632703663020" />
     <state x="2039" y="207" key="chooseDestDirectoryDialog" timestamp="1633354965284">
       <screen x="1440" y="0" width="1600" height="860" />

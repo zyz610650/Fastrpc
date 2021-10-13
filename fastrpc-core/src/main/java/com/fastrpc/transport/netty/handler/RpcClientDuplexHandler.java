@@ -22,7 +22,7 @@ public class RpcClientDuplexHandler extends ChannelDuplexHandler {
         if (event.state()==IdleState.WRITER_IDLE)
         {
             //发送一个心跳包
-            log.debug("*** per 5s send ping");
+            log.debug("per 5s send ping");
             ctx.writeAndFlush(new PingMessage());
         }
 

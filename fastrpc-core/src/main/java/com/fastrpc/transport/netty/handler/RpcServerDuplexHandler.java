@@ -20,7 +20,7 @@ public class RpcServerDuplexHandler extends ChannelDuplexHandler {
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         IdleStateEvent event= (IdleStateEvent) evt;
         if (event.state()== IdleState.READER_IDLE){
-            log.debug("*** 15s no receive data close client");
+            log.debug("15s no receive data close client");
             ctx.channel().close();
         }
 

@@ -55,7 +55,7 @@ public class NettyRpcServerProvider {
 
     public NettyRpcServerProvider()
     {
-        log.info("rpc server startup..................");
+        log.info("Rpc server startup");
         //netty随rpc框架启动所加载,随项目运行结束
         //netty服务器关闭
         Thread thread=new Thread (()->{
@@ -68,7 +68,6 @@ public class NettyRpcServerProvider {
 
     public void start()
     {
-
         LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
         RpcServerDuplexHandler DUPLEX_HANDLER=new RpcServerDuplexHandler();
@@ -104,18 +103,10 @@ public class NettyRpcServerProvider {
 
                 }
             });
-//            Channel channel=bootstrap.bind(port).sync().channel();
-            ChannelFuture channelFuture = bootstrap.bind (port);
-            Channel channel = channelFuture.channel ();
-            System.out.println ("=========="+channel);
-            channelFuture.addListener (future -> {
-                System.out.println ("客户端连接");
-            });
+           Channel channel=bootstrap.bind(port).sync().channel();
 
             ChannelFuture closeFuture = channel.closeFuture ();
             closeFuture.sync ();
-
-            System.out.println ();
         } catch (InterruptedException e) {
             log.error("occur exception when start server:", e);
         } finally {

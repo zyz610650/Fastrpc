@@ -1,6 +1,7 @@
 package com.fastrpc.transport.netty.protocol;
 
 
+import com.fastrpc.Exception.RpcException;
 import com.fastrpc.compress.Compress;
 import com.fastrpc.constants.RpcMessageProtocolConstants;
 import com.fastrpc.enums.CompressTypeEnum;
@@ -35,7 +36,6 @@ import java.util.List;
 public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> list) {
-//        log.info("============================发送数据 {}",msg);
         ByteBuf buf=ctx.alloc().buffer();
         //魔数 4byte
         buf.writeBytes(RpcMessageProtocolConstants.MAGIC_NUMBER);
@@ -58,14 +58,13 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
         buf.writeInt(len);
         //message
         buf.writeBytes(bytes);
-//        log.info("============================发送完毕 {}");
+
         list.add(buf);
 
     }
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
-//        log.info("============================接收到数据 {}");
         byte[] maicNum =new byte[4];
         in.readBytes(maicNum,0,4);
 
@@ -111,12 +110,12 @@ public class MessageCodecProtocol extends MessageToMessageCodec<ByteBuf, Message
     private void checkMagicNumber(byte[] maicNum)
     {
         if (maicNum.length!=RpcMessageProtocolConstants.MAGIC_NUMBER.length) {
-            throw new IllegalArgumentException("Unknown magic code: " + Arrays.toString(maicNum));
+            throw new RpcException("Unknown magic code: " + Arrays.toString(maicNum));
         }
         for (int i=0;i<maicNum.length;i++)
         {
             if (maicNum[i]!=RpcMessageProtocolConstants.MAGIC_NUMBER[i]) {
-                throw new IllegalArgumentException("Unknown magic code: " + Arrays.toString(maicNum));
+                throw new RpcException ("Unknown magic code: " + Arrays.toString(maicNum));
             }
         }
     }
