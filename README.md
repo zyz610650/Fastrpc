@@ -6,7 +6,7 @@
 
 1.Fastrpc是一个第三方对接框架,该框架可以将重复的功能或模块抽取为服务，提高开发效率。
 
-2.该项目在实现上使用zookeeper作为注册中心、netty作为底层通信的框架并且fastrpc支持与spring等常见框架结合使用,。
+2.该项目在实现上使用zookeeper作为注册中心、netty作为底层通信的框架并且fastrpc支持与SpringBoot框架结合使用,。
 
 3.此项目还没在线上环境中使用过，目前仅适合用于学习与研究，项目也会进一步完善。
 
@@ -78,13 +78,12 @@ public class HiServiceImpl implements HelloService {
 public class ApplicationServerMain {
 
     public static void main(String[] args) throws InterruptedException {
-
+        ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationServerMain.class);
         log.debug ("rpc start");
         // 测试时防止fastrpc框架会随着主线程结束而结束
          Thread.sleep (100000);
     }
 }
-
 
 ```
 
