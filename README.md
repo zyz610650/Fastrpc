@@ -74,11 +74,11 @@ public class HiServiceImpl implements HelloService {
  * fastrpc 配合框架使用,fastrpc会随着项目启动而自动运行
  */
 @Slf4j
-@RpcScanner(basePackage = "com.fastrpc")
 public class ApplicationServerMain {
 
     public static void main(String[] args) throws InterruptedException {
-        ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationServerMain.class);
+        //fastRpc会随着BeanBox框架加载而启动
+       ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext ("classpath:beanbox.xml");
         log.debug ("rpc start");
         // 测试时防止fastrpc框架会随着主线程结束而结束
          Thread.sleep (100000);
@@ -89,11 +89,11 @@ public class ApplicationServerMain {
 
 **4>RpcClient**
 
-```javascript
+```java
 /**
  * @author: @zyz
  */
-@Component
+@Bean
 public class HelloController {
 
 
@@ -120,11 +120,11 @@ public class HelloController {
 /**
  * @author: @zyz
  */
-@RpcScanner(basePackage = "com.fastrpc")
+
 public class ApplicationClintMain {
    public static void main(String[] args) throws InterruptedException {
-      ConfigurableApplicationContext ctx=new AnnotationConfigApplicationContext(ApplicationClintMain.class);
-      HelloController helloController= (HelloController) ctx.getBean("helloController");
+     ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext ("classpath:beanbox.xml");
+      HelloController helloController= (HelloController) applicationContext.getBean("helloController");
       helloController.sayHi();
    }
 }
@@ -214,6 +214,12 @@ public interface Serializer {
 具体可见我的博客: 
 
 https://blog.csdn.net/qq_39552268/article/details/120541616
+
+
+
+#### 5>IOC/DI & web支持
+
+
 
 
 
