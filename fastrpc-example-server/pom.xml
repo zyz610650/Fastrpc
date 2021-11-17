@@ -12,6 +12,7 @@
     <artifactId>fastrpc-example-server</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.fastrpc</groupId>
             <artifactId>fastrpc-core</artifactId>

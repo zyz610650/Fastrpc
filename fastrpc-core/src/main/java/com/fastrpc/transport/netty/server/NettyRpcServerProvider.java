@@ -1,5 +1,6 @@
 package com.fastrpc.transport.netty.server;
 
+import com.beanbox.beans.annotation.Bean;
 import com.fastrpc.config.Config;
 
 import com.fastrpc.factory.SingletonFactory;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  * @author zyz
  */
 @Slf4j
-@Component
+@Bean
 public class NettyRpcServerProvider {
     /**
      * 服务器端口号
@@ -68,7 +69,7 @@ public class NettyRpcServerProvider {
 
     public void start()
     {
-        LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
+        LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.INFO);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
         RpcServerDuplexHandler DUPLEX_HANDLER=new RpcServerDuplexHandler();
         EventLoopGroup boosGroup=new NioEventLoopGroup();

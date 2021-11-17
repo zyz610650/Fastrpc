@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+<!--    annotation注册器 用于添加自定义注解  annotationRegistryFactory为固定名称-->
+    <bean id="annotationRegistryFactory"  class="com.fastrpc.web.AnnotationRegister"/>
+
+<!--    Bean processor接口-->
+    <bean class="com.fastrpc.web.MyBeanPostProcessor"/>
+
+<!--    Bean-->
+    <bean-scan base-package="com.fastrpc"/>
+
+
+
+</beans>

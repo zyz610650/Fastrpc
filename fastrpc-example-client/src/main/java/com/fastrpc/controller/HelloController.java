@@ -1,5 +1,6 @@
 package com.fastrpc.controller;
 
+import com.beanbox.beans.annotation.Bean;
 import com.fastrpc.annotation.RpcReference;
 import com.fastrpc.annotation.RpcService;
 import com.fastrpc.dto.User;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author: @zyz
  */
-@Component
+@Bean
 public class HelloController {
 
 

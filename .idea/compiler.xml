@@ -7,12 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="fastrpc-core" />
         <module name="fastrpc-example-common" />
+        <module name="fastrpc-example-client" />
+        <module name="fastrpc-core" />
+        <module name="beanbox-commons" />
+        <module name="beanbox-core" />
         <module name="fastrpc-example-server" />
         <module name="fastrpc-commons" />
-        <module name="fastrpc-example-client" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="beanbox-webtest" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

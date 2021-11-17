@@ -14,6 +14,7 @@ import com.fastrpc.transport.RpcRequestTransportService;
 import com.fastrpc.transport.impl.RpcRequestTransportServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
@@ -24,12 +25,13 @@ import java.lang.reflect.Field;
  */
 @Slf4j
 @Component
-public class SpringBeanPostProcessor implements BeanPostProcessor {
+public class SpringBeanPostProcessor implements BeanPostProcessor{
 
     private final RegistryService registryService = SingletonFactory.getInstance(RegistryServiceImpl.class);
     private final RpcRequestTransportService rpcRequestTransportService=SingletonFactory.getInstance(RpcRequestTransportServiceImpl.class);
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+
         Class<?> clazz=bean.getClass();
 
         if (clazz.isAnnotationPresent(RpcService.class))
