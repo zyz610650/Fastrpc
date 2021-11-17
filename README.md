@@ -219,7 +219,8 @@ https://blog.csdn.net/qq_39552268/article/details/120541616
 
 #### 5>IOC/DI & web支持
 
-
+BeanBox是一个功能齐全且兼容性很好的一款IOC/AOP工具，用于Java6或以上环境。除了实现了IOC, Aop这些主要功能之外, 该框架还提供了大量可对外扩展的接口，方便使用者在Bean对象的生命周期中能够对对象的状态进行管理和增强。
+**项目地址：** https://github.com/zyz610650/beanbox
 
 
 
