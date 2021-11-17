@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+<!--  annotation注册器-->
+
+    <bean class="com.fastrpc.web.MyBeanPostProcessor"/>
+
+<!--bean 扫描路径-->
+    <bean-scan base-package="com.fastrpc"/>
+
+
+
+
+</beans>

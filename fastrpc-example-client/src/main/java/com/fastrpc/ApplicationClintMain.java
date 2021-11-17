@@ -3,8 +3,7 @@ package com.fastrpc;
 import com.beanbox.context.suppport.ClassPathXmlApplicationContext;
 import com.fastrpc.annotation.RpcScanner;
 import com.fastrpc.controller.HelloController;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 /**
  * @author: @zyz

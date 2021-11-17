@@ -67,7 +67,7 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
      */
     public static void init(){
 
-        LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.DEBUG);
+        LoggingHandler LOGGING_HANDLER=new LoggingHandler(LogLevel.INFO);
         MessageCodecProtocol MESSAGE_CODEC=new MessageCodecProtocol();
         RpcClientDuplexHandler DUPLEX_HANDLER=new RpcClientDuplexHandler();
         RpcResponseHandler RESPONSE_HANDLER=new RpcResponseHandler();

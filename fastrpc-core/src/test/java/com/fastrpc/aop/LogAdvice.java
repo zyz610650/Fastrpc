@@ -1,16 +1,17 @@
 package com.fastrpc.aop;
 
+import com.beanbox.beans.annotation.Bean;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @author: @zyz
  */
 
 @Aspect
-@Component
+@Bean
 public class LogAdvice {
 
 	@Pointcut("@annotation(com.fastrpc.annotation.RpcService)")

@@ -16,6 +16,8 @@ public class HelloServiceImpl implements HelloService {
     }
     @Override
     public String sayHi(User user) {
+        System.out.println ("sayHi 方法被执行");
         return "Hello, I am "+user.getName();
     }
+
 }

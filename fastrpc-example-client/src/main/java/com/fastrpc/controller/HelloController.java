@@ -5,7 +5,7 @@ import com.fastrpc.annotation.RpcReference;
 import com.fastrpc.annotation.RpcService;
 import com.fastrpc.dto.User;
 import com.fastrpc.service.HelloService;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @author: @zyz

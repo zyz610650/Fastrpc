@@ -1,6 +1,7 @@
 package com.fastrpc.web;
 
 import com.beanbox.beans.processor.BeanPostProcessor;
+import com.beanbox.exception.BeanException;
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcReference;
 import com.fastrpc.annotation.RpcService;
@@ -13,7 +14,7 @@ import com.fastrpc.registry.impl.RegistryServiceImpl;
 import com.fastrpc.transport.RpcRequestTransportService;
 import com.fastrpc.transport.impl.RpcRequestTransportServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
+
 
 import java.lang.reflect.Field;
 
@@ -25,7 +26,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 	private final RegistryService registryService = SingletonFactory.getInstance(RegistryServiceImpl.class);
 	private final RpcRequestTransportService rpcRequestTransportService=SingletonFactory.getInstance(RpcRequestTransportServiceImpl.class);
 	@Override
-	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeanException {
 
 		Class<?> clazz=bean.getClass();
 
@@ -50,7 +51,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 	}
 
 	@Override
-	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeanException {
 		Class<?> clazz=bean.getClass();
 		for(Field field: clazz.getDeclaredFields())
 		{
