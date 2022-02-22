@@ -20,22 +20,26 @@ import java.util.concurrent.ConcurrentMap;
  *  1.getExtension方法中传过参获取实现类
  *  2.如果getExtension没有传参,则从SPI获取默认实现类
  *  下面对应了两个重载的放啊
+ *  每一个接口都对应一个ExtensionLoader
  * @author: @zyz
  */
 @Slf4j
 public class ExtensionLoader<T> {
     private static final String SERVICES_DIRECTORY = "META-INF/services/";
-    //为每一个接口保存一个加载类
+    // 这俩key为Class
+    //为每一个接口保存一个加载类 保存ExtensionLoader
     private static final ConcurrentMap<Class<?>, ExtensionLoader<?>> EXTENSION_LOADERS = new ConcurrentHashMap<Class<?>, ExtensionLoader<?>>();
+    // 保存所有接口的所有实现类 class 对应的实例对象 保存具体类的对象   未实例的实现类的class类: 实例话的实现类  根据Class获得对象实例
     private static final ConcurrentMap<Class<?>, Object> EXTENSION_INSTANCES = new ConcurrentHashMap<Class<?>, Object>();
 
     private final Class<?> type;
 
-
-
-    //缓存接口的实现类的Class
+ // 实例缓存，属于某个接口对应的ExtensionLoad实例的缓存
+    // 这俩key为String
+    //缓存接口配置文件中所有实现类的对应的Class 这些Class都是通过loadClass加载，并没有链接和初始化 name:实现类为链接的的class
     private final Holder<Map<String, Class<?>>> cachedClasses = new Holder<Map<String, Class<?>>>();
-    // 保存Class实例化过的类
+    // 保存name 对应 Class实例化过的类 这个接口所有实现类的实例
+    // cachedInstances name: holder  该Name指定接口对应实现类的实例化对象 放到Holder中 根据Name获得对象实例
     private final ConcurrentMap<String, Holder<Object>> cachedInstances = new ConcurrentHashMap<String, Holder<Object>>();
     private volatile String cachedDefaultName;
 
@@ -99,6 +103,7 @@ public class ExtensionLoader<T> {
         {
             return getDefaultExtension();
         }
+        // cachedInstances name: holder  该Name指定接口对应实现类的实例化对象 放到Holder中
         Holder<Object> holder=cachedInstances.get(name);
         if(holder == null)
         {
@@ -135,6 +140,7 @@ public class ExtensionLoader<T> {
         T instance= (T) EXTENSION_INSTANCES.get(clazz);
         if (instance==null){
             try {
+                // 这样写二次获取的逻辑是 不使用锁来防止多线程重新创建，提高效率，就算对各线程同时创建对象，最后从缓存Map中取到的对象一定是最后保存的，所以重新从缓存中获取了 不加锁提高效率
                 EXTENSION_INSTANCES.putIfAbsent(clazz,clazz.newInstance());
                 instance= (T) EXTENSION_INSTANCES.get(clazz);
             } catch (Exception e) {
@@ -145,6 +151,10 @@ public class ExtensionLoader<T> {
         return instance;
     }
 
+    /**
+     * 加载这个接口所有实现类的Class
+     * @return
+     */
     private Map<String, Class<?>> getExtensionClasses() {
         Map<String,Class<?>> classes=cachedClasses.get();
         if (classes==null)

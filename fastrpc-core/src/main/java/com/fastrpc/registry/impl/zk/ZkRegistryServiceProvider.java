@@ -43,7 +43,7 @@ public class ZkRegistryServiceProvider implements RegistryService {
 
     @Override
     public InetSocketAddress getRpcService(RpcRequestMessage msg) {
-    ;
+
         List<String> childNodes = CuratorUtils.getChildNodes(msg.getRpcServcieName());
 
         String address = loadBalance.selectServiceAddress(childNodes, msg);

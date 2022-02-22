@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * @author zyz
+ * Ketama算法
  */
 
 public class ConsistentHashLoadBalance extends AbstractLoadBalance {
