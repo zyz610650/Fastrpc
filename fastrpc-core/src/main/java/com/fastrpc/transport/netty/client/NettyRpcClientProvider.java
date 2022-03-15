@@ -132,21 +132,25 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
             channel.writeAndFlush(msg);
             DefaultPromise promise = new DefaultPromise(NettyRpcClientProvider.channel.eventLoop());
             RpcResponseHandler.PROMISES.put(msg.getSeqId(), promise);
-            promise.await();
+            // 服务器2s内没有返回结果 则默认执行失败
+            promise.await(2000,TimeUnit.MILLISECONDS);
 
             if (promise.isSuccess()) {
                 log.info("do method success: [{}]", msg);
                 return promise.getNow();
             } else {
                 log.error("remoting service exception " + promise.cause());
-                throw new RpcException(promise.cause().getMessage());
+                if (promise.getNow()==null) throw new RpcException("network is timeout");
+                else  throw new RpcException(promise.cause().getMessage());
+
             }
         }else{
             channel.close();
             throw new IllegalStateException("connection is closed");
         }
         } catch (InterruptedException e) {
-         throw new IllegalStateException(e);
+            log.error("service exception " + e);
+             throw new IllegalStateException(e);
      }
     }
 

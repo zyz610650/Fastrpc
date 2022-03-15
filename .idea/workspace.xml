@@ -12,14 +12,7 @@
       <change beforePath="$PROJECT_DIR$/../beanbox/beanbox-commons/beanbox-commons.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../beanbox/beanbox-core/beanbox-core.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-commons/fastrpc-commons.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc/extension/ExtensionLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc/extension/ExtensionLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/fastrpc-core.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/loadbalance/impl/ConsistentHashLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/loadbalance/impl/ConsistentHashLoadBalance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/registry/impl/zk/ZkRegistryServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/registry/impl/zk/ZkRegistryServiceProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-example-client/fastrpc-example-client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-example-common/fastrpc-example-common.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-example-server/fastrpc-example-server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -101,7 +94,7 @@
       <recent name="D:\project\java\FastRpc\docs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationServerMain (1)">
+  <component name="RunManager" selected="Application.Test">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -193,12 +186,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringBeanPostProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.spring.SpringBeanPostProcessor" />
-      <module name="fastrpc-core" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.extension.Test" />
+      <module name="fastrpc-commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.spring.*" />
+          <option name="PATTERN" value="com.fastrpc.extension.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -208,18 +201,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.ApplicationServerMain" />
-      <item itemvalue="Application.SpringBeanPostProcessor" />
       <item itemvalue="Application.ApplicationClintMain" />
       <item itemvalue="Application.ApplicationServerMain (1)" />
       <item itemvalue="Application.NettyRpcClientProvider" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.ApplicationClintMain" />
         <item itemvalue="Application.ApplicationServerMain (1)" />
         <item itemvalue="Application.NettyRpcClientProvider" />
         <item itemvalue="Application.ApplicationServerMain" />
-        <item itemvalue="Application.SpringBeanPostProcessor" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +302,21 @@
       <workItem from="1645502452855" duration="114000" />
       <workItem from="1645502580576" duration="25000" />
       <workItem from="1645502626157" duration="331000" />
-      <workItem from="1645517012226" duration="5011000" />
+      <workItem from="1645517012226" duration="5163000" />
+      <workItem from="1645794367113" duration="140000" />
+      <workItem from="1645859027438" duration="21000" />
+      <workItem from="1645968067678" duration="783000" />
+      <workItem from="1646289818671" duration="484000" />
+      <workItem from="1646314392446" duration="833000" />
+      <workItem from="1646376406320" duration="10000" />
+      <workItem from="1646655632617" duration="1233000" />
+      <workItem from="1646918872680" duration="5000" />
+      <workItem from="1647168916656" duration="3000" />
+      <workItem from="1647220263552" duration="132000" />
+      <workItem from="1647229552250" duration="1841000" />
+      <workItem from="1647240389922" duration="62000" />
+      <workItem from="1647245485933" duration="4129000" />
+      <workItem from="1647307789313" duration="3987000" />
     </task>
     <servers />
   </component>
