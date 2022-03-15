@@ -13,7 +13,7 @@ public class RpcConnectHandler extends ChannelInboundHandlerAdapter  {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        log.warn("channelInactive:{}", ctx.channel().localAddress());
+        log.warn("channelInactive:客户端[{}]和远程断开连接", ctx.channel().localAddress());
         ctx.pipeline().remove(this);
         ctx.channel().close();
 //        reconnection(ctx);
@@ -22,7 +22,7 @@ public class RpcConnectHandler extends ChannelInboundHandlerAdapter  {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         if (cause instanceof IOException) {
-            log.warn("exceptionCaught:客户端[{}]和远程断开连接", ctx.channel().localAddress());
+            log.warn("exceptionCaught:客户端[{}]和远程异常断开连接", ctx.channel().localAddress());
         } else {
             log.error(cause.getMessage());
         }
@@ -33,19 +33,6 @@ public class RpcConnectHandler extends ChannelInboundHandlerAdapter  {
     }
 
 
-//    private void reconnection(ChannelHandlerContext ctx) {
-//        log.info("5s之后重新建立连接");
-//        ctx.channel().eventLoop().schedule(new Runnable() {
-//            @Override
-//            public void run() {
-//                boolean connect = client.connect();
-//                if (connect) {
-//                    log.info("重新连接成功");
-//                } else {
-//                    reconnection(ctx);
-//                }
-//            }
-//        }, 5, TimeUnit.SECONDS);
-//    }
+
 
 }

@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/../beanbox/beanbox-commons/beanbox-commons.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../beanbox/beanbox-core/beanbox-core.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcConnectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcConnectHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +316,8 @@
       <workItem from="1647229552250" duration="1841000" />
       <workItem from="1647240389922" duration="62000" />
       <workItem from="1647245485933" duration="4129000" />
-      <workItem from="1647307789313" duration="5337000" />
+      <workItem from="1647307789313" duration="6530000" />
+      <workItem from="1647332487059" duration="2056000" />
     </task>
     <servers />
   </component>
