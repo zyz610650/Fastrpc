@@ -1,11 +1,15 @@
 package com.fastrpc.flow;
 
+import javax.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 
 /**
  * TPS: timeStamp/rate 默认一秒一次
  */
-public abstract class AbstractFlowRating implements FlowRating{
+public  class FlowTask {
+
+    // 类名+方法名
+    private String taskName;
 
     /**
      * 时间单位 默认为秒
@@ -23,18 +27,25 @@ public abstract class AbstractFlowRating implements FlowRating{
     private  int num=10;
 
 
-    public AbstractFlowRating() {
+    public FlowTask(String taskName) {
+        this.taskName = taskName;
     }
 
-    public AbstractFlowRating(TimeUnit timeUnit, long timeStamp, int num) {
+    public FlowTask(String taskName, @Nullable TimeUnit timeUnit,@Nullable long timeStamp, @Nullable int num) {
+        this.taskName = taskName;
         this.timeUnit = timeUnit;
         this.timeStamp = timeStamp;
         this.num = num;
     }
 
-    public AbstractFlowRating(long timeStamp, int num) {
-        this.timeStamp = timeStamp;
-        this.num = num;
+
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
     public TimeUnit getTimeUnit() {

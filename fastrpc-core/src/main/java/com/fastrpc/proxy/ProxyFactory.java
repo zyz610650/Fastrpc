@@ -1,8 +1,12 @@
 package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
+import com.fastrpc.annotation.RpcLimit;
 import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.extension.ExtensionLoader;
+import com.fastrpc.flow.FlowTask;
+import com.fastrpc.flow.LimitRateService;
+import com.fastrpc.flow.LimitRateServiceImpl;
 import com.fastrpc.transport.RpcRequestTransportService;
 import com.fastrpc.transport.impl.RpcRequestTransportServiceImpl;
 import com.fastrpc.transport.netty.message.RpcRequestMessage;
@@ -18,6 +22,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zyz
@@ -29,7 +34,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ProxyFactory   {
         private static Properties properties;
         public static Map<String,Object> CACHE_BEAN=new ConcurrentHashMap<>();
-
+        private static LimitRateService limitRateService=new LimitRateServiceImpl();
 
     /**
      * 获得实现类class
@@ -71,6 +76,24 @@ public class ProxyFactory   {
         Method method ;
         try {
             method = instanceClass.getMethod(methodName, paramTypes);
+
+            //方法级别限流处理
+           if( method.isAnnotationPresent(RpcLimit.class))
+           {
+               RpcLimit annotation = method.getAnnotation(RpcLimit.class);
+               int num= annotation.limitNums();
+               long time=annotation.limitTime();
+               TimeUnit timeUnit = annotation.timeUnit();
+               String taskName=new StringBuilder(interfaceName).append("$").append(methodName).toString();
+               FlowTask flowTask=new FlowTask(taskName,timeUnit,time,num);
+               if (limitRateService.isOver(flowTask))
+               {
+                   log.error("Method execute failure,the reasion is the server overload: ");
+                   throw new RpcException("Method execute failure,the reasion is  "+taskName+" is  overload");
+               }
+           }
+
+
             Object res = method.invoke(instanceClass.newInstance(), parameters);
             return res;
         } catch (Exception e) {
@@ -79,6 +102,7 @@ public class ProxyFactory   {
         }
 
     }
+
 
 
 }

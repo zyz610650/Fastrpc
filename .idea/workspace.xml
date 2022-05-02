@@ -10,6 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/AbstractFlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowRating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowFlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowFlowRating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,14 +24,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../beanbox" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -187,10 +191,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.DefaultTransactionalIInfoManager" />
+      <item itemvalue="Application.SlidingWindowFlowRating" />
       <item itemvalue="JUnit.ApplicationMain.test" />
       <item itemvalue="JUnit.XmlBeanDefinitionReaderTest.testReader" />
       <item itemvalue="JUnit.ApplicationMain" />
-      <item itemvalue="Application.SlidingWindowFlowRating" />
     </list>
     <recent_temporary>
       <list>
@@ -326,6 +330,7 @@
       <workItem from="1651109722819" duration="8742000" />
       <workItem from="1651221315487" duration="2306000" />
       <workItem from="1651233009738" duration="4221000" />
+      <workItem from="1651454515365" duration="5029000" />
     </task>
     <servers />
   </component>

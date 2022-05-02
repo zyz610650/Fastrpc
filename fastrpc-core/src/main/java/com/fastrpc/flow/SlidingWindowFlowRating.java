@@ -1,5 +1,7 @@
 package com.fastrpc.flow;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,25 +10,21 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
-public class SlidingWindowFlowRating extends AbstractFlowRating{
+@Slf4j
+public class SlidingWindowFlowRating  implements FlowRating{
 
 
     /** 队列id和队列的映射关系，队列里面存储的是每一次通过时候的时间戳，这样可以使得程序里有多个限流队列 */
-    private volatile static Map<String, List<Long>> MAP = new ConcurrentHashMap<>();
+    //  List<Long>就是滑动窗口
+    private volatile  Map<String, List<Long>> rateCache = new ConcurrentHashMap<>();
 
 
     public SlidingWindowFlowRating() {
     }
 
-    public SlidingWindowFlowRating(TimeUnit timeUnit, long timeStamp, int num) {
-        super(timeUnit, timeStamp, num);
 
-    }
 
-    public SlidingWindowFlowRating(long timeStamp, int num) {
-        super(timeStamp, num);
 
-    }
 
     public static void main(String[] args) throws InterruptedException {
         while (true) {
@@ -40,13 +38,13 @@ public class SlidingWindowFlowRating extends AbstractFlowRating{
 
 // 考虑线程安全问题
     @Override
-    public synchronized boolean addTask(String taskName) {
+    public synchronized boolean addTask(FlowTask flowTask) {
         // 获取当前时间
         long nowTime = System.currentTimeMillis();
-        long timeWindow=getTimeStamp();
-        int count=getNum();
+        long timeWindow=flowTask.getTimeStamp();
+        int count=flowTask.getNum();
         // 根据队列id，取出对应的限流队列，若没有则创建
-        List<Long> list = MAP.computeIfAbsent(taskName, key -> new LinkedList<>());
+        List<Long> list = rateCache.computeIfAbsent(flowTask.getTaskName(), key -> new LinkedList<>());
         // 如果队列还没满，则允许通过，并添加当前时间戳到队列开始位置
         if (list.size() < count) {
             list.add(0, nowTime);
@@ -54,6 +52,7 @@ public class SlidingWindowFlowRating extends AbstractFlowRating{
         }
         // 队列已满（达到限制次数），则获取队列中最早添加的时间戳
         Long farTime = list.get(count - 1);
+
         // 用当前时间戳 减去 最早添加的时间戳
         if (nowTime - farTime <= timeWindow) {
             // 若结果小于等于timeWindow，则说明在timeWindow内，通过的次数大于count
