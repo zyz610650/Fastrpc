@@ -10,10 +10,17 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/AbstractFlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowRating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowFlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowFlowRating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/annotation/RpcLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/annotation/RpcLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/RateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FlowTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TaskParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/LimitRateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/LimitRateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/LimitRateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/LimitRateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowFlowRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/SlidingWindowRateLimiter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -102,7 +109,7 @@
       <recent name="com.fastrpc" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SlidingWindowFlowRating">
+  <component name="RunManager" selected="Application.FunnelRateLimiter">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -116,12 +123,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DefaultTransactionalIInfoManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.beanbox.tx.DefaultTransactionalIInfoManager" />
-      <module name="beanbox-core" />
+    <configuration name="ApplicationClintMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationClintMain" />
+      <module name="fastrpc-example-client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.beanbox.tx.*" />
+          <option name="PATTERN" value="com.fastrpc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,8 +136,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SlidingWindowFlowRating" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.flow.SlidingWindowFlowRating" />
+    <configuration name="ApplicationServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.ApplicationServerMain" />
+      <module name="fastrpc-example-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fastrpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FunnelRateLimiter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.flow.FunnelRateLimiter" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
@@ -142,67 +162,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApplicationMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="beanbox-core" />
+    <configuration name="NettyRpcClientProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.client.NettyRpcClientProvider" />
+      <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.beanbox.test.tx.*" />
+          <option name="PATTERN" value="com.fastrpc.transport.netty.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.beanbox.test.tx" />
-      <option name="MAIN_CLASS_NAME" value="com.beanbox.test.tx.ApplicationMain" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApplicationMain.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="beanbox-core" />
+    <configuration name="SlidingWindowRateLimiter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.flow.SlidingWindowRateLimiter" />
+      <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.beanbox.test.tx.*" />
+          <option name="PATTERN" value="com.fastrpc.flow.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.beanbox.test.tx" />
-      <option name="MAIN_CLASS_NAME" value="com.beanbox.test.tx.ApplicationMain" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="XmlBeanDefinitionReaderTest.testReader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="beanbox-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.beanbox.test.reader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.beanbox.test.reader" />
-      <option name="MAIN_CLASS_NAME" value="com.beanbox.test.reader.XmlBeanDefinitionReaderTest" />
-      <option name="METHOD_NAME" value="testReader" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.DefaultTransactionalIInfoManager" />
-      <item itemvalue="Application.SlidingWindowFlowRating" />
-      <item itemvalue="JUnit.ApplicationMain.test" />
-      <item itemvalue="JUnit.XmlBeanDefinitionReaderTest.testReader" />
-      <item itemvalue="JUnit.ApplicationMain" />
+      <item itemvalue="Application.ApplicationServerMain" />
+      <item itemvalue="Application.ApplicationClintMain" />
+      <item itemvalue="Application.NettyRpcClientProvider" />
+      <item itemvalue="Application.SlidingWindowRateLimiter" />
+      <item itemvalue="Application.FunnelRateLimiter" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SlidingWindowFlowRating" />
-        <item itemvalue="Application.DefaultTransactionalIInfoManager" />
-        <item itemvalue="JUnit.ApplicationMain" />
-        <item itemvalue="JUnit.ApplicationMain.test" />
-        <item itemvalue="JUnit.XmlBeanDefinitionReaderTest.testReader" />
+        <item itemvalue="Application.FunnelRateLimiter" />
+        <item itemvalue="Application.ApplicationClintMain" />
+        <item itemvalue="Application.ApplicationServerMain" />
+        <item itemvalue="Application.NettyRpcClientProvider" />
+        <item itemvalue="Application.SlidingWindowRateLimiter" />
       </list>
     </recent_temporary>
   </component>
@@ -330,7 +329,8 @@
       <workItem from="1651109722819" duration="8742000" />
       <workItem from="1651221315487" duration="2306000" />
       <workItem from="1651233009738" duration="4221000" />
-      <workItem from="1651454515365" duration="5029000" />
+      <workItem from="1651454515365" duration="8795000" />
+      <workItem from="1651473896059" duration="13131000" />
     </task>
     <servers />
   </component>
@@ -380,6 +380,21 @@
           <url>file://$PROJECT_DIR$/../beanbox/beanbox-core/src/main/java/com/beanbox/aop/interceptor/TransactionalInterceptor.java</url>
           <line>26</line>
           <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.0.36.Final/netty-all-4.0.36.Final-sources.jar!/io/netty/bootstrap/AbstractBootstrap.java</url>
+          <line>349</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="com.fastrpc.Exception.RpcException" package="com.fastrpc.Exception" />

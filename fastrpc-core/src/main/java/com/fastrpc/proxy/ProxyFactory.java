@@ -2,22 +2,16 @@ package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcLimit;
-import com.fastrpc.config.RpcServiceConfig;
 import com.fastrpc.extension.ExtensionLoader;
-import com.fastrpc.flow.FlowTask;
+import com.fastrpc.flow.TaskParameter;
 import com.fastrpc.flow.LimitRateService;
 import com.fastrpc.flow.LimitRateServiceImpl;
-import com.fastrpc.transport.RpcRequestTransportService;
-import com.fastrpc.transport.impl.RpcRequestTransportServiceImpl;
 import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
-import com.fastrpc.utils.SequenceIdGenerator;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Properties;
@@ -82,11 +76,11 @@ public class ProxyFactory   {
            {
                RpcLimit annotation = method.getAnnotation(RpcLimit.class);
                int num= annotation.limitNums();
-               long time=annotation.limitTime();
+               long time=annotation.interval();
                TimeUnit timeUnit = annotation.timeUnit();
                String taskName=new StringBuilder(interfaceName).append("$").append(methodName).toString();
-               FlowTask flowTask=new FlowTask(taskName,timeUnit,time,num);
-               if (limitRateService.isOver(flowTask))
+               TaskParameter taskParameter =new TaskParameter(taskName,timeUnit,time,num);
+               if (limitRateService.isOverByMethod(taskParameter))
                {
                    log.error("Method execute failure,the reasion is the server overload: ");
                    throw new RpcException("Method execute failure,the reasion is  "+taskName+" is  overload");

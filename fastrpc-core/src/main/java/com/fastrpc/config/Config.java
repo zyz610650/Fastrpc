@@ -16,7 +16,7 @@ public class Config {
     static Properties properties;
     final static String zkHost="127.0.0.1:2181";
     final static String serverHost="localhost";
-    final static Integer serverPort=8800;
+    final static Integer serverPort=7788;
 
     static {
 

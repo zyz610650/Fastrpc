@@ -1,12 +1,11 @@
 package com.fastrpc.flow;
 
-import javax.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 
 /**
  * TPS: timeStamp/rate 默认一秒一次
  */
-public  class FlowTask {
+public  class TaskParameter {
 
     // 类名+方法名
     private String taskName;
@@ -17,9 +16,9 @@ public  class FlowTask {
     private TimeUnit timeUnit=TimeUnit.SECONDS;
 
     /**
-     * timeStamp时间内允许处理 num个任务  timeStamp也就是窗口大小
+     * interval时间间隔内允许处理 num个任务 interval也就是窗口大小
      */
-    private long timeStamp = 10;
+    private long interval = 10;
 
     /**
      * 处理任务个数 10
@@ -27,18 +26,24 @@ public  class FlowTask {
     private  int num=10;
 
 
-    public FlowTask(String taskName) {
+    public TaskParameter(String taskName) {
         this.taskName = taskName;
     }
 
-    public FlowTask(String taskName, @Nullable TimeUnit timeUnit,@Nullable long timeStamp, @Nullable int num) {
+    public TaskParameter(String taskName, TimeUnit timeUnit, long interval, int num) {
         this.taskName = taskName;
         this.timeUnit = timeUnit;
-        this.timeStamp = timeStamp;
+        this.interval = interval;
         this.num = num;
     }
 
+    public long getInterval() {
+        return interval;
+    }
 
+    public void setInterval(long interval) {
+        this.interval = interval;
+    }
 
     public String getTaskName() {
         return taskName;
@@ -56,13 +61,7 @@ public  class FlowTask {
         this.timeUnit = timeUnit;
     }
 
-    public long getTimeStamp() {
-        return timeStamp;
-    }
 
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
-    }
     public int getNum() {
         return num;
     }
@@ -75,8 +74,8 @@ public  class FlowTask {
         StringBuilder sb=new StringBuilder("TPS parameter information: {");
         sb.append("timeUnit: ")
         .append(timeUnit)
-                .append(", timeStamp: ")
-                .append(timeStamp)
+                .append(", interval: ")
+                .append(interval)
                 .append(", num: ")
                 .append(num)
                 .append(" }");

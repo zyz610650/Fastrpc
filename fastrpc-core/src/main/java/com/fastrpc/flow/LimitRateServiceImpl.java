@@ -2,15 +2,16 @@ package com.fastrpc.flow;
 
 public class LimitRateServiceImpl implements LimitRateService{
 
-    FlowRating flowRating=new SlidingWindowFlowRating();
+    RateLimiter flowRating=new SlidingWindowRateLimiter();
 
     /**
      * 方法级别限流
-     * @param flowTask
+     * @param taskParameter
      * @return
      */
     @Override
-    public boolean isOver(FlowTask flowTask) {
-        return flowRating.addTask(flowTask);
+    public boolean isOverByMethod (TaskParameter taskParameter) {
+        return true;
+//        return flowRating.addTask(taskParameter);
     }
 }
