@@ -14,6 +14,7 @@ public class FunnelRateLimiter implements RateLimiter{
     private Map<String, Funnel> funnelMap = new ConcurrentHashMap<>();
     private int DEFAULT_CAPACITY=100;
     private float DEFAULT_RATE=10;
+    private long TIMEEOUT=100000;  //默认超时时间
 
     @Override
     public synchronized boolean addTask(TaskParameter taskParameter) {
@@ -28,11 +29,13 @@ public class FunnelRateLimiter implements RateLimiter{
         int num = taskParameter.getNum();
         float rate=(float) timeUnit.toSeconds(interval)/num;
         Funnel funnel=funnelMap.computeIfAbsent(taskParameter.getTaskName(),key->new Funnel(rate));
+        // 保护性暂停模式
+        GuardedObject guardedObject=new GuardedObject(task);
         // 超过漏斗限制
-        if (!funnel.addTask(task))
+        if (!funnel.addGuardedObject(guardedObject))
             return new TaskResult(false,OVERRATE);
         funnel.doTask();
-        return null;
+        return guardedObject.getResult(TIMEEOUT);
     }
 
 
@@ -40,11 +43,11 @@ public class FunnelRateLimiter implements RateLimiter{
 
         int capacity=DEFAULT_CAPACITY;// 漏斗容量 默认100
 
-        float rate=DEFAULT_RATE; //水流速率 默认qps为 10
+        float rate=DEFAULT_RATE; //水流速率 默认qps为 10 每rate秒执行一次任务
 
-        int leftCapacity=DEFAULT_CAPACITY; // 剩余容量
+//        int leftCapacity=DEFAULT_CAPACITY; // 剩余容量
 
-        BlockingDeque<Task> taskBlockingDeque; // 任务队列
+        BlockingDeque<GuardedObject> taskBlockingDeque; // 任务队列
 
 
 
@@ -59,18 +62,18 @@ public class FunnelRateLimiter implements RateLimiter{
 
         /**
          * 添加任务 如果漏斗满 则返回false 不阻塞
-         * @param task
+         * @param guardedObject
          */
-        public boolean addTask(Task task)
+        public boolean addGuardedObject(GuardedObject guardedObject)
         {
-            return taskBlockingDeque.offer(task);
+            return taskBlockingDeque.offer(guardedObject);
         }
 
         /**
          * 获取不到任务则阻塞
          * @return
          */
-        public Task getTask()
+        private GuardedObject getGuardedObject()
         {
             try {
                 return taskBlockingDeque.take();
@@ -83,10 +86,19 @@ public class FunnelRateLimiter implements RateLimiter{
         public void doTask()
         {
             new Thread(()->{
-                Task task=getTask();
-                Object res=task.doTask();
+                GuardedObject guardedObject=getGuardedObject();
+                while (guardedObject.isOverTime()) guardedObject=getGuardedObject();
+                Task task = guardedObject.getTask();
+                Object res = task.doTask();
                 // 保护性暂停模式
+                guardedObject.complet(res);
+
             });
+            try {
+                Thread.sleep((long) rate);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
     }

@@ -3,15 +3,14 @@ package com.fastrpc.proxy;
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcLimit;
 import com.fastrpc.extension.ExtensionLoader;
-import com.fastrpc.flow.TaskParameter;
-import com.fastrpc.flow.LimitRateService;
-import com.fastrpc.flow.LimitRateServiceImpl;
+import com.fastrpc.flow.*;
 import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Properties;
@@ -80,15 +79,25 @@ public class ProxyFactory   {
                TimeUnit timeUnit = annotation.timeUnit();
                String taskName=new StringBuilder(interfaceName).append("$").append(methodName).toString();
                TaskParameter taskParameter =new TaskParameter(taskName,timeUnit,time,num);
-               if (limitRateService.isOverByMethod(taskParameter))
-               {
-                   log.error("Method execute failure,the reasion is the server overload: ");
-                   throw new RpcException("Method execute failure,the reasion is  "+taskName+" is  overload");
-               }
+
+              final Class<?> instanceClazzCopy=instanceClass;
+               TaskResult taskResult = limitRateService.doMethod(taskParameter, new Task() {
+                   @Override
+                   public Object doTask() {
+                       try {
+                           return method.invoke(instanceClazzCopy.newInstance(), parameters);
+                       } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
+                         throw new RuntimeException(e);
+                       }
+
+                   }
+               });
+            if(taskResult.isSuccess()) return taskResult.getRes();
+            throw new RpcException("Method execute failure,the reasion is  " + taskName + " is  overload");
            }
 
-
-            Object res = method.invoke(instanceClass.newInstance(), parameters);
+           // 没有限流
+           Object res = method.invoke(instanceClass.newInstance(), parameters);
             return res;
         } catch (Exception e) {
             log.error("Method execute failure: "+e.getCause().getMessage());
