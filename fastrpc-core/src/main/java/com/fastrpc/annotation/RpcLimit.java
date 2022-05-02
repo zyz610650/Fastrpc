@@ -1,5 +1,8 @@
 package com.fastrpc.annotation;
 
+import com.fastrpc.enums.LimitMethod;
+import com.fastrpc.flow.LimitRateService;
+
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
@@ -20,4 +23,6 @@ public @interface RpcLimit {
     int limitNums() default 10;
 
     TimeUnit timeUnit() default TimeUnit.SECONDS;
+
+    LimitMethod limitMethod() default LimitMethod.TOKENBUCKETRATE;
 }

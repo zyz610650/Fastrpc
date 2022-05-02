@@ -2,6 +2,7 @@ package com.fastrpc.proxy;
 
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcLimit;
+import com.fastrpc.enums.LimitMethod;
 import com.fastrpc.extension.ExtensionLoader;
 import com.fastrpc.flow.*;
 import com.fastrpc.transport.netty.message.RpcRequestMessage;
@@ -16,6 +17,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 /**
  * @author zyz
@@ -27,7 +29,8 @@ import java.util.concurrent.TimeUnit;
 public class ProxyFactory   {
         private static Properties properties;
         public static Map<String,Object> CACHE_BEAN=new ConcurrentHashMap<>();
-        private static LimitRateService limitRateService=new LimitRateServiceImpl();
+        // 存放所有限流算法
+        private static Map<String,LimitRateService> limitRateServiceMap=new ConcurrentHashMap<>();
 
     /**
      * 获得实现类class
@@ -76,11 +79,25 @@ public class ProxyFactory   {
                RpcLimit annotation = method.getAnnotation(RpcLimit.class);
                int num= annotation.limitNums();
                long time=annotation.interval();
+               LimitMethod limitMethod = annotation.limitMethod();
                TimeUnit timeUnit = annotation.timeUnit();
                String taskName=new StringBuilder(interfaceName).append("$").append(methodName).toString();
                TaskParameter taskParameter =new TaskParameter(taskName,timeUnit,time,num);
 
+               // 反射创建
+               LimitRateService limitRateService=limitRateServiceMap.computeIfAbsent(limitMethod.toString(), new Function<String, LimitRateService>() {
+                   @Override
+                   public LimitRateService apply(String s) {
+                       try {
+                           return (LimitRateService) Class.forName(limitMethod.getValue()).newInstance();
+                       } catch (InstantiationException | ClassNotFoundException | IllegalAccessException e) {
+                           e.printStackTrace();
+                       }
+                       return null;
+                   }
+               });
               final Class<?> instanceClazzCopy=instanceClass;
+
                TaskResult taskResult = limitRateService.doMethod(taskParameter, new Task() {
                    @Override
                    public Object doTask() {
