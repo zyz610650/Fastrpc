@@ -30,8 +30,8 @@ public class ProxyFactory   {
         private static Properties properties;
         public static Map<String,Object> CACHE_BEAN=new ConcurrentHashMap<>();
         // 存放所有限流算法
-        private static Map<String,LimitRateService> limitRateServiceMap=new ConcurrentHashMap<>();
-
+        private static Map<String,RateLimiter> limitRateServiceMap=new ConcurrentHashMap<>();
+        private static LimitRateService limitRateService=new LimitRateServiceImpl();
     /**
      * 获得实现类class
      * @param rpcServiceName
@@ -85,20 +85,20 @@ public class ProxyFactory   {
                TaskParameter taskParameter =new TaskParameter(taskName,timeUnit,time,num);
 
                // 反射创建
-               LimitRateService limitRateService=limitRateServiceMap.computeIfAbsent(limitMethod.toString(), new Function<String, LimitRateService>() {
+               RateLimiter rateLimiter=limitRateServiceMap.computeIfAbsent(limitMethod.toString(), new Function<String, RateLimiter>() {
                    @Override
-                   public LimitRateService apply(String s) {
+                   public RateLimiter apply(String s) {
                        try {
-                           return (LimitRateService) Class.forName(limitMethod.getValue()).newInstance();
+                           return (RateLimiter) Class.forName(limitMethod.getValue()).newInstance();
                        } catch (InstantiationException | ClassNotFoundException | IllegalAccessException e) {
-                           e.printStackTrace();
+                           throw new RuntimeException(e);
                        }
-                       return null;
+
                    }
                });
               final Class<?> instanceClazzCopy=instanceClass;
 
-               TaskResult taskResult = limitRateService.doMethod(taskParameter, new Task() {
+               TaskResult taskResult = limitRateService.doMethod(rateLimiter,taskParameter, new Task() {
                    @Override
                    public Object doTask() {
                        try {
@@ -109,15 +109,22 @@ public class ProxyFactory   {
 
                    }
                });
-            if(taskResult.isSuccess()) return taskResult.getRes();
-            throw new RpcException("Method execute failure,the reasion is  " + taskName + " is  overload");
+            if(taskResult.isSuccess())
+                return taskResult.getRes();
+            else
+            {
+//                System.out.println("========++++++++++++++++1233333333333333333333");
+                throw new RpcException("Method execute failure,the reasion is  " + taskName + " is  overload");
+            }
+
            }
 
            // 没有限流
            Object res = method.invoke(instanceClass.newInstance(), parameters);
             return res;
         } catch (Exception e) {
-            log.error("Method execute failure: "+e.getCause().getMessage());
+           log.error("Method execute failure: "+e.getMessage());
+//            System.out.println(e);
            throw new RpcException(e.getMessage());
         }
 

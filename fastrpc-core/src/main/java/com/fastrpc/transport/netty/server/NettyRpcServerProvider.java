@@ -7,6 +7,7 @@ import com.fastrpc.factory.SingletonFactory;
 import com.fastrpc.proxy.ProxyFactory;
 import com.fastrpc.registry.RegistryService;
 import com.fastrpc.registry.impl.RegistryServiceImpl;
+import com.fastrpc.transport.netty.handler.RpcConnectionLimitHandler;
 import com.fastrpc.transport.netty.handler.RpcLogoutHandler;
 import com.fastrpc.transport.netty.handler.RpcServerDuplexHandler;
 import com.fastrpc.transport.netty.handler.RpcRequestHandler;
@@ -48,6 +49,10 @@ public class NettyRpcServerProvider {
      */
     static int threadNums=Config.getServerCpuNum();
 
+    /**
+     * 限制客户端连接服务器的数量
+     */
+    static int connectNums=Config.getConnectNums();
 
     /**
      * 服务注册中心
@@ -76,6 +81,7 @@ public class NettyRpcServerProvider {
         EventLoopGroup workerGroup=new NioEventLoopGroup(2);
         RpcRequestHandler REQUEST_HANDLER=new RpcRequestHandler();
         RpcLogoutHandler LOROUT_HANDLER=new RpcLogoutHandler();
+        RpcConnectionLimitHandler CONNECTION_LIMIT=new RpcConnectionLimitHandler(connectNums);
         DefaultEventExecutorGroup serviceHandlerGroup=new DefaultEventExecutorGroup(threadNums);
         try {
 

@@ -140,8 +140,7 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
                 return promise.getNow();
             } else {
                 log.error("remoting service exception " + promise.cause());
-                if (promise.getNow()==null) throw new RpcException("network is timeout");
-                else  throw new RpcException(promise.cause().getMessage());
+                throw new RpcException(promise.cause().getMessage());
 
             }
         }else{

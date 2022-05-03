@@ -41,9 +41,12 @@ public enum RpcConfigEnum {
     /**
      *  线程数核数
      */
-    CPU_NUM("rpc.cpunums");
+    CPU_NUM("rpc.cpunums"),
 
-
+    /**
+     * 限制服务器并发量
+     */
+    CONNECT_NUM("rpc.connect.nums");
     private String value;
 
 

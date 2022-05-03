@@ -27,7 +27,7 @@ public class GuardedObject {
            while(res!=null)
            {
                long cntTime=System.currentTimeMillis();
-               long waitTime=cntTime-startTime;
+               long waitTime=timeout-(cntTime-startTime);
                if (waitTime>0)
                {
                    // 虚假唤醒

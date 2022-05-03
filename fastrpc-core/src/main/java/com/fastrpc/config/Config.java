@@ -17,6 +17,7 @@ public class Config {
     final static String zkHost="127.0.0.1:2181";
     final static String serverHost="localhost";
     final static Integer serverPort=7788;
+    final static Integer connectNum=20;
 
     static {
 
@@ -85,5 +86,16 @@ public class Config {
         return value;
     }
 
+    /**
+     * get connecting nums
+     * @return
+     */
+    public static Integer getConnectNums() {
 
+        String value=properties.getProperty(String.valueOf(RpcConfigEnum.CONNECT_NUM));
+        if (value==null) {
+            return connectNum;
+        }
+        return Integer.valueOf(value);
+    }
 }

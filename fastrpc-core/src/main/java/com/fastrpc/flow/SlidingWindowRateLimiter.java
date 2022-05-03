@@ -38,7 +38,7 @@ public class SlidingWindowRateLimiter implements RateLimiter {
         Long farTime = list.get(count - 1);
 
         // 用当前时间戳 减去 最早添加的时间戳
-        if (nowTime - farTime <= timeWindow) {
+        if (nowTime - farTime <= timeWindow*1000) {
             // 若结果小于等于timeWindow，则说明在timeWindow内，通过的次数大于count
             // 不允许通过
 

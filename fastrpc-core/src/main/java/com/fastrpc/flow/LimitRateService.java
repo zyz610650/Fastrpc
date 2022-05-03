@@ -2,6 +2,6 @@ package com.fastrpc.flow;
 
 public interface LimitRateService {
 
-    public TaskResult doMethod(TaskParameter taskParameter,Task task);
+    public TaskResult doMethod(RateLimiter rateLimiter,TaskParameter taskParameter, Task task);
 
 }
