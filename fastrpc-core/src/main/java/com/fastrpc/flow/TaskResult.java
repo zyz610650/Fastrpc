@@ -47,4 +47,13 @@ public class TaskResult {
     public void setExceptionResult(@Nullable String exceptionResult) {
         ExceptionResult = exceptionResult;
     }
+
+//    @Override
+//    public String toString() {
+//        return "TaskResult{" +
+//                "isSuccess=" + isSuccess +
+//                ", res=" + res +
+//                ", ExceptionResult='" + ExceptionResult + '\'' +
+//                '}';
+//    }
 }

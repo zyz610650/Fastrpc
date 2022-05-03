@@ -24,8 +24,8 @@ public class HelloController {
         User user=new User();
         user.setName("zyz");
         System.out.println (helloService.sayHi(user));
-        user.setName("mzd");
-        System.out.println (hiService.sayHi(user));
+//        user.setName("mzd");
+//        System.out.println (hiService.sayHi(user));
 
     }
 

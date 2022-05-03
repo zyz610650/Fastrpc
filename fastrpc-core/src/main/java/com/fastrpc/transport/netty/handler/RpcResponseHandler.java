@@ -20,6 +20,7 @@ public class RpcResponseHandler extends SimpleChannelInboundHandler<RpcResponseM
     public static Map<Integer,Promise> PROMISES=new ConcurrentHashMap<>();
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, RpcResponseMessage msg) throws Exception {
+        System.out.println("!!!!!!!+++++++++++++++++++++++++++");
         System.out.println(msg);
         int seqId=msg.getSeqId();
         Promise promise=PROMISES.get(seqId);

@@ -24,15 +24,20 @@ public class TokenBucketRateLimiter implements com.fastrpc.flow.RateLimiter {
     public boolean addTask(TaskParameter taskParameter) {
         TimeUnit timeUnit = taskParameter.getTimeUnit();
         long seconds=timeUnit.toSeconds(taskParameter.getInterval());
-        double rate= seconds/ taskParameter.getNum();
+        double rate= (double) taskParameter.getNum()/(double) seconds;
         RateLimiter rateLimiter=rateCache.computeIfAbsent(taskParameter.getTaskName(),key->RateLimiter.create(rate));
 
         if (rateLimiter.tryAcquire())
         {
-            rateLimiter.acquire();
+//            System.out.println("获取锁成功");
+//            rateLimiter.acquire();
             log.info(" Get a token from bucket");
             return true;
-        }else    return false;
+        }else
+        {
+//            System.out.println("获取锁失败");
+            return false;
+        }
     }
 
     @Override

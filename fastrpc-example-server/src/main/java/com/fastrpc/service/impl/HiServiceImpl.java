@@ -22,9 +22,9 @@ public class HiServiceImpl implements HelloService {
     }
 
     @Override
-    @RpcLimit(interval = 10,limitNums =5,timeUnit = TimeUnit.SECONDS,limitMethod = LimitMethod.SLIDINGWINDOWRATE)
+    @RpcLimit(interval = 10,limitNums =2,timeUnit = TimeUnit.SECONDS,limitMethod = LimitMethod.TOKENBUCKETRATE)
     public String sayHi(User user) {
-        System.out.println ("sayHi 方法被执行");
+        System.out.println ("sayHi 方法被执行=========");
         return "Hi, I am "+user.getName();
     }
 

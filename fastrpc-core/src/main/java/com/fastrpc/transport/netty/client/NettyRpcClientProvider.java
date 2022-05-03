@@ -132,6 +132,8 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
             channel.writeAndFlush(msg);
             DefaultPromise promise = new DefaultPromise(NettyRpcClientProvider.channel.eventLoop());
             RpcResponseHandler.PROMISES.put(msg.getSeqId(), promise);
+
+            System.out.println();
             // 服务器2s内没有返回结果 则默认执行失败
             promise.await(2000,TimeUnit.MILLISECONDS);
 
@@ -140,6 +142,8 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
                 return promise.getNow();
             } else {
                 log.error("remoting service exception " + promise.cause());
+//                System.out.println(promise.cause().getMessage());
+                if (promise.cause()==null) throw new RpcException("network is timeout");
                 throw new RpcException(promise.cause().getMessage());
 
             }

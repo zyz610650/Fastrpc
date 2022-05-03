@@ -72,7 +72,8 @@ public  class TaskParameter {
     @Override
     public String toString() {
         StringBuilder sb=new StringBuilder("TPS parameter information: {");
-        sb.append("timeUnit: ")
+        sb.append("taskName: ").append(taskName)
+                .append("timeUnit: ")
         .append(timeUnit)
                 .append(", interval: ")
                 .append(interval)

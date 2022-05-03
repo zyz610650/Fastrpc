@@ -19,7 +19,7 @@ public class HelloServiceImpl implements HelloService {
         System.out.println("HelloServiceImpl被创建");
     }
     @Override
-    @RpcLimit(interval = 10,limitNums = 5,timeUnit = TimeUnit.SECONDS,limitMethod = LimitMethod.SLIDINGWINDOWRATE)
+    @RpcLimit(interval = 10,limitNums = 2,timeUnit = TimeUnit.SECONDS,limitMethod = LimitMethod.TOKENBUCKETRATE)
     public String sayHi(User user) {
         System.out.println ("sayHi 方法被执行");
         return "Hello, I am "+user.getName();

@@ -14,7 +14,7 @@ public class ApplicationClintMain {
       HelloController helloController= (HelloController) applicationContext.getBean("helloController");
       helloController.sayHi();
       Thread.sleep(2000);
-      helloController.sayHi();
+//      helloController.sayHi();
 //
 //      HelloController helloController1= (HelloController) applicationContext.getBean("helloController");
 //      helloController1.sayHi();
