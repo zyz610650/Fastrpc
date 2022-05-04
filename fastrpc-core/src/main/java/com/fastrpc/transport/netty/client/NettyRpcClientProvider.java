@@ -133,7 +133,7 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
             DefaultPromise promise = new DefaultPromise(NettyRpcClientProvider.channel.eventLoop());
             RpcResponseHandler.PROMISES.put(msg.getSeqId(), promise);
 
-            System.out.println();
+
             // 服务器2s内没有返回结果 则默认执行失败
             promise.await(2000,TimeUnit.MILLISECONDS);
 

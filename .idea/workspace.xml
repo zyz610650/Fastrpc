@@ -10,15 +10,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TaskParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TaskParameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TaskResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TaskResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TokenBucketRateLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/TokenBucketRateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FunnelRateLimiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FunnelRateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/GuardedObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/GuardedObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcResponseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/controller/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-example-server/src/main/java/com/fastrpc/service/impl/HelloServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-server/src/main/java/com/fastrpc/service/impl/HelloServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fastrpc-example-server/src/main/java/com/fastrpc/service/impl/HiServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-server/src/main/java/com/fastrpc/service/impl/HiServiceImpl.java" afterDir="false" />
     </list>
@@ -335,6 +331,8 @@
       <workItem from="1651560256059" duration="15559000" />
       <workItem from="1651580796405" duration="30000" />
       <workItem from="1651581242019" duration="3839000" />
+      <workItem from="1651633324019" duration="5001000" />
+      <workItem from="1651647264704" duration="7340000" />
     </task>
     <servers />
   </component>
@@ -391,17 +389,18 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java</url>
-          <line>135</line>
-          <option name="timeStamp" value="82" />
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/GuardedObject.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/flow/FunnelRateLimiter.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="38" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="com.fastrpc.Exception.RpcException" package="com.fastrpc.Exception" />
-          <option name="timeStamp" value="76" />
         </breakpoint>
       </breakpoints>
       <breakpoints-defaults>

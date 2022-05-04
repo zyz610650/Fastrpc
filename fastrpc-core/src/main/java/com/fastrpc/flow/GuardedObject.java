@@ -19,15 +19,15 @@ public class GuardedObject {
         return task;
     }
 
-    public TaskResult getResult(long timeout)
+    public Task getResult(long timeout)
     {
        synchronized (this)
        {
            long startTime=System.currentTimeMillis();
-           while(res!=null)
+           long waitTime=timeout;
+           while(res==null)
            {
-               long cntTime=System.currentTimeMillis();
-               long waitTime=timeout-(cntTime-startTime);
+
                if (waitTime>0)
                {
                    // 虚假唤醒
@@ -38,11 +38,13 @@ public class GuardedObject {
                    }
                }else{
                     isOverTime=true;
-                   return new TaskResult(false,OVERRATE);// 等待超时
+                  return null;// 等待超时
                }
+               long cntTime=System.currentTimeMillis();
+               waitTime=timeout-(cntTime-startTime);
            }
        }
-        return new TaskResult(res);
+        return task;
     }
     public boolean isOverTime()
     {

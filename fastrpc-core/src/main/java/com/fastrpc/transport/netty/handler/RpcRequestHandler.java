@@ -45,6 +45,7 @@ public class RpcRequestHandler extends SimpleChannelInboundHandler<RpcRequestMes
 //            System.out.println(e.toString());
 //            System.out.println(e.getMessage());
 //            System.out.println(e.getCause());
+            System.out.println("执行失败了:"+e.getMessage());
             responseMessage.setSuccess(false);
             responseMessage.setExceptionValue(e.getMessage());
 

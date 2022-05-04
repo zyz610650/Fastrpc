@@ -113,6 +113,7 @@ public class ProxyFactory   {
                 return taskResult.getRes();
             else
             {
+                System.out.println("============ 失败");
                 throw new RpcException("Method execute failure,the reasion is  " + taskName + " is  overload");
             }
 
