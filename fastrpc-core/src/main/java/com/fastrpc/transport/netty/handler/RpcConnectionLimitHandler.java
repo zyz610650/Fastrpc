@@ -22,39 +22,66 @@ public class RpcConnectionLimitHandler extends ChannelInboundHandlerAdapter {
     private final AtomicLong numConnections = new AtomicLong(0);
     private final LongAdder numDroppedConnections = new LongAdder();
     private final AtomicBoolean loggingScheduled = new AtomicBoolean(false);
-
+    int lastSize=0;
     private final Set<Channel> childChannels = Collections.newSetFromMap(new ConcurrentHashMap<>());
     public RpcConnectionLimitHandler(int maxConnectionNums) {
+
+        System.out.println("最大连接数:"+maxConnectionNums);
         this.maxConnectionNum = maxConnectionNums;
+
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        Channel channel = (Channel) msg;
-        long conn = numConnections.incrementAndGet();
-        if (conn > 0 && conn <= maxConnectionNum) {
-            this.childChannels.add(channel);
-            channel.closeFuture().addListener(future -> {
-                childChannels.remove(channel);
-                numConnections.decrementAndGet();
-            });
+//        Channel channel = (Channel) msg;
+        System.out.println(msg.toString());
+        Channel channel = ctx.channel();
+
+        if (childChannels.contains(channel))
+        {
             super.channelRead(ctx, msg);
-        } else {
-            numConnections.decrementAndGet();
-            // Set linger option to 0 so that the server doesn't get too many TIME_WAIT states.
-            channel.config().setOption(ChannelOption.SO_LINGER, 0);
-            channel.unsafe().closeForcibly();// 关闭 channel
-            numDroppedConnections.increment();
-            if (loggingScheduled.compareAndSet(false, true)) {
-                ctx.executor().schedule(this::writeNumDroppedConnectionsLog, 1, TimeUnit.SECONDS);
-            }
+            return;
         }
+            long conn = numConnections.incrementAndGet();
+            if (conn > 0 && conn <= maxConnectionNum) {
+
+                this.childChannels.add(channel);
+
+                if (lastSize != childChannels.size()) {
+                    lastSize = childChannels.size();
+//                    System.out.println("新接入一个连接=====================================");
+//                    System.out.println("当前连接数=: " + lastSize);
+                }
+                channel.closeFuture().addListener(future -> {
+                    childChannels.remove(channel);
+                    numConnections.decrementAndGet();
+//                    System.out.println("连接关闭: 连接数-1,连接数为:" + numConnections.get());
+                });
+                super.channelRead(ctx, msg);
+                return;
+            }else{
+                // Set linger option to 0 so that the server doesn't get too many TIME_WAIT states.
+                channel.config().setOption(ChannelOption.SO_LINGER, 0);
+                channel.unsafe().closeForcibly();// 关闭 channel
+                numConnections.decrementAndGet();
+//                System.out.println("连接被拒绝: 连接数为:"+numConnections.get());
+
+                numDroppedConnections.increment();
+                if (loggingScheduled.compareAndSet(false, true)) {
+                    ctx.executor().schedule(this::writeNumDroppedConnectionsLog, 1, TimeUnit.SECONDS);
+                }
+            }
+
+
+
+
     }
 
     private void writeNumDroppedConnectionsLog() {
         loggingScheduled.set(false);
         final long dropped = numDroppedConnections.sumThenReset();
         if (dropped > 0) {
+//            System.out.println("移除连接：============================");
             log.warn("Dropped {} connection(s) to limit the number of open connections to {}",
                     dropped, maxConnectionNum);
         }

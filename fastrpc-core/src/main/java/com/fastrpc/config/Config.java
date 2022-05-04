@@ -17,7 +17,7 @@ public class Config {
     final static String zkHost="127.0.0.1:2181";
     final static String serverHost="localhost";
     final static Integer serverPort=7788;
-    final static Integer connectNum=20;
+    final static Integer connectNum=2;
 
     static {
 

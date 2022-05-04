@@ -98,6 +98,8 @@ public class NettyRpcServerProvider {
                     ch.pipeline().addLast(new FrameDecoderProtocol());
                     //日志
                     ch.pipeline().addLast(LOGGING_HANDLER);
+                    // 服务器连接限流
+                    ch.pipeline().addLast(CONNECTION_LIMIT);
                     //编码器 消息预处理
                     ch.pipeline().addLast(MESSAGE_CODEC);
                     //channel关闭处理
