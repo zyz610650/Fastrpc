@@ -9,11 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c7a8035-bc69-45f9-b535-8050a2098082" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../beanbox/beanbox-core/src/main/java/com/beanbox/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcConnectionLimitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/handler/RpcConnectionLimitHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/server/NettyRpcServerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/server/NettyRpcServerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/proxy/ProxyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/client/NettyRpcClientProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/message/RpcRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-core/src/main/java/com/fastrpc/transport/netty/message/RpcRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/fastrpc-example-client/src/main/java/com/fastrpc/ApplicationClintMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,8 +68,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/fastrpc-commons/src/main/java/com/fastrpc" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../beanbox/beanbox-core/src/main/java/com/beanbox/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -90,19 +96,27 @@
       <recent name="D:\project\java\FastRpc\fastrpc-example-server\src\main\java\com" />
       <recent name="D:\project\java\FastRpc\docs" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.proxy" />
       <recent name="com.beanbox.test" />
       <recent name="com.fastrpc" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.fastrpc.http" />
+      <recent name="com.fastrpc.proxy" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.fastrpc.proxy" />
       <recent name="com.beanbox.test.tx" />
       <recent name="com.beanbox.aop.interceptor" />
       <recent name="com.beanbox.aop.advice" />
       <recent name="com.beanbox.test.aop" />
-      <recent name="com.fastrpc" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationClintMain">
+  <component name="RunManager" selected="JUnit.ProxyFactoryTest.doGenericServiceParameters">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -142,12 +156,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FunnelRateLimiter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.flow.FunnelRateLimiter" />
+    <configuration name="GenericService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.http.GenericService" />
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.flow.*" />
+          <option name="PATTERN" value="com.fastrpc.proxy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,28 +169,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NettyRpcClientProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.transport.netty.client.NettyRpcClientProvider" />
+    <configuration name="GenericServiceTest.$invoke" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.transport.netty.client.*" />
+          <option name="PATTERN" value="com.fastrpc.http.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.fastrpc.http" />
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.http.GenericServiceTest" />
+      <option name="METHOD_NAME" value="$invoke" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SlidingWindowRateLimiter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fastrpc.flow.SlidingWindowRateLimiter" />
+    <configuration name="ProxyFactoryTest.doGenericServiceParameters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="fastrpc-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fastrpc.flow.*" />
+          <option name="PATTERN" value="com.fastrpc.proxy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.fastrpc.proxy" />
+      <option name="MAIN_CLASS_NAME" value="com.fastrpc.proxy.ProxyFactoryTest" />
+      <option name="METHOD_NAME" value="doGenericServiceParameters" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,17 +204,17 @@
     <list>
       <item itemvalue="Application.ApplicationServerMain" />
       <item itemvalue="Application.ApplicationClintMain" />
-      <item itemvalue="Application.NettyRpcClientProvider" />
-      <item itemvalue="Application.SlidingWindowRateLimiter" />
-      <item itemvalue="Application.FunnelRateLimiter" />
+      <item itemvalue="Application.GenericService" />
+      <item itemvalue="JUnit.ProxyFactoryTest.doGenericServiceParameters" />
+      <item itemvalue="JUnit.GenericServiceTest.$invoke" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProxyFactoryTest.doGenericServiceParameters" />
+        <item itemvalue="JUnit.GenericServiceTest.$invoke" />
+        <item itemvalue="Application.GenericService" />
         <item itemvalue="Application.ApplicationClintMain" />
         <item itemvalue="Application.ApplicationServerMain" />
-        <item itemvalue="Application.NettyRpcClientProvider" />
-        <item itemvalue="Application.FunnelRateLimiter" />
-        <item itemvalue="Application.SlidingWindowRateLimiter" />
       </list>
     </recent_temporary>
   </component>
@@ -330,6 +350,15 @@
       <workItem from="1651581242019" duration="3839000" />
       <workItem from="1651633324019" duration="5001000" />
       <workItem from="1651647264704" duration="11692000" />
+      <workItem from="1652260487631" duration="18000" />
+      <workItem from="1652498743830" duration="1932000" />
+      <workItem from="1652536074216" duration="1066000" />
+      <workItem from="1652582756052" duration="1943000" />
+      <workItem from="1652603488981" duration="884000" />
+      <workItem from="1652604589041" duration="159000" />
+      <workItem from="1652690481100" duration="17607000" />
+      <workItem from="1652746729807" duration="11000" />
+      <workItem from="1655021276938" duration="9495000" />
     </task>
     <servers />
   </component>

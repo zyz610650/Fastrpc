@@ -4,6 +4,8 @@ import com.beanbox.context.suppport.ClassPathXmlApplicationContext;
 import com.fastrpc.annotation.RpcScanner;
 import com.fastrpc.controller.HelloController;
 
+import java.util.HashMap;
+
 
 /**
  * @author: @zyz
@@ -14,6 +16,8 @@ public class ApplicationClintMain {
       HelloController helloController= (HelloController) applicationContext.getBean("helloController");
       helloController.sayHi();
       Thread.sleep(2000);
+
+
 //      helloController.sayHi();
 //
 //      HelloController helloController1= (HelloController) applicationContext.getBean("helloController");

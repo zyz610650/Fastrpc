@@ -1,18 +1,23 @@
 package com.fastrpc.proxy;
 
+import com.alibaba.fastjson.JSON;
 import com.fastrpc.Exception.RpcException;
 import com.fastrpc.annotation.RpcLimit;
 import com.fastrpc.enums.LimitMethod;
 import com.fastrpc.extension.ExtensionLoader;
 import com.fastrpc.flow.*;
+
 import com.fastrpc.transport.netty.message.RpcRequestMessage;
 
+import com.google.common.collect.Lists;
 import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
@@ -53,11 +58,21 @@ public class ProxyFactory   {
      */
     public static Object invokeMethod(RpcRequestMessage msg)
     {
-
         String interfaceName=msg.getInterfaceName();
         String methodName=msg.getMethodName();
-        Class[] paramTypes=msg.getParamTypes();
-        Object[] parameters=msg.getParameters();
+        Class[] paramTypes;
+        Object[] parameters;
+
+        if (msg.isGenericService())
+        {
+            // 泛化调用
+            paramTypes=doGenericServiceParamTypes(msg.getParamTypeList());
+            parameters=doGenericServiceParameters(msg.getParameterList(),paramTypes);
+        }else{
+             paramTypes=msg.getParamTypes();
+             parameters=msg.getParameters();
+        }
+
 
         Class<?> instanceClass = ProxyFactory.getInstanceClass(msg.getRpcServcieName()).getClass();
         try {
@@ -129,6 +144,50 @@ public class ProxyFactory   {
 
     }
 
+    /**
+     * List->Class[]
+     * @param paramTypeList
+     * @return
+     */
+    public static  Class[] doGenericServiceParamTypes(List<String> paramTypeList)
+    {
+        Class[] paramTypes=new Class[paramTypeList.size()];
+        int i=0;
+        for(String parm:paramTypeList)
+        {
+            Class<?> clazz = null;
+            try {
+                clazz = Class.forName(parm);
+            } catch (ClassNotFoundException e) {
+                throw new RpcException("该参数类型不存在: "+parm,e);
+            }
+            paramTypes[i++]=clazz;
+        }
+        return paramTypes;
+    }
 
+    /**
+     * List->Object[]
+     * @param parametersList
+     * @return
+     */
+    public static Object[] doGenericServiceParameters(List<String> parametersList,  Class[] paramTypeList)
+    {
+        Object[] params =new Object[parametersList.size()];
+        String param = "";
+        Class clazz;
+        try {
+            for(int i=0;i<parametersList.size();i++)
+            {
+                param=parametersList.get(i);
+                clazz=paramTypeList[i];
+                Object obj = JSON.parseObject(param, clazz);
+                params[i]=obj;
+            }
+        } catch (Exception e) {
+            throw new RpcException("该参数类型不存在: "+param,e);
+        }
+        return params;
+    }
 
 }

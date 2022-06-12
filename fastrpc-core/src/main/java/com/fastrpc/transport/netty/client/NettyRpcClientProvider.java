@@ -43,6 +43,7 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
     public NettyRpcClientProvider() {
         //初始化netty服务器
         init();
+
     }
 
     /**
@@ -157,9 +158,6 @@ public class NettyRpcClientProvider implements RpcRequestTransportService {
      }
     }
 
-    public static void main(String[] args) {
-        NettyRpcClientProvider.init();
-    }
 }
 
 

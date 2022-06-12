@@ -224,11 +224,23 @@ BeanBox是一个功能齐全且兼容性很好的一款IOC/AOP工具，用于Jav
 
 
 
+#### 6>泛化调用
+
+```java
+// 设置方接口名
+GenericService genericService=new GenericService();
+genericService.setServiceName("com.fastrpc.proxy.UserTest");
+// 可省
+genericService.setGroup("");
+genericService.setVersion("");
+String param = JSON.toJSONString(new UserTest("zyz"));
+// 设置参数类型和参数值
+ArrayList<String> paramType = Lists.newArrayList(UserTest.class.toGenericString());
+ArrayList<String> params = Lists.newArrayList(param);
+```
 
 
-
-
-
+7>限流
 
 
 
